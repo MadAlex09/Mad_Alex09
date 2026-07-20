@@ -1,0 +1,2151 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+            name="viewport"
+            content="width=device-width, initial-scale=1.0"
+    >
+
+    <meta
+            name="description"
+            content="MAD_ALEX — разработка Telegram-ботов, сайтов и автоматизация бизнеса на Python."
+    >
+
+    <meta
+            name="keywords"
+            content="Telegram бот, разработка сайтов, Python автоматизация, MAD_ALEX"
+    >
+
+    <meta name="author" content="MAD_ALEX">
+
+    <title>MAD_ALEX — Digital Automation Lab</title>
+
+    <link
+            rel="preconnect"
+            href="https://fonts.googleapis.com"
+    >
+
+    <link
+            rel="preconnect"
+            href="https://fonts.gstatic.com"
+            crossorigin
+    >
+
+    <link
+            href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Unbounded:wght@500;600;700;800&display=swap"
+            rel="stylesheet"
+    >
+
+    <link
+            rel="stylesheet"
+            href="{{ url_for('static', filename='css/style.css') }}"
+    >
+</head>
+
+<body>
+
+<div class="cursor-glow"></div>
+<div class="cursor-dot"></div>
+
+<div class="page-loader" id="pageLoader">
+    <div class="page-loader__logo">
+        MAD<span>_ALEX</span>
+    </div>
+
+    <div class="page-loader__line">
+        <div class="page-loader__progress"></div>
+    </div>
+
+    <div class="page-loader__text">
+        DIGITAL AUTOMATION LAB
+    </div>
+</div>
+
+<div class="page-shell">
+
+    <!-- =========================================================
+         HEADER
+    ========================================================== -->
+
+    <header class="header" id="header">
+        <div class="container header__container">
+
+            <a href="#home" class="logo" aria-label="MAD_ALEX">
+                <span class="logo__main">
+                    MAD<span class="logo__accent">_ALEX</span>
+                </span>
+
+                <span class="logo__sub">
+                    DIGITAL AUTOMATION LAB
+                </span>
+            </a>
+
+            <nav class="nav" id="desktopNav">
+                <a href="#services" class="nav__link">
+                    Услуги
+                </a>
+
+                <a href="#portfolio" class="nav__link">
+                    Проекты
+                </a>
+
+                <a href="#process" class="nav__link">
+                    Процесс
+                </a>
+
+                <a href="#about" class="nav__link">
+                    Обо мне
+                </a>
+
+                <a href="#contacts" class="nav__link">
+                    Контакты
+                </a>
+            </nav>
+
+            <div class="header__actions">
+                <a href="#contacts" class="button button--small button--outline">
+                    Обсудить проект
+                </a>
+
+                <button
+                        class="menu-button"
+                        id="menuButton"
+                        type="button"
+                        aria-label="Открыть меню"
+                >
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+
+        </div>
+
+        <div class="mobile-menu" id="mobileMenu">
+            <div class="mobile-menu__inner">
+                <a href="#services" class="mobile-menu__link">
+                    Услуги
+                </a>
+
+                <a href="#portfolio" class="mobile-menu__link">
+                    Проекты
+                </a>
+
+                <a href="#process" class="mobile-menu__link">
+                    Процесс
+                </a>
+
+                <a href="#about" class="mobile-menu__link">
+                    Обо мне
+                </a>
+
+                <a href="#contacts" class="mobile-menu__link">
+                    Контакты
+                </a>
+
+                <a href="#contacts" class="button button--primary">
+                    Оставить заявку
+                </a>
+            </div>
+        </div>
+    </header>
+
+
+    <main>
+
+        <!-- =====================================================
+             HERO
+        ====================================================== -->
+
+        <section class="hero section" id="home">
+
+            <div class="hero__background">
+                <div class="hero__grid"></div>
+                <div class="hero__orb hero__orb--one"></div>
+                <div class="hero__orb hero__orb--two"></div>
+                <div class="hero__orb hero__orb--three"></div>
+                <canvas class="particles-canvas" id="particlesCanvas"></canvas>
+            </div>
+
+            <div class="container hero__container">
+
+                <div class="hero__content">
+
+                    <div class="eyebrow reveal">
+                        <span class="eyebrow__dot"></span>
+
+                        <span>
+                            DIGITAL AUTOMATION LAB
+                        </span>
+                    </div>
+
+                    <h1 class="hero__title">
+                        <span class="hero__title-line reveal">
+                            СТРОЮ
+                        </span>
+
+                        <span class="hero__title-line hero__title-line--accent reveal">
+                            ЦИФРОВЫЕ
+                        </span>
+
+                        <span class="hero__title-line reveal">
+                            СИСТЕМЫ
+                        </span>
+                    </h1>
+
+                    <p class="hero__description reveal">
+                        Разрабатываю Telegram-ботов, современные сайты
+                        и Python-автоматизацию, которые помогают бизнесу
+                        экономить время, получать клиентов и расти быстрее.
+                    </p>
+
+                    <div class="hero__buttons reveal">
+                        <a href="#contacts" class="button button--primary">
+                            <span>
+                                Обсудить проект
+                            </span>
+
+                            <span class="button__arrow">
+                                ↗
+                            </span>
+                        </a>
+
+                        <a href="#portfolio" class="button button--ghost">
+                            <span>
+                                Смотреть работы
+                            </span>
+
+                            <span class="button__arrow">
+                                ↓
+                            </span>
+                        </a>
+                    </div>
+
+                    <div class="hero__status reveal">
+
+                        <div class="hero__status-item">
+                            <span class="status-dot"></span>
+
+                            <div>
+                                <strong>
+                                    Доступен для проектов
+                                </strong>
+
+                                <span>
+                                    Принимаю новые заказы
+                                </span>
+                            </div>
+                        </div>
+
+                        <div class="hero__status-item">
+                            <span class="hero__status-number">
+                                24/7
+                            </span>
+
+                            <div>
+                                <strong>
+                                    Онлайн-системы
+                                </strong>
+
+                                <span>
+                                    Работают без выходных
+                                </span>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <div class="hero__visual reveal">
+
+                    <div class="hero-cosmos" aria-hidden="true">
+                        <span class="hero-cosmos__planet"></span>
+                        <span class="hero-cosmos__moon"></span>
+                        <span class="hero-cosmos__ring hero-cosmos__ring--outer"></span>
+                        <span class="hero-cosmos__ring hero-cosmos__ring--inner"></span>
+                        <span class="hero-cosmos__beam hero-cosmos__beam--one"></span>
+                        <span class="hero-cosmos__beam hero-cosmos__beam--two"></span>
+                    </div>
+
+                    <div class="hero-robot">
+                        <span class="hero-robot__aura" aria-hidden="true"></span>
+                        <span class="hero-robot__mist hero-robot__mist--back" aria-hidden="true"></span>
+
+                        <img
+                                src="{{ url_for('static', filename='images/robot.png') }}"
+                                alt="Футуристичный робот MAD_ALEX"
+                        >
+
+                        <span class="hero-robot__mist hero-robot__mist--front" aria-hidden="true"></span>
+                        <span class="hero-robot__fade" aria-hidden="true"></span>
+                    </div>
+
+                    <div class="hero-info-card hero-info-card--online">
+                        <span class="hero-info-card__number">24</span>
+
+                        <div>
+                            <strong>Always online</strong>
+                            <small>Stable operation</small>
+                        </div>
+                    </div>
+
+                    <div class="hero-info-card hero-info-card--python">
+                        <span class="hero-info-card__number">PY</span>
+
+                        <div>
+                            <strong>PYTHON CORE</strong>
+                            <small>Backend systems</small>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div class="hero__scroll">
+                <span>
+                    SCROLL TO EXPLORE
+                </span>
+
+                <span class="hero__scroll-line"></span>
+            </div>
+
+        </section>
+
+
+        <!-- =====================================================
+             PLATFORMS
+        ====================================================== -->
+
+        <section class="platforms">
+
+            <div class="container">
+
+                <div class="platforms__header reveal">
+                    <span class="section-label">
+                        ПЛАТФОРМЫ И НАПРАВЛЕНИЯ
+                    </span>
+
+                    <p>
+                        Разрабатываю решения для популярных платформ
+                        и объединяю их в единую систему.
+                    </p>
+                </div>
+
+                <div class="platforms__grid">
+
+                    <article class="platform-card tilt-card reveal">
+
+                        <div class="platform-card__top">
+
+                            <div class="platform-card__icon">
+                                <svg viewBox="0 0 24 24" aria-hidden="true">
+                                    <path
+                                            d="M21.8 3.2 18.6 19c-.2 1.1-.9 1.4-1.8.9l-4.9-3.6-2.4 2.3c-.3.3-.5.5-1 .5l.4-5 9-8.1c.4-.4-.1-.6-.6-.2L6.2 12.8 1.4 11.3c-1-.3-1-1 .2-1.5L20.3 2.6c.9-.3 1.7.2 1.5.6Z"
+                                    ></path>
+                                </svg>
+                            </div>
+
+                            <span class="platform-card__number">
+                                01
+                            </span>
+
+                        </div>
+
+                        <h3>
+                            Telegram
+                        </h3>
+
+                        <p>
+                            Боты, магазины, системы бронирования,
+                            личные кабинеты и автоматические уведомления.
+                        </p>
+
+                        <div class="platform-card__tags">
+                            <span>
+                                Aiogram
+                            </span>
+
+                            <span>
+                                API
+                            </span>
+
+                            <span>
+                                SQLite
+                            </span>
+                        </div>
+
+                    </article>
+
+
+                    <article class="platform-card tilt-card reveal">
+
+                        <div class="platform-card__top">
+
+                            <div class="platform-card__icon">
+                                <span>
+                                    WEB
+                                </span>
+                            </div>
+
+                            <span class="platform-card__number">
+                                02
+                            </span>
+
+                        </div>
+
+                        <h3>
+                            Websites
+                        </h3>
+
+                        <p>
+                            Лендинги, сайты-портфолио,
+                            коммерческие страницы и веб-сервисы.
+                        </p>
+
+                        <div class="platform-card__tags">
+                            <span>
+                                HTML
+                            </span>
+
+                            <span>
+                                CSS
+                            </span>
+
+                            <span>
+                                Flask
+                            </span>
+                        </div>
+
+                    </article>
+
+
+                    <article class="platform-card tilt-card reveal">
+
+                        <div class="platform-card__top">
+
+                            <div class="platform-card__icon">
+                                <span>
+                                    PY
+                                </span>
+                            </div>
+
+                            <span class="platform-card__number">
+                                03
+                            </span>
+
+                        </div>
+
+                        <h3>
+                            Python
+                        </h3>
+
+                        <p>
+                            Автоматизация задач, интеграции,
+                            базы данных и внутренние инструменты.
+                        </p>
+
+                        <div class="platform-card__tags">
+                            <span>
+                                Python
+                            </span>
+
+                            <span>
+                                Flask
+                            </span>
+
+                            <span>
+                                Automation
+                            </span>
+                        </div>
+
+                    </article>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =====================================================
+             STATS
+        ====================================================== -->
+
+        <section class="stats">
+
+            <div class="container stats__container">
+
+                <div class="stat-card reveal">
+                    <span
+                            class="stat-card__number counter"
+                            data-target="3"
+                            data-suffix="+"
+                    >
+                        0
+                    </span>
+
+                    <span class="stat-card__label">
+                        направления разработки
+                    </span>
+                </div>
+
+                <div class="stat-card reveal">
+                    <span
+                            class="stat-card__number counter"
+                            data-target="24"
+                            data-suffix="/7"
+                    >
+                        0
+                    </span>
+
+                    <span class="stat-card__label">
+                        доступность систем
+                    </span>
+                </div>
+
+                <div class="stat-card reveal">
+                    <span
+                            class="stat-card__number counter"
+                            data-target="100"
+                            data-suffix="%"
+                    >
+                        0
+                    </span>
+
+                    <span class="stat-card__label">
+                        индивидуальная разработка
+                    </span>
+                </div>
+
+                <div class="stat-card reveal">
+                    <span
+                            class="stat-card__number counter"
+                            data-target="1"
+                            data-suffix=":1"
+                    >
+                        0
+                    </span>
+
+                    <span class="stat-card__label">
+                        общение без посредников
+                    </span>
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =====================================================
+             SERVICES
+        ====================================================== -->
+
+        <section class="services section" id="services">
+
+            <div class="container">
+
+                <div class="section-heading">
+
+                    <div class="section-heading__left reveal">
+                        <span class="section-index">
+                            01 / SERVICES
+                        </span>
+
+                        <h2>
+                            РЕШЕНИЯ ДЛЯ
+                            <span>
+                                ВАШЕГО БИЗНЕСА
+                            </span>
+                        </h2>
+                    </div>
+
+                    <p class="section-heading__description reveal">
+                        От идеи до запуска. Создаю цифровые продукты,
+                        которые решают конкретные задачи и помогают
+                        бизнесу работать эффективнее.
+                    </p>
+
+                </div>
+
+
+                <div class="services__list">
+
+                    <article class="service-card reveal">
+
+                        <div class="service-card__number">
+                            01
+                        </div>
+
+                        <div class="service-card__icon">
+                            <svg viewBox="0 0 24 24" aria-hidden="true">
+                                <path
+                                        d="M21.8 3.2 18.6 19c-.2 1.1-.9 1.4-1.8.9l-4.9-3.6-2.4 2.3c-.3.3-.5.5-1 .5l.4-5 9-8.1c.4-.4-.1-.6-.6-.2L6.2 12.8 1.4 11.3c-1-.3-1-1 .2-1.5L20.3 2.6c.9-.3 1.7.2 1.5.6Z"
+                                ></path>
+                            </svg>
+                        </div>
+
+                        <div class="service-card__content">
+                            <h3>
+                                Telegram-боты
+                            </h3>
+
+                            <p>
+                                Создание ботов для продаж, бронирования,
+                                поддержки клиентов, регистрации,
+                                уведомлений и внутренних процессов.
+                            </p>
+
+                            <ul>
+                                <li>
+                                    Системы бронирования
+                                </li>
+
+                                <li>
+                                    Интернет-магазины
+                                </li>
+
+                                <li>
+                                    Личные кабинеты
+                                </li>
+
+                                <li>
+                                    Админ-панели
+                                </li>
+                            </ul>
+                        </div>
+
+                        <div class="service-card__meta">
+                            <span>
+                                От 10 000 ₽
+                            </span>
+
+                            <a href="#contacts">
+                                Подробнее
+                                <span>
+                                    ↗
+                                </span>
+                            </a>
+                        </div>
+
+                    </article>
+
+
+                    <article class="service-card reveal">
+
+                        <div class="service-card__number">
+                            02
+                        </div>
+
+                        <div class="service-card__icon">
+                            <span>
+                                &lt;/&gt;
+                            </span>
+                        </div>
+
+                        <div class="service-card__content">
+                            <h3>
+                                Сайты и веб-сервисы
+                            </h3>
+
+                            <p>
+                                Современные адаптивные сайты с анимациями,
+                                формами, базой данных и удобным интерфейсом.
+                            </p>
+
+                            <ul>
+                                <li>
+                                    Лендинги
+                                </li>
+
+                                <li>
+                                    Сайты-портфолио
+                                </li>
+
+                                <li>
+                                    Формы заявок
+                                </li>
+
+                                <li>
+                                    Flask-проекты
+                                </li>
+                            </ul>
+                        </div>
+
+                        <div class="service-card__meta">
+                            <span>
+                                От 15 000 ₽
+                            </span>
+
+                            <a href="#contacts">
+                                Подробнее
+                                <span>
+                                    ↗
+                                </span>
+                            </a>
+                        </div>
+
+                    </article>
+
+
+                    <article class="service-card reveal">
+
+                        <div class="service-card__number">
+                            03
+                        </div>
+
+                        <div class="service-card__icon">
+                            <span>
+                                AI
+                            </span>
+                        </div>
+
+                        <div class="service-card__content">
+                            <h3>
+                                Python-автоматизация
+                            </h3>
+
+                            <p>
+                                Скрипты и системы, которые выполняют
+                                повторяющиеся задачи автоматически,
+                                обрабатывают данные и связывают сервисы.
+                            </p>
+
+                            <ul>
+                                <li>
+                                    Работа с API
+                                </li>
+
+                                <li>
+                                    Обработка данных
+                                </li>
+
+                                <li>
+                                    Автоматические отчёты
+                                </li>
+
+                                <li>
+                                    Интеграции сервисов
+                                </li>
+                            </ul>
+                        </div>
+
+                        <div class="service-card__meta">
+                            <span>
+                                От 8 000 ₽
+                            </span>
+
+                            <a href="#contacts">
+                                Подробнее
+                                <span>
+                                    ↗
+                                </span>
+                            </a>
+                        </div>
+
+                    </article>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =====================================================
+             PORTFOLIO
+        ====================================================== -->
+
+        <section class="portfolio section" id="portfolio">
+
+            <div class="portfolio__glow"></div>
+
+            <div class="container">
+
+                <div class="section-heading">
+
+                    <div class="section-heading__left reveal">
+                        <span class="section-index">
+                            02 / PROJECTS
+                        </span>
+
+                        <h2>
+                            ИЗБРАННЫЕ
+                            <span>
+                                ПРОЕКТЫ
+                            </span>
+                        </h2>
+                    </div>
+
+                    <p class="section-heading__description reveal">
+                        Примеры систем, которые показывают подход
+                        к интерфейсам, логике и автоматизации.
+                    </p>
+
+                </div>
+
+
+                <div class="portfolio__slider">
+
+                    <div class="portfolio__track" id="portfolioTrack">
+
+                        <article class="project-card">
+
+                            <div class="project-card__visual project-card__visual--booking">
+
+                                <div class="project-browser">
+
+                                    <div class="project-browser__top">
+                                        <span></span>
+                                        <span></span>
+                                        <span></span>
+                                    </div>
+
+                                    <div class="project-browser__body">
+
+                                        <div class="project-browser__sidebar">
+                                            <div></div>
+                                            <div></div>
+                                            <div></div>
+                                            <div></div>
+                                        </div>
+
+                                        <div class="project-browser__content">
+                                            <div class="project-browser__title"></div>
+
+                                            <div class="project-browser__stats">
+                                                <span></span>
+                                                <span></span>
+                                                <span></span>
+                                            </div>
+
+                                            <div class="project-browser__table">
+                                                <i></i>
+                                                <i></i>
+                                                <i></i>
+                                                <i></i>
+                                            </div>
+                                        </div>
+
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+                            <div class="project-card__content">
+
+                                <div class="project-card__header">
+                                    <span>
+                                        TELEGRAM BOT / 2026
+                                    </span>
+
+                                    <span>
+                                        01
+                                    </span>
+                                </div>
+
+                                <h3>
+                                    Система бронирования ПК-клуба
+                                </h3>
+
+                                <p>
+                                    Telegram-бот с регистрацией,
+                                    выбором зала и компьютера,
+                                    датой, временем, проверкой занятости,
+                                    SQLite и уведомлением администратора.
+                                </p>
+
+                                <div class="project-card__tags">
+                                    <span>
+                                        Python
+                                    </span>
+
+                                    <span>
+                                        Aiogram
+                                    </span>
+
+                                    <span>
+                                        SQLite
+                                    </span>
+
+                                    <span>
+                                        Telegram API
+                                    </span>
+                                </div>
+
+                                <button
+                                        class="project-card__button open-project-modal"
+                                        type="button"
+                                        data-project="booking"
+                                >
+                                    Смотреть проект
+                                    <span>
+                                        ↗
+                                    </span>
+                                </button>
+
+                            </div>
+
+                        </article>
+
+
+                        <article class="project-card">
+
+                            <div class="project-card__visual project-card__visual--website">
+
+                                <div class="website-preview">
+
+                                    <div class="website-preview__header">
+                                        <span>
+                                            MAD_ALEX
+                                        </span>
+
+                                        <div>
+                                            <i></i>
+                                            <i></i>
+                                            <i></i>
+                                        </div>
+                                    </div>
+
+                                    <div class="website-preview__hero">
+                                        <span></span>
+                                        <strong></strong>
+                                        <strong></strong>
+                                        <p></p>
+
+                                        <div>
+                                            <i></i>
+                                            <i></i>
+                                        </div>
+                                    </div>
+
+                                    <div class="website-preview__cards">
+                                        <span></span>
+                                        <span></span>
+                                        <span></span>
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+                            <div class="project-card__content">
+
+                                <div class="project-card__header">
+                                    <span>
+                                        WEBSITE / 2026
+                                    </span>
+
+                                    <span>
+                                        02
+                                    </span>
+                                </div>
+
+                                <h3>
+                                    Сайт-портфолио MAD_ALEX
+                                </h3>
+
+                                <p>
+                                    Тёмный неоновый сайт с адаптивной
+                                    версткой, анимациями, формой заявок,
+                                    базой данных и размещением на Render.
+                                </p>
+
+                                <div class="project-card__tags">
+                                    <span>
+                                        Flask
+                                    </span>
+
+                                    <span>
+                                        HTML
+                                    </span>
+
+                                    <span>
+                                        CSS
+                                    </span>
+
+                                    <span>
+                                        JavaScript
+                                    </span>
+                                </div>
+
+                                <button
+                                        class="project-card__button open-project-modal"
+                                        type="button"
+                                        data-project="website"
+                                >
+                                    Смотреть проект
+                                    <span>
+                                        ↗
+                                    </span>
+                                </button>
+
+                            </div>
+
+                        </article>
+
+
+                        <article class="project-card">
+
+                            <div class="project-card__visual project-card__visual--automation">
+
+                                <div class="automation-preview">
+
+                                    <div class="automation-preview__center">
+                                        <span>
+                                            PY
+                                        </span>
+                                    </div>
+
+                                    <div class="automation-preview__node automation-preview__node--one">
+                                        API
+                                    </div>
+
+                                    <div class="automation-preview__node automation-preview__node--two">
+                                        DB
+                                    </div>
+
+                                    <div class="automation-preview__node automation-preview__node--three">
+                                        WEB
+                                    </div>
+
+                                    <div class="automation-preview__node automation-preview__node--four">
+                                        TG
+                                    </div>
+
+                                    <i class="automation-preview__line automation-preview__line--one"></i>
+                                    <i class="automation-preview__line automation-preview__line--two"></i>
+                                    <i class="automation-preview__line automation-preview__line--three"></i>
+                                    <i class="automation-preview__line automation-preview__line--four"></i>
+
+                                </div>
+
+                            </div>
+
+                            <div class="project-card__content">
+
+                                <div class="project-card__header">
+                                    <span>
+                                        AUTOMATION / 2026
+                                    </span>
+
+                                    <span>
+                                        03
+                                    </span>
+                                </div>
+
+                                <h3>
+                                    Python Automation System
+                                </h3>
+
+                                <p>
+                                    Система, связывающая внешние API,
+                                    базу данных, Telegram и веб-интерфейс
+                                    в единый автоматический процесс.
+                                </p>
+
+                                <div class="project-card__tags">
+                                    <span>
+                                        Python
+                                    </span>
+
+                                    <span>
+                                        REST API
+                                    </span>
+
+                                    <span>
+                                        SQLite
+                                    </span>
+
+                                    <span>
+                                        Automation
+                                    </span>
+                                </div>
+
+                                <button
+                                        class="project-card__button open-project-modal"
+                                        type="button"
+                                        data-project="automation"
+                                >
+                                    Смотреть проект
+                                    <span>
+                                        ↗
+                                    </span>
+                                </button>
+
+                            </div>
+
+                        </article>
+
+                    </div>
+
+
+                    <div class="portfolio__controls">
+
+                        <button
+                                class="slider-button"
+                                id="portfolioPrev"
+                                type="button"
+                                aria-label="Предыдущий проект"
+                        >
+                            ←
+                        </button>
+
+                        <div class="portfolio__progress">
+                            <span id="portfolioCurrent">
+                                01
+                            </span>
+
+                            <div class="portfolio__progress-line">
+                                <span id="portfolioProgress"></span>
+                            </div>
+
+                            <span>
+                                03
+                            </span>
+                        </div>
+
+                        <button
+                                class="slider-button"
+                                id="portfolioNext"
+                                type="button"
+                                aria-label="Следующий проект"
+                        >
+                            →
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =====================================================
+             PROCESS
+        ====================================================== -->
+
+        <section class="process section" id="process">
+
+            <div class="container">
+
+                <div class="section-heading">
+
+                    <div class="section-heading__left reveal">
+                        <span class="section-index">
+                            03 / PROCESS
+                        </span>
+
+                        <h2>
+                            КАК ПРОХОДИТ
+                            <span>
+                                РАЗРАБОТКА
+                            </span>
+                        </h2>
+                    </div>
+
+                    <p class="section-heading__description reveal">
+                        Понятный процесс без хаоса:
+                        от обсуждения задачи до запуска
+                        готового продукта.
+                    </p>
+
+                </div>
+
+
+                <div class="process__timeline">
+
+                    <article class="process-step reveal">
+
+                        <div class="process-step__marker">
+                            <span>
+                                01
+                            </span>
+                        </div>
+
+                        <div class="process-step__content">
+                            <span class="process-step__subtitle">
+                                ЗНАКОМСТВО
+                            </span>
+
+                            <h3>
+                                Обсуждаем задачу
+                            </h3>
+
+                            <p>
+                                Вы рассказываете об идее,
+                                целях проекта и необходимом функционале.
+                            </p>
+                        </div>
+
+                        <div class="process-step__time">
+                            1 день
+                        </div>
+
+                    </article>
+
+
+                    <article class="process-step reveal">
+
+                        <div class="process-step__marker">
+                            <span>
+                                02
+                            </span>
+                        </div>
+
+                        <div class="process-step__content">
+                            <span class="process-step__subtitle">
+                                ПЛАНИРОВАНИЕ
+                            </span>
+
+                            <h3>
+                                Составляю структуру
+                            </h3>
+
+                            <p>
+                                Определяю архитектуру, этапы,
+                                интерфейс и технологии проекта.
+                            </p>
+                        </div>
+
+                        <div class="process-step__time">
+                            1–2 дня
+                        </div>
+
+                    </article>
+
+
+                    <article class="process-step reveal">
+
+                        <div class="process-step__marker">
+                            <span>
+                                03
+                            </span>
+                        </div>
+
+                        <div class="process-step__content">
+                            <span class="process-step__subtitle">
+                                РАЗРАБОТКА
+                            </span>
+
+                            <h3>
+                                Создаю продукт
+                            </h3>
+
+                            <p>
+                                Пишу код, подключаю базу данных,
+                                интеграции и необходимую бизнес-логику.
+                            </p>
+                        </div>
+
+                        <div class="process-step__time">
+                            3–14 дней
+                        </div>
+
+                    </article>
+
+
+                    <article class="process-step reveal">
+
+                        <div class="process-step__marker">
+                            <span>
+                                04
+                            </span>
+                        </div>
+
+                        <div class="process-step__content">
+                            <span class="process-step__subtitle">
+                                ТЕСТИРОВАНИЕ
+                            </span>
+
+                            <h3>
+                                Проверяю все сценарии
+                            </h3>
+
+                            <p>
+                                Исправляю ошибки, проверяю адаптивность
+                                и стабильность работы системы.
+                            </p>
+                        </div>
+
+                        <div class="process-step__time">
+                            1–3 дня
+                        </div>
+
+                    </article>
+
+
+                    <article class="process-step reveal">
+
+                        <div class="process-step__marker">
+                            <span>
+                                05
+                            </span>
+                        </div>
+
+                        <div class="process-step__content">
+                            <span class="process-step__subtitle">
+                                ЗАПУСК
+                            </span>
+
+                            <h3>
+                                Передаю готовый проект
+                            </h3>
+
+                            <p>
+                                Помогаю с размещением,
+                                объясняю управление и передаю исходный код.
+                            </p>
+                        </div>
+
+                        <div class="process-step__time">
+                            Готово
+                        </div>
+
+                    </article>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =====================================================
+             ABOUT
+        ====================================================== -->
+
+        <section class="about section" id="about">
+
+            <div class="about__grid-background"></div>
+
+            <div class="container about__container">
+
+                <div class="about__visual reveal">
+
+                    <div class="about-terminal">
+
+                        <div class="about-terminal__header">
+                            <div>
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                            </div>
+
+                            <span>
+                                mad_alex.py
+                            </span>
+                        </div>
+
+                        <div class="about-terminal__body">
+                            <p>
+                                <span class="terminal-purple">
+                                    class
+                                </span>
+
+                                <span class="terminal-blue">
+                                    Developer
+                                </span>:
+                            </p>
+
+                            <p class="terminal-indent">
+                                name =
+                                <span class="terminal-green">
+                                    "MAD_ALEX"
+                                </span>
+                            </p>
+
+                            <p class="terminal-indent">
+                                stack = [
+                                <span class="terminal-green">
+                                    "Python"
+                                </span>,
+                            </p>
+
+                            <p class="terminal-indent terminal-indent--deep">
+                                <span class="terminal-green">
+                                    "Aiogram"
+                                </span>,
+                            </p>
+
+                            <p class="terminal-indent terminal-indent--deep">
+                                <span class="terminal-green">
+                                    "Flask"
+                                </span>,
+                            </p>
+
+                            <p class="terminal-indent terminal-indent--deep">
+                                <span class="terminal-green">
+                                    "JavaScript"
+                                </span>
+                            </p>
+
+                            <p class="terminal-indent">
+                                ]
+                            </p>
+
+                            <p class="terminal-indent">
+                                status =
+                                <span class="terminal-green">
+                                    "ready_for_work"
+                                </span>
+                            </p>
+
+                            <p class="terminal-indent">
+                                passion =
+                                <span class="terminal-orange">
+                                    100
+                                </span>
+                            </p>
+
+                            <p>
+                                <span class="terminal-purple">
+                                    def
+                                </span>
+
+                                <span class="terminal-blue">
+                                    build_solution
+                                </span>
+                                (idea):
+                            </p>
+
+                            <p class="terminal-indent">
+                                <span class="terminal-purple">
+                                    return
+                                </span>
+
+                                idea +
+                                <span class="terminal-green">
+                                    " working product"
+                                </span>
+                            </p>
+
+                            <p class="terminal-cursor">
+                                <span>
+                                    &gt;
+                                </span>
+
+                                <i></i>
+                            </p>
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <div class="about__content">
+
+                    <span class="section-index reveal">
+                        04 / ABOUT
+                    </span>
+
+                    <h2 class="reveal">
+                        СОЗДАЮ РЕШЕНИЯ,
+                        <span>
+                            КОТОРЫЕ РАБОТАЮТ
+                        </span>
+                    </h2>
+
+                    <p class="about__lead reveal">
+                        Я занимаюсь разработкой цифровых систем
+                        под конкретные задачи бизнеса:
+                        от Telegram-ботов до полноценных веб-сервисов.
+                    </p>
+
+                    <p class="reveal">
+                        Для меня важно не просто написать код,
+                        а сделать понятный и полезный продукт,
+                        которым удобно пользоваться каждый день.
+                    </p>
+
+                    <div class="about__features">
+
+                        <div class="about-feature reveal">
+                            <span>
+                                01
+                            </span>
+
+                            <div>
+                                <strong>
+                                    Прямое общение
+                                </strong>
+
+                                <p>
+                                    Вы общаетесь непосредственно
+                                    с разработчиком.
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="about-feature reveal">
+                            <span>
+                                02
+                            </span>
+
+                            <div>
+                                <strong>
+                                    Индивидуальный подход
+                                </strong>
+
+                                <p>
+                                    Каждая система создаётся
+                                    под конкретную задачу.
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="about-feature reveal">
+                            <span>
+                                03
+                            </span>
+
+                            <div>
+                                <strong>
+                                    Поддержка после запуска
+                                </strong>
+
+                                <p>
+                                    Помогаю разобраться,
+                                    исправить и улучшить проект.
+                                </p>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =====================================================
+             TECHNOLOGIES
+        ====================================================== -->
+
+        <section class="technologies section">
+
+            <div class="container">
+
+                <div class="technologies__heading reveal">
+                    <span class="section-label">
+                        ТЕХНОЛОГИИ
+                    </span>
+
+                    <h2>
+                        ИНСТРУМЕНТЫ,
+                        КОТОРЫМИ Я ПОЛЬЗУЮСЬ
+                    </h2>
+                </div>
+
+                <div class="technologies__marquee">
+
+                    <div class="technologies__track">
+
+                        <div class="technology-item">
+                            <span>
+                                PY
+                            </span>
+
+                            <strong>
+                                Python
+                            </strong>
+                        </div>
+
+                        <div class="technology-item">
+                            <span>
+                                TG
+                            </span>
+
+                            <strong>
+                                Aiogram
+                            </strong>
+                        </div>
+
+                        <div class="technology-item">
+                            <span>
+                                FL
+                            </span>
+
+                            <strong>
+                                Flask
+                            </strong>
+                        </div>
+
+                        <div class="technology-item">
+                            <span>
+                                DB
+                            </span>
+
+                            <strong>
+                                SQLite
+                            </strong>
+                        </div>
+
+                        <div class="technology-item">
+                            <span>
+                                JS
+                            </span>
+
+                            <strong>
+                                JavaScript
+                            </strong>
+                        </div>
+
+                        <div class="technology-item">
+                            <span>
+                                API
+                            </span>
+
+                            <strong>
+                                REST API
+                            </strong>
+                        </div>
+
+                        <div class="technology-item">
+                            <span>
+                                GH
+                            </span>
+
+                            <strong>
+                                GitHub
+                            </strong>
+                        </div>
+
+                        <div class="technology-item">
+                            <span>
+                                RD
+                            </span>
+
+                            <strong>
+                                Render
+                            </strong>
+                        </div>
+
+
+                        <div class="technology-item">
+                            <span>
+                                PY
+                            </span>
+
+                            <strong>
+                                Python
+                            </strong>
+                        </div>
+
+                        <div class="technology-item">
+                            <span>
+                                TG
+                            </span>
+
+                            <strong>
+                                Aiogram
+                            </strong>
+                        </div>
+
+                        <div class="technology-item">
+                            <span>
+                                FL
+                            </span>
+
+                            <strong>
+                                Flask
+                            </strong>
+                        </div>
+
+                        <div class="technology-item">
+                            <span>
+                                DB
+                            </span>
+
+                            <strong>
+                                SQLite
+                            </strong>
+                        </div>
+
+                        <div class="technology-item">
+                            <span>
+                                JS
+                            </span>
+
+                            <strong>
+                                JavaScript
+                            </strong>
+                        </div>
+
+                        <div class="technology-item">
+                            <span>
+                                API
+                            </span>
+
+                            <strong>
+                                REST API
+                            </strong>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =====================================================
+             CONTACTS
+        ====================================================== -->
+
+        <section class="contacts section" id="contacts">
+
+            <div class="contacts__background">
+                <div class="contacts__orb"></div>
+                <div class="contacts__grid"></div>
+            </div>
+
+            <div class="container contacts__container">
+
+                <div class="contacts__content">
+
+                    <span class="section-index reveal">
+                        05 / CONTACT
+                    </span>
+
+                    <h2 class="reveal">
+                        ЕСТЬ ИДЕЯ?
+                        <span>
+                            ДАВАЙТЕ ОБСУДИМ
+                        </span>
+                    </h2>
+
+                    <p class="reveal">
+                        Расскажите о задаче, которую хотите решить.
+                        Я изучу проект и предложу подходящий вариант реализации.
+                    </p>
+
+                    <div class="contacts__methods">
+
+                        <a
+                                href="https://t.me/"
+                                class="contact-method reveal"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                        >
+                            <span class="contact-method__icon">
+                                TG
+                            </span>
+
+                            <div>
+                                <strong>
+                                    Telegram
+                                </strong>
+
+                                <span>
+                                    Написать сообщение
+                                </span>
+                            </div>
+
+                            <span class="contact-method__arrow">
+                                ↗
+                            </span>
+                        </a>
+
+                        <a
+                                href="mailto:example@example.com"
+                                class="contact-method reveal"
+                        >
+                            <span class="contact-method__icon">
+                                @
+                            </span>
+
+                            <div>
+                                <strong>
+                                    Email
+                                </strong>
+
+                                <span>
+                                    example@example.com
+                                </span>
+                            </div>
+
+                            <span class="contact-method__arrow">
+                                ↗
+                            </span>
+                        </a>
+
+                    </div>
+
+                </div>
+
+
+                <div class="contact-form-wrapper reveal">
+
+                    <div class="contact-form-wrapper__top">
+                        <span>
+                            PROJECT REQUEST
+                        </span>
+
+                        <span class="status-dot"></span>
+                    </div>
+
+                    <form
+                            class="contact-form"
+                            id="contactForm"
+                            novalidate
+                    >
+
+                        <div class="form-row">
+
+                            <label class="form-field">
+                                <span>
+                                    Ваше имя
+                                </span>
+
+                                <input
+                                        type="text"
+                                        name="name"
+                                        id="name"
+                                        placeholder="Как к вам обращаться?"
+                                        autocomplete="name"
+                                        required
+                                >
+                            </label>
+
+                            <label class="form-field">
+                                <span>
+                                    Контакт
+                                </span>
+
+                                <input
+                                        type="text"
+                                        name="contact"
+                                        id="contact"
+                                        placeholder="@telegram или email"
+                                        autocomplete="email"
+                                        required
+                                >
+                            </label>
+
+                        </div>
+
+
+                        <div class="form-row">
+
+                            <label class="form-field">
+                                <span>
+                                    Услуга
+                                </span>
+
+                                <select
+                                        name="service"
+                                        id="service"
+                                >
+                                    <option value="">
+                                        Выберите услугу
+                                    </option>
+
+                                    <option value="Telegram-бот">
+                                        Telegram-бот
+                                    </option>
+
+                                    <option value="Сайт">
+                                        Сайт
+                                    </option>
+
+                                    <option value="Python-автоматизация">
+                                        Python-автоматизация
+                                    </option>
+
+                                    <option value="Другое">
+                                        Другое
+                                    </option>
+                                </select>
+                            </label>
+
+                            <label class="form-field">
+                                <span>
+                                    Бюджет
+                                </span>
+
+                                <select
+                                        name="budget"
+                                        id="budget"
+                                >
+                                    <option value="">
+                                        Выберите бюджет
+                                    </option>
+
+                                    <option value="До 10 000 ₽">
+                                        До 10 000 ₽
+                                    </option>
+
+                                    <option value="10 000–20 000 ₽">
+                                        10 000–20 000 ₽
+                                    </option>
+
+                                    <option value="20 000–50 000 ₽">
+                                        20 000–50 000 ₽
+                                    </option>
+
+                                    <option value="Более 50 000 ₽">
+                                        Более 50 000 ₽
+                                    </option>
+                                </select>
+                            </label>
+
+                        </div>
+
+
+                        <label class="form-field">
+                            <span>
+                                Расскажите о проекте
+                            </span>
+
+                            <textarea
+                                    name="message"
+                                    id="message"
+                                    rows="6"
+                                    placeholder="Опишите задачу, необходимые функции и желаемые сроки..."
+                                    required
+                            ></textarea>
+                        </label>
+
+
+                        <div class="contact-form__bottom">
+
+                            <p>
+                                Нажимая кнопку, вы соглашаетесь
+                                на обработку данных.
+                            </p>
+
+                            <button
+                                    class="button button--primary"
+                                    id="submitButton"
+                                    type="submit"
+                            >
+                                <span class="submit-button__text">
+                                    Отправить заявку
+                                </span>
+
+                                <span class="button__arrow">
+                                    ↗
+                                </span>
+                            </button>
+
+                        </div>
+
+                        <div
+                                class="form-message"
+                                id="formMessage"
+                                role="alert"
+                        ></div>
+
+                    </form>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- =========================================================
+         FOOTER
+    ========================================================== -->
+
+    <footer class="footer">
+
+        <div class="container">
+
+            <div class="footer__top">
+
+                <a href="#home" class="logo">
+                    <span class="logo__main">
+                        MAD<span class="logo__accent">_ALEX</span>
+                    </span>
+
+                    <span class="logo__sub">
+                        DIGITAL AUTOMATION LAB
+                    </span>
+                </a>
+
+                <p>
+                    Telegram-боты, сайты и автоматизация
+                    на Python для бизнеса.
+                </p>
+
+                <a href="#home" class="footer__up">
+                    Наверх
+                    <span>
+                        ↑
+                    </span>
+                </a>
+
+            </div>
+
+            <div class="footer__line"></div>
+
+            <div class="footer__bottom">
+
+                <span>
+                    © 2026 MAD_ALEX. Все права защищены.
+                </span>
+
+                <div>
+                    <a href="#services">
+                        Услуги
+                    </a>
+
+                    <a href="#portfolio">
+                        Проекты
+                    </a>
+
+                    <a href="#contacts">
+                        Контакты
+                    </a>
+                </div>
+
+                <span>
+                    MADE WITH PYTHON
+                </span>
+
+            </div>
+
+        </div>
+
+    </footer>
+
+</div>
+
+
+<!-- =============================================================
+     PROJECT MODAL
+============================================================== -->
+
+<div class="modal" id="projectModal">
+
+    <div class="modal__overlay" data-close-modal></div>
+
+    <div class="modal__window">
+
+        <button
+                class="modal__close"
+                type="button"
+                data-close-modal
+                aria-label="Закрыть окно"
+        >
+            ×
+        </button>
+
+        <span class="modal__index" id="modalIndex">
+            PROJECT / 01
+        </span>
+
+        <h2 id="modalTitle">
+            Название проекта
+        </h2>
+
+        <p id="modalDescription">
+            Описание проекта.
+        </p>
+
+        <div class="modal__columns">
+
+            <div>
+                <span class="modal__label">
+                    Возможности
+                </span>
+
+                <ul id="modalFeatures"></ul>
+            </div>
+
+            <div>
+                <span class="modal__label">
+                    Технологии
+                </span>
+
+                <div
+                        class="modal__tags"
+                        id="modalTags"
+                ></div>
+            </div>
+
+        </div>
+
+        <a href="#contacts" class="button button--primary" data-close-modal>
+            Заказать похожий проект
+            <span class="button__arrow">
+                ↗
+            </span>
+        </a>
+
+    </div>
+
+</div>
+
+
+<!-- =============================================================
+     SUCCESS MODAL
+============================================================== -->
+
+<div class="success-modal" id="successModal">
+
+    <div class="success-modal__overlay"></div>
+
+    <div class="success-modal__window">
+
+        <button
+                class="success-modal__close"
+                id="successModalClose"
+                type="button"
+                aria-label="Закрыть"
+        >
+            ×
+        </button>
+
+        <div class="success-modal__icon">
+            <span>
+                ✓
+            </span>
+        </div>
+
+        <span class="success-modal__small">
+            REQUEST SENT
+        </span>
+
+        <h2>
+            Заявка отправлена
+        </h2>
+
+        <p id="successModalText">
+            Спасибо! Я свяжусь с вами в ближайшее время.
+        </p>
+
+        <button
+                class="button button--primary"
+                id="successModalButton"
+                type="button"
+        >
+            Хорошо
+        </button>
+
+    </div>
+
+</div>
+
+
+<script src="{{ url_for('static', filename='js/script.js') }}"></script>
+
+</body>
+</html>
