@@ -8,7 +8,6 @@ services:
     buildCommand: pip install -r requirements.txt
     startCommand: python main.py
     autoDeployTrigger: commit
-    maxShutdownDelaySeconds: 30
     envVars:
       - key: TOKEN
         sync: false
