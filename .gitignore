@@ -7,3 +7,9 @@ __pycache__/
 *.log
 
 requests.db
+
+telegram_bot/.env
+telegram_bot/data/
+telegram_bot/*.db
+telegram_bot/*.db-shm
+telegram_bot/*.db-wal
