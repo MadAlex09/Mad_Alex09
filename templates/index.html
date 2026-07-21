@@ -40,7 +40,7 @@
 
     <link
             rel="stylesheet"
-            href="{{ url_for('static', filename='css/style.css') }}"
+            href="{{ url_for('static', filename='css/style.css', v='20260722-4') }}"
     >
 </head>
 
@@ -106,7 +106,8 @@
 
             <div class="header__actions">
                 <a href="#contacts" class="button button--small button--outline">
-                    Обсудить проект
+                    <span>Обсудить проект</span>
+                    <span class="button__arrow" aria-hidden="true">↗</span>
                 </a>
 
                 <button
@@ -214,44 +215,34 @@
 
                         <a href="#portfolio" class="button button--ghost">
                             <span>
-                                Смотреть работы
-                            </span>
-
-                            <span class="button__arrow">
-                                ↓
+                                Смотреть проекты
                             </span>
                         </a>
                     </div>
 
-                    <div class="hero__status reveal">
+                    <div class="hero__metrics reveal" aria-label="Ключевые показатели">
 
-                        <div class="hero__status-item">
-                            <span class="status-dot"></span>
-
+                        <div class="hero-metric">
+                            <span class="hero-metric__icon" aria-hidden="true">↗</span>
                             <div>
-                                <strong>
-                                    Доступен для проектов
-                                </strong>
-
-                                <span>
-                                    Принимаю новые заказы
-                                </span>
+                                <strong>50+</strong>
+                                <span>успешных проектов</span>
                             </div>
                         </div>
 
-                        <div class="hero__status-item">
-                            <span class="hero__status-number">
-                                24/7
-                            </span>
-
+                        <div class="hero-metric">
+                            <span class="hero-metric__icon" aria-hidden="true">☆</span>
                             <div>
-                                <strong>
-                                    Онлайн-системы
-                                </strong>
+                                <strong>2+</strong>
+                                <span>года опыта</span>
+                            </div>
+                        </div>
 
-                                <span>
-                                    Работают без выходных
-                                </span>
+                        <div class="hero-metric">
+                            <span class="hero-metric__icon hero-metric__icon--support" aria-hidden="true">24/7</span>
+                            <div>
+                                <strong>24/7</strong>
+                                <span>поддержка</span>
                             </div>
                         </div>
 
@@ -261,45 +252,72 @@
 
 
                 <div class="hero__visual reveal">
-
-                    <div class="hero-cosmos" aria-hidden="true">
-                        <span class="hero-cosmos__planet"></span>
-                        <span class="hero-cosmos__moon"></span>
-                        <span class="hero-cosmos__ring hero-cosmos__ring--outer"></span>
-                        <span class="hero-cosmos__ring hero-cosmos__ring--inner"></span>
-                        <span class="hero-cosmos__beam hero-cosmos__beam--one"></span>
-                        <span class="hero-cosmos__beam hero-cosmos__beam--two"></span>
-                    </div>
-
                     <div class="hero-robot">
-                        <span class="hero-robot__aura" aria-hidden="true"></span>
-                        <span class="hero-robot__mist hero-robot__mist--back" aria-hidden="true"></span>
-
                         <img
                                 src="{{ url_for('static', filename='images/robot.png') }}"
                                 alt="Футуристичный робот MAD_ALEX"
                         >
 
-                        <span class="hero-robot__mist hero-robot__mist--front" aria-hidden="true"></span>
-                        <span class="hero-robot__fade" aria-hidden="true"></span>
+                        <span class="hero-energy-sparks" aria-hidden="true">
+                            <i></i><i></i><i></i><i></i>
+                            <i></i><i></i><i></i><i></i>
+                        </span>
                     </div>
 
-                    <div class="hero-info-card hero-info-card--online">
-                        <span class="hero-info-card__number">24</span>
+                    <div class="hero-battle-hud" aria-label="Robot system telemetry">
+                        <section class="hero-hud-node hero-hud-node--vision">
+                            <header>
+                                <span class="hero-hud-dot"></span>
+                                <b>VISION MATRIX</b>
+                                <em>01</em>
+                            </header>
+                            <div class="hero-hud-readout">
+                                <strong>
+                                    <span class="hud-safe">TARGET LOCKED</span>
+                                    <span class="hud-alert">THREAT FOUND</span>
+                                </strong>
+                                <small>X 42.7 / Y 18.4</small>
+                            </div>
+                            <span class="hero-hud-crosshair" aria-hidden="true"></span>
+                        </section>
 
-                        <div>
-                            <strong>Always online</strong>
-                            <small>Stable operation</small>
-                        </div>
-                    </div>
+                        <section class="hero-hud-node hero-hud-node--core">
+                            <header>
+                                <span class="hero-hud-dot"></span>
+                                <b>ARC REACTOR</b>
+                                <em>02</em>
+                            </header>
+                            <div class="hero-hud-wave" aria-hidden="true">
+                                <i></i><i></i><i></i><i></i>
+                                <i></i><i></i><i></i><i></i>
+                                <i></i><i></i><i></i><i></i>
+                                <i></i><i></i><i></i><i></i>
+                            </div>
+                            <div class="hero-hud-values">
+                                <span>OUTPUT <b>98%</b></span>
+                                <span>
+                                    <b class="hud-safe">STABLE</b>
+                                    <b class="hud-alert">OVERDRIVE</b>
+                                </span>
+                            </div>
+                        </section>
 
-                    <div class="hero-info-card hero-info-card--python">
-                        <span class="hero-info-card__number">PY</span>
-
-                        <div>
-                            <strong>PYTHON CORE</strong>
-                            <small>Backend systems</small>
-                        </div>
+                        <section class="hero-hud-node hero-hud-node--link">
+                            <header>
+                                <span class="hero-hud-dot"></span>
+                                <b>NEURAL UPLINK</b>
+                                <em>03</em>
+                            </header>
+                            <div class="hero-hud-link">
+                                <span class="hero-hud-bars" aria-hidden="true">
+                                    <i></i><i></i><i></i><i></i><i></i>
+                                </span>
+                                <strong>
+                                    <span class="hud-safe">24/7 ACTIVE</span>
+                                    <span class="hud-alert">RED CHANNEL</span>
+                                </strong>
+                            </div>
+                        </section>
                     </div>
 
                 </div>
@@ -321,18 +339,22 @@
              PLATFORMS
         ====================================================== -->
 
-        <section class="platforms">
+        <section class="platforms" id="services">
 
             <div class="container">
 
                 <div class="platforms__header reveal">
-                    <span class="section-label">
-                        ПЛАТФОРМЫ И НАПРАВЛЕНИЯ
-                    </span>
+                    <div>
+                        <span class="section-label">
+                            01 / УСЛУГИ
+                        </span>
+
+                        <h2>РЕШЕНИЯ ДЛЯ ВАШЕГО БИЗНЕСА</h2>
+                    </div>
 
                     <p>
-                        Разрабатываю решения для популярных платформ
-                        и объединяю их в единую систему.
+                        Создаю инструменты, которые автоматизируют процессы,
+                        привлекают клиентов и увеличивают прибыль.
                     </p>
                 </div>
 
@@ -350,19 +372,16 @@
                                 </svg>
                             </div>
 
-                            <span class="platform-card__number">
-                                01
-                            </span>
-
                         </div>
 
                         <h3>
-                            Telegram
+                            Telegram-боты
                         </h3>
 
                         <p>
-                            Боты, магазины, системы бронирования,
-                            личные кабинеты и автоматические уведомления.
+                            Разрабатываю умных ботов для бизнеса,
+                            которые автоматизируют работу, принимают
+                            заявки и увеличивают продажи.
                         </p>
 
                         <div class="platform-card__tags">
@@ -388,23 +407,20 @@
 
                             <div class="platform-card__icon">
                                 <span>
-                                    WEB
+                                    ◎
                                 </span>
                             </div>
-
-                            <span class="platform-card__number">
-                                02
-                            </span>
 
                         </div>
 
                         <h3>
-                            Websites
+                            Сайты
                         </h3>
 
                         <p>
-                            Лендинги, сайты-портфолио,
-                            коммерческие страницы и веб-сервисы.
+                            Создаю современные, быстрые и красивые
+                            сайты, которые работают на вас 24/7
+                            и приносят клиентов.
                         </p>
 
                         <div class="platform-card__tags">
@@ -430,23 +446,20 @@
 
                             <div class="platform-card__icon">
                                 <span>
-                                    PY
+                                    &lt;/&gt;
                                 </span>
                             </div>
-
-                            <span class="platform-card__number">
-                                03
-                            </span>
 
                         </div>
 
                         <h3>
-                            Python
+                            Python-автоматизация
                         </h3>
 
                         <p>
-                            Автоматизация задач, интеграции,
-                            базы данных и внутренние инструменты.
+                            Пишу скрипты и системы на Python,
+                            которые экономят время, исключают ошибки
+                            и масштабируют ваш бизнес.
                         </p>
 
                         <div class="platform-card__tags">
@@ -545,7 +558,7 @@
              SERVICES
         ====================================================== -->
 
-        <section class="services section" id="services">
+        <section class="services section" id="services-details">
 
             <div class="container">
 
@@ -2145,7 +2158,7 @@
 </div>
 
 
-<script src="{{ url_for('static', filename='js/script.js') }}"></script>
+<script src="{{ url_for('static', filename='js/script.js', v='20260722-4') }}"></script>
 
 </body>
 </html>
