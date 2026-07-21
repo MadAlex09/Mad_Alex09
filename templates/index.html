@@ -46,7 +46,7 @@
 
     <link
             rel="stylesheet"
-            href="{{ url_for('static', filename='css/style.css', v='20260722-10') }}"
+            href="{{ url_for('static', filename='css/style.css', v='20260722-11') }}"
     >
 </head>
 
@@ -783,9 +783,9 @@
                     </div>
 
                     <p class="section-heading__description reveal">
-                        Рабочий сайт и демонстрационные проекты,
-                        на которых можно оценить дизайн, логику
-                        и подход к разработке.
+                        Реальные и демонстрационные проекты,
+                        на которых можно оценить интерфейс,
+                        логику и подход к разработке.
                     </p>
 
                 </div>
@@ -799,42 +799,68 @@
 
                             <div class="project-card__visual project-card__visual--booking">
 
-                                <div class="project-browser">
+                                <div class="telegram-showcase" aria-label="Демонстрация Telegram-бота бронирования">
 
-                                    <div class="project-browser__top">
-                                        <span></span>
-                                        <span></span>
-                                        <span></span>
-                                    </div>
-
-                                    <div class="project-browser__body">
-
-                                        <div class="project-browser__sidebar">
-                                            <div></div>
-                                            <div></div>
-                                            <div></div>
-                                            <div></div>
+                                    <div class="telegram-phone">
+                                        <div class="telegram-phone__header">
+                                            <span class="telegram-phone__back" aria-hidden="true">‹</span>
+                                            <span class="telegram-phone__avatar" aria-hidden="true">GC</span>
+                                            <div>
+                                                <strong>GAME CLUB BOT</strong>
+                                                <small>bot · online</small>
+                                            </div>
+                                            <span class="telegram-phone__menu" aria-hidden="true">⋮</span>
                                         </div>
 
-                                        <div class="project-browser__content">
-                                            <div class="project-browser__title"></div>
+                                        <div class="telegram-phone__chat">
+                                            <span class="telegram-phone__date">Сегодня</span>
 
-                                            <div class="project-browser__stats">
-                                                <span></span>
-                                                <span></span>
-                                                <span></span>
+                                            <div class="telegram-message telegram-message--bot">
+                                                <small>GAME CLUB BOT</small>
+                                                <p>🎮 Выберите зал:</p>
+                                                <div class="telegram-message__buttons">
+                                                    <span>🖥 Общий зал</span>
+                                                    <span>👑 VIP-зал</span>
+                                                </div>
                                             </div>
 
-                                            <div class="project-browser__table">
-                                                <i></i>
-                                                <i></i>
-                                                <i></i>
-                                                <i></i>
+                                            <div class="telegram-message telegram-message--user">
+                                                Общий зал
+                                            </div>
+
+                                            <div class="telegram-message telegram-message--bot telegram-message--result">
+                                                <small>GAME CLUB BOT</small>
+                                                <p>✅ Бронь создана</p>
+                                                <span>ПК-07 · Сегодня · 14:00</span>
                                             </div>
                                         </div>
 
+                                        <div class="telegram-phone__input">
+                                            <span>Сообщение</span>
+                                            <i aria-hidden="true">➤</i>
+                                        </div>
                                     </div>
 
+                                    <aside class="booking-flow" aria-label="Сценарий бронирования">
+                                        <div class="booking-flow__status">
+                                            <i aria-hidden="true"></i>
+                                            <span>BOT ONLINE</span>
+                                        </div>
+
+                                        <strong>BOOKING FLOW</strong>
+
+                                        <ol>
+                                            <li class="is-complete"><span>01</span>Регистрация</li>
+                                            <li class="is-complete"><span>02</span>Зал и компьютер</li>
+                                            <li class="is-active"><span>03</span>Дата и время</li>
+                                            <li><span>04</span>Подтверждение</li>
+                                        </ol>
+
+                                        <div class="booking-flow__stats">
+                                            <span><b>20</b> COMMON PC</span>
+                                            <span><b>5</b> VIP PC</span>
+                                        </div>
+                                    </aside>
                                 </div>
 
                             </div>
@@ -843,7 +869,7 @@
 
                                 <div class="project-card__header">
                                     <span>
-                                        DEMO BOT / 2026
+                                        TELEGRAM BOT / 2026
                                     </span>
 
                                     <span>
@@ -852,14 +878,14 @@
                                 </div>
 
                                 <h3>
-                                    Система бронирования ПК-клуба
+                                    Game Club Booking Bot
                                 </h3>
 
                                 <p>
-                                    Демонстрационный бот с регистрацией,
-                                    выбором зала и компьютера,
-                                    датой, временем, проверкой занятости,
-                                    SQLite и уведомлением администратора.
+                                    Рабочий прототип для игрового клуба:
+                                    регистрация клиента, выбор обычного или VIP-зала,
+                                    компьютера, времени и автоматическое уведомление
+                                    администратора о новой брони.
                                 </p>
 
                                 <div class="project-card__tags">
@@ -878,6 +904,10 @@
                                     <span>
                                         Telegram API
                                     </span>
+
+                                    <span>
+                                        FSM
+                                    </span>
                                 </div>
 
                                 <button
@@ -885,7 +915,7 @@
                                         type="button"
                                         data-project="booking"
                                 >
-                                    Открыть описание
+                                    Подробнее о боте
                                     <span>
                                         ↗
                                     </span>
@@ -2154,7 +2184,7 @@
 </div>
 
 
-<script src="{{ url_for('static', filename='js/script.js', v='20260722-6') }}"></script>
+<script src="{{ url_for('static', filename='js/script.js', v='20260722-7') }}"></script>
 
 </body>
 </html>
