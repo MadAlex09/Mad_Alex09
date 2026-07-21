@@ -5299,12 +5299,13 @@ main::after {
 
 main::before {
     background:
-        radial-gradient(ellipse at 8% 8%, rgba(0, 191, 255, .13), transparent 22%),
-        radial-gradient(ellipse at 93% 25%, rgba(0, 92, 255, .13), transparent 24%),
-        radial-gradient(ellipse at 7% 47%, rgba(0, 221, 255, .09), transparent 20%),
-        radial-gradient(ellipse at 91% 68%, rgba(37, 86, 255, .12), transparent 23%),
-        radial-gradient(ellipse at 22% 88%, rgba(0, 194, 255, .09), transparent 20%),
-        linear-gradient(180deg, #020b13 0%, #010710 45%, #020912 74%, #01060b 100%);
+        linear-gradient(180deg, #020b13 0%, rgba(1, 8, 15, .18) 5%, rgba(1, 7, 13, .08) 92%, #01060b 100%) 0 0 / 100% 100% no-repeat,
+        radial-gradient(ellipse at 8% 8%, rgba(0, 191, 255, .14), transparent 22%) 0 0 / 100% 100% no-repeat,
+        radial-gradient(ellipse at 93% 25%, rgba(0, 92, 255, .13), transparent 24%) 0 0 / 100% 100% no-repeat,
+        radial-gradient(ellipse at 7% 47%, rgba(0, 221, 255, .09), transparent 20%) 0 0 / 100% 100% no-repeat,
+        radial-gradient(ellipse at 91% 68%, rgba(37, 86, 255, .12), transparent 23%) 0 0 / 100% 100% no-repeat,
+        url("../images/lower-space-bg.webp") center top / 100% auto repeat-y,
+        #01060b;
 }
 
 main::after {
@@ -5338,7 +5339,7 @@ main > section {
 .platforms {
     background:
         radial-gradient(circle at 71% 0%, rgba(0, 128, 255, .13), transparent 34%),
-        linear-gradient(180deg, rgba(3, 13, 22, .94), rgba(2, 10, 18, .68));
+        linear-gradient(180deg, rgba(3, 13, 22, .87), rgba(2, 10, 18, .48));
     box-shadow:
         0 -22px 80px rgba(0, 0, 0, .24),
         inset 0 1px rgba(125, 220, 255, .035);
@@ -5347,42 +5348,42 @@ main > section {
 .stats {
     background:
         linear-gradient(90deg, transparent, rgba(0, 181, 255, .035), transparent),
-        rgba(1, 8, 15, .62);
+        rgba(1, 8, 15, .4);
 }
 
 .services {
     background:
         radial-gradient(circle at 5% 36%, rgba(0, 163, 255, .11), transparent 28%),
-        linear-gradient(180deg, rgba(2, 9, 17, .56), rgba(2, 10, 18, .72));
+        linear-gradient(180deg, rgba(2, 9, 17, .38), rgba(2, 10, 18, .53));
 }
 
 .portfolio {
     background:
         radial-gradient(circle at 87% 20%, rgba(0, 122, 255, .14), transparent 30%),
-        linear-gradient(180deg, rgba(3, 12, 21, .74), rgba(1, 8, 15, .7));
+        linear-gradient(180deg, rgba(3, 12, 21, .52), rgba(1, 8, 15, .47));
 }
 
 .process {
     background:
         radial-gradient(circle at 9% 58%, rgba(0, 216, 255, .085), transparent 25%),
-        linear-gradient(180deg, rgba(1, 8, 15, .68), rgba(3, 11, 19, .7));
+        linear-gradient(180deg, rgba(1, 8, 15, .44), rgba(3, 11, 19, .48));
 }
 
 .about {
     background:
         radial-gradient(circle at 86% 27%, rgba(0, 122, 255, .12), transparent 28%),
-        linear-gradient(180deg, rgba(3, 11, 19, .7), rgba(1, 8, 15, .64));
+        linear-gradient(180deg, rgba(3, 11, 19, .48), rgba(1, 8, 15, .42));
 }
 
 .technologies {
-    background: linear-gradient(180deg, rgba(1, 8, 15, .62), rgba(2, 10, 18, .72));
+    background: linear-gradient(180deg, rgba(1, 8, 15, .4), rgba(2, 10, 18, .48));
 }
 
 .contacts {
     background:
         radial-gradient(circle at 78% 24%, rgba(0, 146, 255, .15), transparent 32%),
         radial-gradient(circle at 17% 83%, rgba(255, 23, 79, .035), transparent 20%),
-        linear-gradient(180deg, rgba(2, 10, 18, .7), rgba(1, 6, 11, .94));
+        linear-gradient(180deg, rgba(2, 10, 18, .48), rgba(1, 6, 11, .84));
 }
 
 .section-heading {
@@ -5997,6 +5998,12 @@ main > section {
 }
 
 @media (max-width: 768px) {
+    main::before {
+        background-position: 0 0, 0 0, 0 0, 0 0, 0 0, center top;
+        background-size: 100% 100%, 100% 100%, 100% 100%, 100% 100%, 100% 100%, auto 1900px;
+        background-repeat: no-repeat, no-repeat, no-repeat, no-repeat, no-repeat, repeat-y;
+    }
+
     main::after {
         opacity: .3;
         background-size: 109px 109px, 68px 68px, 68px 68px;
