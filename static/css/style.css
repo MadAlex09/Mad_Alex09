@@ -5275,6 +5275,22 @@ select {
 
 
 /* =========================================================
+   LABEL LAYOUT FIXES
+========================================================= */
+
+.service-card__meta > span,
+.service-card__meta a {
+    white-space: nowrap;
+}
+
+@media (min-width: 1025px) {
+    .service-card {
+        grid-template-columns: 70px 90px minmax(0, 1fr) 190px;
+    }
+}
+
+
+/* =========================================================
    LOWER CYBERSPACE EXPERIENCE
    One continuous atmosphere below the hero.
 ========================================================= */
