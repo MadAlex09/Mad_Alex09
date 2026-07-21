@@ -834,6 +834,8 @@ ul {
     bottom: -12%;
     width: min(1060px, 73vw);
     pointer-events: none;
+    user-select: none;
+    -webkit-user-select: none;
 }
 
 .hero-robot img {
@@ -841,6 +843,9 @@ ul {
     width: 100%;
     height: auto;
     object-fit: contain;
+    user-select: none;
+    -webkit-user-select: none;
+    -webkit-user-drag: none;
 }
 
 .hero__scroll {
