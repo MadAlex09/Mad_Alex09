@@ -1,9 +1,11 @@
-from datetime import datetime
+import hmac
 import os
-import sqlite3
 from pathlib import Path
+import sys
 
 from flask import Flask, jsonify, render_template, request
+
+from storage import create_database, save_request
 
 app = Flask(__name__)
 app.config["TEMPLATES_AUTO_RELOAD"] = True
@@ -11,54 +13,17 @@ app.config["SEND_FILE_MAX_AGE_DEFAULT"] = 0
 app.jinja_env.auto_reload = True
 
 BASE_DIR = Path(__file__).resolve().parent
-DATABASE_PATH = BASE_DIR / "requests.db"
+BOT_DIR = BASE_DIR / "telegram_bot"
+WEBHOOK_SECRET = os.getenv("TELEGRAM_WEBHOOK_SECRET", "").strip()
+BOT_ENABLED = all(
+    os.getenv(name, "").strip()
+    for name in ("TOKEN", "ADMIN_ID", "TELEGRAM_WEBHOOK_SECRET")
+)
 
-
-def create_database():
-    """Создаёт базу данных и таблицу заявок, если их ещё нет."""
-
-    with sqlite3.connect(DATABASE_PATH) as connection:
-        connection.execute(
-            """
-            CREATE TABLE IF NOT EXISTS requests
-            (
-                id         INTEGER PRIMARY KEY AUTOINCREMENT,
-                name       TEXT NOT NULL,
-                contact    TEXT NOT NULL,
-                service    TEXT,
-                budget     TEXT,
-                message    TEXT NOT NULL,
-                created_at TEXT NOT NULL
-            )
-            """
-        )
-
-
-def save_request(name, contact, service, budget, message):
-    """Сохраняет новую заявку в базу данных."""
-
-    with sqlite3.connect(DATABASE_PATH) as connection:
-        connection.execute(
-            """
-            INSERT INTO requests (
-                name,
-                contact,
-                service,
-                budget,
-                message,
-                created_at
-            )
-            VALUES (?, ?, ?, ?, ?, ?)
-            """,
-            (
-                name,
-                contact,
-                service,
-                budget,
-                message,
-                datetime.now().strftime("%d.%m.%Y %H:%M:%S"),
-            ),
-        )
+process_telegram_update = None
+if BOT_ENABLED:
+    sys.path.insert(0, str(BOT_DIR))
+    from webhook import process_update as process_telegram_update
 
 
 def error_response(message, status_code):
@@ -120,12 +85,44 @@ def send_request():
             }
         )
 
-    except (sqlite3.Error, TypeError, ValueError):
+    except Exception:
         app.logger.exception("Не удалось сохранить заявку")
         return error_response(
             "Произошла ошибка. Попробуйте отправить заявку ещё раз.",
             500,
         )
+
+
+@app.route("/telegram/webhook", methods=["POST"])
+def telegram_webhook():
+    """Принимает защищённые обновления Telegram Bot API."""
+
+    if not BOT_ENABLED or process_telegram_update is None:
+        return error_response("Telegram-бот пока не настроен.", 503)
+
+    supplied_secret = request.headers.get(
+        "X-Telegram-Bot-Api-Secret-Token",
+        "",
+    )
+    if not hmac.compare_digest(supplied_secret, WEBHOOK_SECRET):
+        return error_response("Доступ запрещён.", 403)
+
+    data = request.get_json(silent=True)
+    if not isinstance(data, dict) or "update_id" not in data:
+        return error_response("Некорректное обновление Telegram.", 400)
+
+    try:
+        process_telegram_update(data)
+    except Exception:
+        app.logger.exception("Не удалось обработать обновление Telegram")
+        return error_response("Не удалось обработать обновление.", 500)
+
+    return "", 204
+
+
+@app.route("/healthz")
+def healthcheck():
+    return jsonify({"status": "ok", "telegram": BOT_ENABLED})
 
 
 @app.errorhandler(404)
