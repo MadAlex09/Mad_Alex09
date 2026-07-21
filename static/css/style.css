@@ -290,6 +290,27 @@ ul {
     visibility: hidden;
 }
 
+.page-loader__brand {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.page-loader__mark {
+    width: clamp(64px, 9vw, 104px);
+    height: auto;
+    filter: drop-shadow(0 0 18px rgba(0, 234, 255, .34));
+    animation: loaderMarkPulse 1.8s ease-in-out infinite;
+}
+
+@keyframes loaderMarkPulse {
+    50% {
+        transform: translateY(-3px) scale(1.035);
+        filter: drop-shadow(0 0 28px rgba(0, 234, 255, .58));
+    }
+}
+
 .page-loader__logo {
     font-family: var(--font-title);
     font-size: clamp(32px, 6vw, 68px);
@@ -470,6 +491,25 @@ ul {
 }
 
 .logo {
+    display: inline-flex;
+    align-items: center;
+    gap: 11px;
+}
+
+.logo__mark {
+    width: 38px;
+    height: 38px;
+    flex: 0 0 auto;
+    filter: drop-shadow(0 0 10px rgba(0, 234, 255, .25));
+    transition: transform .35s ease, filter .35s ease;
+}
+
+.logo:hover .logo__mark {
+    transform: translateY(-1px) scale(1.045);
+    filter: drop-shadow(0 0 16px rgba(0, 234, 255, .5));
+}
+
+.logo__copy {
     display: inline-flex;
     flex-direction: column;
 }
@@ -2852,6 +2892,11 @@ ul {
         font-size: 20px;
     }
 
+    .logo__mark {
+        width: 34px;
+        height: 34px;
+    }
+
     .hero {
         padding-top: 125px;
         padding-bottom: 70px;
@@ -4456,6 +4501,11 @@ select {
 
     .logo__main {
         font-size: clamp(25px, 2.35vh, 32px);
+    }
+
+    .logo__mark {
+        width: clamp(40px, 3.8vh, 50px);
+        height: clamp(40px, 3.8vh, 50px);
     }
 
     .logo__sub {

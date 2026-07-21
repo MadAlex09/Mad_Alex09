@@ -23,6 +23,12 @@
     <title>MAD_ALEX — Digital Automation Lab</title>
 
     <link
+            rel="icon"
+            type="image/svg+xml"
+            href="{{ url_for('static', filename='images/mad-alex-mark.svg', v='20260722-5') }}"
+    >
+
+    <link
             rel="preconnect"
             href="https://fonts.googleapis.com"
     >
@@ -40,7 +46,7 @@
 
     <link
             rel="stylesheet"
-            href="{{ url_for('static', filename='css/style.css', v='20260722-4') }}"
+            href="{{ url_for('static', filename='css/style.css', v='20260722-5') }}"
     >
 </head>
 
@@ -50,8 +56,16 @@
 <div class="cursor-dot"></div>
 
 <div class="page-loader" id="pageLoader">
-    <div class="page-loader__logo">
-        MAD<span>_ALEX</span>
+    <div class="page-loader__brand">
+        <img
+                class="page-loader__mark"
+                src="{{ url_for('static', filename='images/mad-alex-mark.svg', v='20260722-5') }}"
+                alt=""
+        >
+
+        <div class="page-loader__logo">
+            MAD<span>_ALEX</span>
+        </div>
     </div>
 
     <div class="page-loader__line">
@@ -73,12 +87,20 @@
         <div class="container header__container">
 
             <a href="#home" class="logo" aria-label="MAD_ALEX">
-                <span class="logo__main">
-                    MAD<span class="logo__accent">_ALEX</span>
-                </span>
+                <img
+                        class="logo__mark"
+                        src="{{ url_for('static', filename='images/mad-alex-mark.svg', v='20260722-5') }}"
+                        alt=""
+                >
 
-                <span class="logo__sub">
-                    DIGITAL AUTOMATION LAB
+                <span class="logo__copy">
+                    <span class="logo__main">
+                        MAD<span class="logo__accent">_ALEX</span>
+                    </span>
+
+                    <span class="logo__sub">
+                        DIGITAL AUTOMATION LAB
+                    </span>
                 </span>
             </a>
 
@@ -1984,12 +2006,20 @@
             <div class="footer__top">
 
                 <a href="#home" class="logo">
-                    <span class="logo__main">
-                        MAD<span class="logo__accent">_ALEX</span>
-                    </span>
+                    <img
+                            class="logo__mark"
+                            src="{{ url_for('static', filename='images/mad-alex-mark.svg', v='20260722-5') }}"
+                            alt=""
+                    >
 
-                    <span class="logo__sub">
-                        DIGITAL AUTOMATION LAB
+                    <span class="logo__copy">
+                        <span class="logo__main">
+                            MAD<span class="logo__accent">_ALEX</span>
+                        </span>
+
+                        <span class="logo__sub">
+                            DIGITAL AUTOMATION LAB
+                        </span>
                     </span>
                 </a>
 
