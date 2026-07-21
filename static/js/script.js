@@ -1278,7 +1278,7 @@ function initContactForm() {
         if (submitText) {
             submitText.textContent = isLoading
                 ? "Отправляем..."
-                : "Отправить заявку";
+                : "Отправить идею";
         }
 
         submitButton.style.opacity =
