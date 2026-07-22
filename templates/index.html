@@ -46,7 +46,7 @@
 
     <link
             rel="stylesheet"
-            href="{{ url_for('static', filename='css/style.css', v='20260722-11') }}"
+            href="{{ url_for('static', filename='css/style.css', v='20260722-12') }}"
     >
 </head>
 
@@ -797,70 +797,20 @@
 
                         <article class="project-card">
 
-                            <div class="project-card__visual project-card__visual--booking">
+                            <div class="project-card__visual project-card__visual--booking project-card__visual--showcase">
 
-                                <div class="telegram-showcase" aria-label="Демонстрация Telegram-бота бронирования">
+                                <img
+                                        class="game-bot-showcase__image"
+                                        src="{{ url_for('static', filename='images/game-club-bot-showcase.png', v='20260722-3') }}"
+                                        alt="Презентация Telegram-бота Game Club с интерфейсом бронирования и роботом"
+                                        loading="lazy"
+                                >
 
-                                    <div class="telegram-phone">
-                                        <div class="telegram-phone__header">
-                                            <span class="telegram-phone__back" aria-hidden="true">‹</span>
-                                            <span class="telegram-phone__avatar" aria-hidden="true">GC</span>
-                                            <div>
-                                                <strong>GAME CLUB BOT</strong>
-                                                <small>bot · online</small>
-                                            </div>
-                                            <span class="telegram-phone__menu" aria-hidden="true">⋮</span>
-                                        </div>
+                                <div class="game-bot-showcase__overlay" aria-hidden="true"></div>
 
-                                        <div class="telegram-phone__chat">
-                                            <span class="telegram-phone__date">Сегодня</span>
-
-                                            <div class="telegram-message telegram-message--bot">
-                                                <small>GAME CLUB BOT</small>
-                                                <p>🎮 Выберите зал:</p>
-                                                <div class="telegram-message__buttons">
-                                                    <span>🖥 Общий зал</span>
-                                                    <span>👑 VIP-зал</span>
-                                                </div>
-                                            </div>
-
-                                            <div class="telegram-message telegram-message--user">
-                                                Общий зал
-                                            </div>
-
-                                            <div class="telegram-message telegram-message--bot telegram-message--result">
-                                                <small>GAME CLUB BOT</small>
-                                                <p>✅ Бронь создана</p>
-                                                <span>ПК-07 · Сегодня · 14:00</span>
-                                            </div>
-                                        </div>
-
-                                        <div class="telegram-phone__input">
-                                            <span>Сообщение</span>
-                                            <i aria-hidden="true">➤</i>
-                                        </div>
-                                    </div>
-
-                                    <aside class="booking-flow" aria-label="Сценарий бронирования">
-                                        <div class="booking-flow__status">
-                                            <i aria-hidden="true"></i>
-                                            <span>BOT ONLINE</span>
-                                        </div>
-
-                                        <strong>BOOKING FLOW</strong>
-
-                                        <ol>
-                                            <li class="is-complete"><span>01</span>Регистрация</li>
-                                            <li class="is-complete"><span>02</span>Зал и компьютер</li>
-                                            <li class="is-active"><span>03</span>Дата и время</li>
-                                            <li><span>04</span>Подтверждение</li>
-                                        </ol>
-
-                                        <div class="booking-flow__stats">
-                                            <span><b>20</b> COMMON PC</span>
-                                            <span><b>5</b> VIP PC</span>
-                                        </div>
-                                    </aside>
+                                <div class="game-bot-showcase__badge">
+                                    <span class="status-dot"></span>
+                                    Telegram Bot · Online
                                 </div>
 
                             </div>
@@ -882,44 +832,48 @@
                                 </h3>
 
                                 <p>
-                                    Рабочий прототип для игрового клуба:
+                                    Рабочий Telegram-бот для игрового клуба:
                                     регистрация клиента, выбор обычного или VIP-зала,
-                                    компьютера, времени и автоматическое уведомление
-                                    администратора о новой брони.
+                                    конкретного ПК, даты и времени, проверка занятости
+                                    и автоматическое уведомление администратора.
                                 </p>
 
                                 <div class="project-card__tags">
-                                    <span>
-                                        Python
-                                    </span>
-
-                                    <span>
-                                        Aiogram
-                                    </span>
-
-                                    <span>
-                                        SQLite
-                                    </span>
-
-                                    <span>
-                                        Telegram API
-                                    </span>
-
-                                    <span>
-                                        FSM
-                                    </span>
+                                    <span>Python</span>
+                                    <span>Aiogram 3</span>
+                                    <span>Webhook</span>
+                                    <span>Neon PostgreSQL</span>
+                                    <span>Render</span>
                                 </div>
 
-                                <button
-                                        class="project-card__button open-project-modal"
-                                        type="button"
-                                        data-project="booking"
-                                >
-                                    Подробнее о боте
-                                    <span>
-                                        ↗
-                                    </span>
-                                </button>
+                                <div class="project-card__actions">
+                                    <button
+                                            class="project-card__button project-card__button--video open-project-modal"
+                                            type="button"
+                                            data-project="booking"
+                                    >
+                                        <span class="project-card__button-icon">▶</span>
+                                        Смотреть демо
+                                        <span>↗</span>
+                                    </button>
+
+                                    <a
+                                            class="project-card__button project-card__button--telegram"
+                                            href="https://t.me/MadSanya_bot"
+                                            target="_blank"
+                                            rel="noopener noreferrer"
+                                            data-telegram-bot-link
+                                            title="Открыть @MadSanya_bot в Telegram"
+                                    >
+                                        Открыть Telegram
+                                        <span>↗</span>
+                                    </a>
+                                </div>
+
+                                <p class="project-card__telegram-note">
+                                    <span class="status-dot"></span>
+                                    Бот доступен для живого тестирования
+                                </p>
 
                             </div>
 
@@ -2099,6 +2053,35 @@
             Описание проекта.
         </p>
 
+        <div class="modal-video" id="modalVideoBlock" hidden>
+            <div class="modal-video__topline">
+                <span><i></i> VIDEO DEMO</span>
+                <span>00:42</span>
+            </div>
+
+            <div class="modal-video__frame">
+                <video
+                        id="modalProjectVideo"
+                        preload="metadata"
+                        playsinline
+                        controls
+                        poster="{{ url_for('static', filename='images/game-club-video-poster.jpg', v='20260722-1') }}"
+                >
+                    <source
+                            src="{{ url_for('static', filename='videos/game-club-booking-demo.mp4', v='20260722-1') }}"
+                            type="video/mp4"
+                    >
+                    Ваш браузер не поддерживает воспроизведение видео.
+                </video>
+
+                <button class="modal-video__play" id="modalVideoPlay" type="button" aria-label="Воспроизвести демонстрацию">
+                    <span>▶</span>
+                    <strong>Смотреть демо</strong>
+                    <small>Работа бота от регистрации до бронирования</small>
+                </button>
+            </div>
+        </div>
+
         <div class="modal__columns">
 
             <div>
@@ -2120,6 +2103,28 @@
                 ></div>
             </div>
 
+        </div>
+
+        <div class="modal-live-bot" id="modalLiveBot">
+            <div class="modal-live-bot__status">
+                <span class="status-dot"></span>
+                LIVE BOT
+            </div>
+            <div class="modal-live-bot__content">
+                <div>
+                    <strong>Попробуйте бота прямо сейчас</strong>
+                    <p>Откройте рабочую версию проекта в Telegram и пройдите путь бронирования самостоятельно.</p>
+                </div>
+                <a
+                        href="https://t.me/MadSanya_bot"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="button button--telegram"
+                >
+                    Открыть @MadSanya_bot
+                    <span class="button__arrow">↗</span>
+                </a>
+            </div>
         </div>
 
         <a href="#contacts" class="button button--primary" data-close-modal>
@@ -2184,7 +2189,7 @@
 </div>
 
 
-<script src="{{ url_for('static', filename='js/script.js', v='20260722-7') }}"></script>
+<script src="{{ url_for('static', filename='js/script.js', v='20260722-8') }}"></script>
 
 </body>
 </html>

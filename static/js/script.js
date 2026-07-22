@@ -931,6 +931,15 @@ function initProjectModal() {
     const modalTags =
         document.getElementById("modalTags");
 
+    const modalVideoBlock =
+        document.getElementById("modalVideoBlock");
+
+    const modalProjectVideo =
+        document.getElementById("modalProjectVideo");
+
+    const modalVideoPlay =
+        document.getElementById("modalVideoPlay");
+
     const projects = {
         booking: {
             index: "WORKING PROTOTYPE / 01",
@@ -942,7 +951,7 @@ function initProjectModal() {
                 "Выбор общего зала на 20 ПК или VIP-зала на 5 мест",
                 "Выбор компьютера, длительности, даты и времени",
                 "Проверка занятости выбранного слота",
-                "Хранение пользователей и броней в SQLite",
+                "Хранение пользователей и броней в Neon PostgreSQL",
                 "Мгновенное уведомление администратора",
                 "Админ-панель со списком и удалением броней",
                 "Разделы с прайсом, магазином, адресом и поддержкой"
@@ -950,10 +959,12 @@ function initProjectModal() {
             tags: [
                 "Python",
                 "Aiogram 3",
-                "SQLite",
-                "Telegram API",
-                "FSM"
-            ]
+                "Webhook",
+                "Neon PostgreSQL",
+                "Render",
+                "Telegram API"
+            ],
+            video: true
         },
 
         website: {
@@ -1050,14 +1061,48 @@ function initProjectModal() {
             });
         }
 
+        if (modalVideoBlock) {
+            modalVideoBlock.hidden = !project.video;
+        }
+
+        if (modalProjectVideo && !project.video) {
+            modalProjectVideo.pause();
+            modalProjectVideo.currentTime = 0;
+        }
+
+        modal.classList.toggle("modal--with-video", Boolean(project.video));
         modal.classList.add("is-open");
         document.body.classList.add("modal-open");
     };
 
     const closeModal = () => {
+        if (modalProjectVideo) {
+            modalProjectVideo.pause();
+        }
+
         modal.classList.remove("is-open");
         document.body.classList.remove("modal-open");
     };
+
+    if (modalVideoPlay && modalProjectVideo) {
+        modalVideoPlay.addEventListener("click", () => {
+            modalProjectVideo.play();
+        });
+
+        modalProjectVideo.addEventListener("play", () => {
+            modalVideoPlay.classList.add("is-hidden");
+        });
+
+        modalProjectVideo.addEventListener("pause", () => {
+            if (!modalProjectVideo.ended) {
+                modalVideoPlay.classList.remove("is-hidden");
+            }
+        });
+
+        modalProjectVideo.addEventListener("ended", () => {
+            modalVideoPlay.classList.remove("is-hidden");
+        });
+    }
 
     openButtons.forEach((button) => {
         button.addEventListener("click", () => {
