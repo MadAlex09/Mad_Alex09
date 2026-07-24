@@ -1,4 +1,5 @@
 import hmac
+import logging
 import os
 from pathlib import Path
 import sys
@@ -12,8 +13,15 @@ app.config["TEMPLATES_AUTO_RELOAD"] = True
 app.config["SEND_FILE_MAX_AGE_DEFAULT"] = 0
 app.jinja_env.auto_reload = True
 
+logging.basicConfig(
+    level=os.getenv("LOG_LEVEL", "INFO").upper(),
+    format="%(asctime)s | %(levelname)s | %(name)s | %(message)s",
+)
+logger = logging.getLogger(__name__)
+
 BASE_DIR = Path(__file__).resolve().parent
 BOT_DIR = BASE_DIR / "telegram_bot"
+WEBHOOK_PATH = "/telegram/webhook"
 WEBHOOK_SECRET = os.getenv("TELEGRAM_WEBHOOK_SECRET", "").strip()
 BOT_ENABLED = all(
     os.getenv(name, "").strip()
@@ -21,31 +29,31 @@ BOT_ENABLED = all(
 )
 
 process_telegram_update = None
+BOT_IMPORT_ERROR = None
 if BOT_ENABLED:
-    sys.path.insert(0, str(BOT_DIR))
-    from webhook import process_update as process_telegram_update
+    try:
+        sys.path.insert(0, str(BOT_DIR))
+        from webhook import process_update as process_telegram_update
+    except Exception as error:  # startup diagnostics are exposed via /healthz
+        BOT_IMPORT_ERROR = str(error)
+        logger.exception("Не удалось загрузить Telegram-бота")
 
 
 def error_response(message, status_code):
     """Возвращает единый JSON-ответ об ошибке."""
-
     return jsonify({"success": False, "message": message}), status_code
 
 
 @app.route("/")
 def home():
-    """Главная страница сайта."""
-
     return render_template("index.html")
 
 
 @app.route("/send-request", methods=["POST"])
 def send_request():
-    """Получает заявку из формы и сохраняет её в SQLite."""
-
+    """Получает заявку из формы и сохраняет её."""
     try:
         data = request.get_json(silent=True)
-
         if not data:
             return error_response("Не удалось получить данные формы.", 400)
 
@@ -58,58 +66,58 @@ def send_request():
 
         if len(name) < 2:
             return error_response("Введите ваше имя." if lang == "ru" else "Please enter your name.", 400)
-
         if len(contact) < 3:
             return error_response(
-                "Введите Telegram, телефон или электронную почту." if lang == "ru" else "Enter your Telegram, phone number, or email.",
+                "Введите Telegram, телефон или электронную почту."
+                if lang == "ru"
+                else "Enter your Telegram, phone number, or email.",
                 400,
             )
-
         if len(message) < 5:
             return error_response(
-                "Расскажите немного подробнее о вашем проекте." if lang == "ru" else "Please tell me a little more about your project.",
+                "Расскажите немного подробнее о вашем проекте."
+                if lang == "ru"
+                else "Please tell me a little more about your project.",
                 400,
             )
 
-        save_request(
-            name=name,
-            contact=contact,
-            service=service,
-            budget=budget,
-            message=message,
-        )
-
+        save_request(name=name, contact=contact, service=service, budget=budget, message=message)
         return jsonify(
             {
                 "success": True,
-                "message": ("Заявка успешно отправлена! Я свяжусь с вами в ближайшее время." if lang == "ru" else "Your request has been sent successfully! I will contact you shortly."),
+                "message": (
+                    "Заявка успешно отправлена! Я свяжусь с вами в ближайшее время."
+                    if lang == "ru"
+                    else "Your request has been sent successfully! I will contact you shortly."
+                ),
             }
         )
-
     except Exception:
         app.logger.exception("Не удалось сохранить заявку")
         return error_response(
-            "Произошла ошибка. Попробуйте отправить заявку ещё раз." if locals().get("lang") == "ru" else "An error occurred. Please try sending the request again.",
+            "Произошла ошибка. Попробуйте отправить заявку ещё раз."
+            if locals().get("lang") == "ru"
+            else "An error occurred. Please try sending the request again.",
             500,
         )
 
 
-@app.route("/telegram/webhook", methods=["POST"])
-def telegram_webhook():
-    """Принимает защищённые обновления Telegram Bot API."""
-
-    if not BOT_ENABLED or process_telegram_update is None:
+def _telegram_webhook_post():
+    if not BOT_ENABLED:
+        logger.error("Webhook вызван, но не заданы TOKEN, ADMIN_ID или TELEGRAM_WEBHOOK_SECRET")
         return error_response("Telegram-бот пока не настроен.", 503)
+    if process_telegram_update is None:
+        logger.error("Webhook вызван, но модуль бота не загрузился: %s", BOT_IMPORT_ERROR)
+        return error_response("Telegram-бот не удалось загрузить.", 503)
 
-    supplied_secret = request.headers.get(
-        "X-Telegram-Bot-Api-Secret-Token",
-        "",
-    )
+    supplied_secret = request.headers.get("X-Telegram-Bot-Api-Secret-Token", "")
     if not hmac.compare_digest(supplied_secret, WEBHOOK_SECRET):
+        logger.warning("Отклонён webhook Telegram: неверный secret_token")
         return error_response("Доступ запрещён.", 403)
 
     data = request.get_json(silent=True)
     if not isinstance(data, dict) or "update_id" not in data:
+        logger.warning("Получено некорректное обновление Telegram")
         return error_response("Некорректное обновление Telegram.", 400)
 
     try:
@@ -121,9 +129,34 @@ def telegram_webhook():
     return "", 204
 
 
+# Канонический маршрут и совместимость со старыми адресами,
+# которые могли быть ранее установлены через setWebhook.
+@app.route(WEBHOOK_PATH, methods=["GET", "POST"])
+@app.route("/telegram-webhook", methods=["GET", "POST"])
+@app.route("/webhook", methods=["GET", "POST"])
+def telegram_webhook():
+    if request.method == "GET":
+        return jsonify(
+            {
+                "status": "ok",
+                "telegram": BOT_ENABLED and process_telegram_update is not None,
+                "webhook_path": WEBHOOK_PATH,
+            }
+        )
+    return _telegram_webhook_post()
+
+
 @app.route("/healthz")
 def healthcheck():
-    return jsonify({"status": "ok", "telegram": BOT_ENABLED})
+    return jsonify(
+        {
+            "status": "ok",
+            "telegram_configured": BOT_ENABLED,
+            "telegram_loaded": process_telegram_update is not None,
+            "webhook_path": WEBHOOK_PATH,
+            "bot_import_error": BOT_IMPORT_ERROR,
+        }
+    )
 
 
 @app.errorhandler(404)
