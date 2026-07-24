@@ -11,6 +11,7 @@
 ========================================================= */
 
 document.addEventListener("DOMContentLoaded", () => {
+    initI18n();
     initPageLoader();
     initHeader();
     initMobileMenu();
@@ -28,6 +29,67 @@ document.addEventListener("DOMContentLoaded", () => {
     initPremiumHeroEffects();
 });
 
+
+
+/* =========================================================
+   LANGUAGE SWITCHER — ENGLISH FIRST
+========================================================= */
+let currentLanguage = "en";
+
+function t(en, ru) {
+    return currentLanguage === "ru" ? ru : en;
+}
+
+function initI18n() {
+    const savedLanguage = localStorage.getItem("madAlexLanguage");
+    currentLanguage = savedLanguage === "ru" ? "ru" : "en";
+
+    const applyLanguage = (language) => {
+        currentLanguage = language === "ru" ? "ru" : "en";
+        localStorage.setItem("madAlexLanguage", currentLanguage);
+        document.documentElement.lang = currentLanguage;
+
+        const dictionaries = window.MAD_ALEX_I18N || {};
+        const dictionary = dictionaries[currentLanguage] || dictionaries.en || {};
+
+        document.querySelectorAll("[data-i18n]").forEach((element) => {
+            const key = element.dataset.i18n;
+            if (dictionary[key] !== undefined) element.textContent = dictionary[key];
+        });
+
+        document.querySelectorAll("[data-i18n-attr]").forEach((element) => {
+            element.dataset.i18nAttr.split(";").forEach((item) => {
+                const [attribute, key] = item.split(":");
+                if (attribute && dictionary[key] !== undefined) element.setAttribute(attribute, dictionary[key]);
+            });
+        });
+
+        document.querySelectorAll("[data-language]").forEach((button) => {
+            const active = button.dataset.language === currentLanguage;
+            button.classList.toggle("is-active", active);
+            button.setAttribute("aria-pressed", String(active));
+        });
+
+        document.title = currentLanguage === "ru"
+            ? "MAD_ALEX — Боты, сайты и автоматизация"
+            : "MAD_ALEX — Bots, Websites & Automation";
+
+        const description = document.querySelector('meta[name="description"]');
+        if (description) {
+            description.content = currentLanguage === "ru"
+                ? "MAD_ALEX — боты, сайты и автоматизация под конкретные задачи. От идеи до первой рабочей версии без лишней сложности."
+                : "MAD_ALEX — custom bots, websites, and automation solutions. From idea to the first working version.";
+        }
+
+        document.dispatchEvent(new CustomEvent("languageChanged", { detail: { language: currentLanguage } }));
+    };
+
+    document.querySelectorAll("[data-language]").forEach((button) => {
+        button.addEventListener("click", () => applyLanguage(button.dataset.language));
+    });
+
+    applyLanguage(currentLanguage);
+}
 
 /* =========================================================
    PAGE LOADER
@@ -105,14 +167,14 @@ function initMobileMenu() {
         menuButton.classList.add("is-active");
         mobileMenu.classList.add("is-open");
         document.body.classList.add("menu-open");
-        menuButton.setAttribute("aria-label", "Закрыть меню");
+        menuButton.setAttribute("aria-label", t("Close menu", "Закрыть меню"));
     };
 
     const closeMenu = () => {
         menuButton.classList.remove("is-active");
         mobileMenu.classList.remove("is-open");
         document.body.classList.remove("menu-open");
-        menuButton.setAttribute("aria-label", "Открыть меню");
+        menuButton.setAttribute("aria-label", t("Open menu", "Открыть меню"));
     };
 
     menuButton.addEventListener("click", () => {
@@ -943,81 +1005,50 @@ function initProjectModal() {
     const projects = {
         booking: {
             index: "WORKING PROTOTYPE / 01",
-            title: "Game Club Booking Bot",
-            description:
-                "Telegram-бот для бронирования игровых компьютеров. Клиент регистрируется, выбирает обычный или VIP-зал, конкретное место, длительность, дату и время. Бот проверяет выбранный слот, сохраняет бронь и сразу уведомляет администратора.",
-            features: [
-                "Регистрация клиента по имени и номеру телефона",
-                "Выбор общего зала на 20 ПК или VIP-зала на 5 мест",
-                "Выбор компьютера, длительности, даты и времени",
-                "Проверка занятости выбранного слота",
-                "Хранение пользователей и броней в Neon PostgreSQL",
-                "Мгновенное уведомление администратора",
-                "Админ-панель со списком и удалением броней",
-                "Разделы с прайсом, магазином, адресом и поддержкой"
-            ],
-            tags: [
-                "Python",
-                "Aiogram 3",
-                "Webhook",
-                "Neon PostgreSQL",
-                "Render",
-                "Telegram API"
-            ],
+            title: { en: "Game Club Booking Bot", ru: "Game Club Booking Bot" },
+            description: {
+                en: "A Telegram bot for booking gaming PCs. Users register, choose a standard or VIP room, select a PC, duration, date and time. The bot checks availability, saves the booking, and instantly notifies the administrator.",
+                ru: "Telegram-бот для бронирования игровых компьютеров. Клиент регистрируется, выбирает обычный или VIP-зал, конкретное место, длительность, дату и время. Бот проверяет выбранный слот, сохраняет бронь и сразу уведомляет администратора."
+            },
+            features: {
+                en: ["User registration by name and phone number", "Standard room with 20 PCs or VIP room with 5 seats", "PC, duration, date, and time selection", "Booking availability checks", "Users and bookings stored in Neon PostgreSQL", "Instant administrator notifications", "Admin tools for viewing and deleting bookings", "Pricing, store, address, and support sections"],
+                ru: ["Регистрация клиента по имени и номеру телефона", "Выбор общего зала на 20 ПК или VIP-зала на 5 мест", "Выбор компьютера, длительности, даты и времени", "Проверка занятости выбранного слота", "Хранение пользователей и броней в Neon PostgreSQL", "Мгновенное уведомление администратора", "Админ-инструменты со списком и удалением броней", "Разделы с прайсом, магазином, адресом и поддержкой"]
+            },
+            tags: ["Python", "Aiogram 3", "Webhook", "Neon PostgreSQL", "Render", "Telegram API"],
             video: true
         },
-
         website: {
             index: "LIVE PROJECT / 02",
-            title: "Сайт-портфолио MAD_ALEX",
-            description:
-                "Рабочий адаптивный сайт для презентации услуг разработчика. Он содержит анимации, портфолио, форму заявки, базу данных и серверную часть на Flask.",
-            features: [
-                "Адаптивный дизайн",
-                "Неоновая стилистика",
-                "Анимации появления",
-                "Слайдер проектов",
-                "Модальные окна",
-                "Форма отправки заявки",
-                "Сохранение заявок в SQLite",
-                "Flask backend",
-                "Подготовка к размещению на Render"
-            ],
-            tags: [
-                "Flask",
-                "HTML5",
-                "CSS3",
-                "JavaScript",
-                "SQLite"
-            ]
+            title: { en: "MAD_ALEX Portfolio Website", ru: "Сайт-портфолио MAD_ALEX" },
+            description: {
+                en: "A responsive website for presenting development services, featuring animations, a portfolio, contact form, database, and Flask backend.",
+                ru: "Рабочий адаптивный сайт для презентации услуг разработчика. Он содержит анимации, портфолио, форму заявки, базу данных и серверную часть на Flask."
+            },
+            features: {
+                en: ["Responsive design", "Neon visual style", "Reveal animations", "Project slider", "Modal windows", "Contact request form", "Requests stored in SQLite", "Flask backend", "Prepared for Render deployment"],
+                ru: ["Адаптивный дизайн", "Неоновая стилистика", "Анимации появления", "Слайдер проектов", "Модальные окна", "Форма отправки заявки", "Сохранение заявок в SQLite", "Flask backend", "Подготовка к размещению на Render"]
+            },
+            tags: ["Flask", "HTML5", "CSS3", "JavaScript", "SQLite"]
         },
-
         automation: {
             index: "DEMO / 03",
-            title: "Система автоматизации процессов",
-            description:
-                "Демонстрационная система для объединения нескольких сервисов в единый рабочий процесс. Она показывает, как получать данные по API, сохранять их в базе и передавать результат боту или веб-интерфейсу.",
-            features: [
-                "Интеграция внешних API",
-                "Автоматическая обработка данных",
-                "Работа по расписанию",
-                "Сохранение результатов",
-                "Telegram-уведомления",
-                "Логирование операций",
-                "Обработка ошибок",
-                "Веб-интерфейс управления"
-            ],
-            tags: [
-                "Python",
-                "REST API",
-                "SQLite",
-                "Automation",
-                "Flask"
-            ]
+            title: { en: "Process Automation System", ru: "Система автоматизации процессов" },
+            description: {
+                en: "A demonstration system that combines several services into one workflow: receiving data through an API, saving it to a database, and sending the result to a bot or web interface.",
+                ru: "Демонстрационная система для объединения нескольких сервисов в единый рабочий процесс. Она показывает, как получать данные по API, сохранять их в базе и передавать результат боту или веб-интерфейсу."
+            },
+            features: {
+                en: ["External API integration", "Automatic data processing", "Scheduled execution", "Result storage", "Telegram notifications", "Operation logging", "Error handling", "Web control interface"],
+                ru: ["Интеграция внешних API", "Автоматическая обработка данных", "Работа по расписанию", "Сохранение результатов", "Telegram-уведомления", "Логирование операций", "Обработка ошибок", "Веб-интерфейс управления"]
+            },
+            tags: ["Python", "REST API", "SQLite", "Automation", "Flask"]
         }
     };
 
+    let activeProjectKey = null;
+
     const openModal = (projectKey) => {
+        activeProjectKey = projectKey;
         const project = projects[projectKey];
 
         if (!project) {
@@ -1029,18 +1060,18 @@ function initProjectModal() {
         }
 
         if (modalTitle) {
-            modalTitle.textContent = project.title;
+            modalTitle.textContent = project.title[currentLanguage] || project.title.en;
         }
 
         if (modalDescription) {
             modalDescription.textContent =
-                project.description;
+                project.description[currentLanguage] || project.description.en;
         }
 
         if (modalFeatures) {
             modalFeatures.innerHTML = "";
 
-            project.features.forEach((feature) => {
+            (project.features[currentLanguage] || project.features.en).forEach((feature) => {
                 const listItem =
                     document.createElement("li");
 
@@ -1082,6 +1113,7 @@ function initProjectModal() {
 
         modal.classList.remove("is-open");
         document.body.classList.remove("modal-open");
+        activeProjectKey = null;
     };
 
     if (modalVideoPlay && modalProjectVideo) {
@@ -1103,6 +1135,12 @@ function initProjectModal() {
             modalVideoPlay.classList.remove("is-hidden");
         });
     }
+
+    document.addEventListener("languageChanged", () => {
+        if (activeProjectKey && modal.classList.contains("is-open")) {
+            openModal(activeProjectKey);
+        }
+    });
 
     openButtons.forEach((button) => {
         button.addEventListener("click", () => {
@@ -1308,7 +1346,7 @@ function initContactForm() {
 
         if (!isValid) {
             showFormMessage(
-                "Проверьте заполнение обязательных полей.",
+                t("Please check the required fields.", "Проверьте заполнение обязательных полей."),
                 "error"
             );
         }
@@ -1321,8 +1359,8 @@ function initContactForm() {
 
         if (submitText) {
             submitText.textContent = isLoading
-                ? "Отправляем..."
-                : "Отправить идею";
+                ? t("Sending...", "Отправляем...")
+                : t("Send request", "Отправить идею");
         }
 
         submitButton.style.opacity =
@@ -1387,7 +1425,9 @@ function initContactForm() {
 
             message:
                 formData.get("message")?.toString().trim() ||
-                ""
+                "",
+
+            lang: currentLanguage
         };
 
         try {
@@ -1412,13 +1452,13 @@ function initContactForm() {
                 throw new Error(
                     result.message ||
                     result.error ||
-                    "Не удалось отправить заявку."
+                    t("Could not send the request.", "Не удалось отправить заявку.")
                 );
             }
 
             const successMessage =
                 result.message ||
-                "Спасибо! Я свяжусь с вами в ближайшее время.";
+                t("Thank you! I will contact you shortly.", "Спасибо! Я свяжусь с вами в ближайшее время.");
 
             showFormMessage(
                 successMessage,
@@ -1430,13 +1470,13 @@ function initContactForm() {
             form.reset();
         } catch (error) {
             console.error(
-                "Ошибка отправки формы:",
+                t("Form submission error:", "Ошибка отправки формы:"),
                 error
             );
 
             showFormMessage(
                 error.message ||
-                "Произошла ошибка. Попробуйте ещё раз.",
+                t("An error occurred. Please try again.", "Произошла ошибка. Попробуйте ещё раз."),
                 "error"
             );
         } finally {

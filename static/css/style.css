@@ -7400,3 +7400,33 @@ main > section {
         padding-inline: 14px;
     }
 }
+
+
+/* =========================================================
+   LANGUAGE SWITCHER
+========================================================= */
+.language-switch {
+    display: inline-flex;
+    min-height: 38px;
+    align-items: center;
+    gap: 7px;
+    padding: 0 11px;
+    border: 1px solid rgba(0, 234, 255, 0.2);
+    background: rgba(0, 234, 255, 0.035);
+    color: var(--text-muted);
+    font-family: var(--font-title);
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+}
+.language-switch__button { color: var(--text-muted); transition: color .25s ease, text-shadow .25s ease; }
+.language-switch__button:hover,
+.language-switch__button.is-active { color: var(--accent); text-shadow: 0 0 12px rgba(0, 234, 255, .7); }
+.language-switch--mobile { width: fit-content; margin-bottom: 12px; }
+@media (max-width: 1180px) {
+    .header__actions .button--small { display: none; }
+}
+@media (max-width: 1024px) {
+    .header__actions .language-switch { display: none; }
+    .language-switch--mobile { display: inline-flex; }
+}

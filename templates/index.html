@@ -1,1409 +1,958 @@
 <!DOCTYPE html>
-<html lang="ru">
+
+<html lang="en">
 <head>
-    <meta charset="UTF-8">
-
-    <meta
-            name="viewport"
-            content="width=device-width, initial-scale=1.0"
-    >
-
-    <meta
-            name="description"
-            content="MAD_ALEX — боты, сайты и автоматизация под конкретные задачи. От идеи до первой рабочей версии без лишней сложности."
-    >
-
-    <meta
-            name="keywords"
-            content="Telegram бот, Discord бот, WhatsApp бот, разработка сайтов, автоматизация, оптимизация, MAD_ALEX"
-    >
-
-    <meta name="author" content="MAD_ALEX">
-
-    <title>MAD_ALEX — Digital Automation Lab</title>
-
-    <link
-            rel="icon"
-            type="image/svg+xml"
-            href="{{ url_for('static', filename='images/mad-alex-mark.svg', v='20260722-5') }}"
-    >
-
-    <link
-            rel="preconnect"
-            href="https://fonts.googleapis.com"
-    >
-
-    <link
-            rel="preconnect"
-            href="https://fonts.gstatic.com"
-            crossorigin
-    >
-
-    <link
-            href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Unbounded:wght@500;600;700;800&display=swap"
-            rel="stylesheet"
-    >
-
-    <link
-            rel="stylesheet"
-            href="{{ url_for('static', filename='css/style.css', v='20260722-12') }}"
-    >
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<meta content="MAD_ALEX — custom bots, websites, and automation solutions. From idea to the first working version without unnecessary complexity." data-i18n-attr="content:a154" name="description"/>
+<meta content="Telegram bot, Discord bot, WhatsApp bot, web development, automation, optimization, MAD_ALEX" data-i18n-attr="content:a155" name="keywords"/>
+<meta content="MAD_ALEX" name="author"/>
+<title>MAD_ALEX — Digital Automation Lab</title>
+<link href="{{ url_for('static', filename='images/mad-alex-mark.svg', v='20260722-5') }}" rel="icon" type="image/svg+xml"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&amp;family=Unbounded:wght@500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="{{ url_for('static', filename='css/style.css', v='20260722-12') }}" rel="stylesheet"/>
 </head>
-
 <body>
-
 <div class="cursor-glow"></div>
 <div class="cursor-dot"></div>
-
 <div class="page-loader" id="pageLoader">
-    <div class="page-loader__brand">
-        <img
-                class="page-loader__mark"
-                src="{{ url_for('static', filename='images/mad-alex-mark.svg', v='20260722-5') }}"
-                alt=""
-        >
-
-        <div class="page-loader__logo">
+<div class="page-loader__brand">
+<img alt="" class="page-loader__mark" src="{{ url_for('static', filename='images/mad-alex-mark.svg', v='20260722-5') }}"/>
+<div class="page-loader__logo">
             MAD<span>_ALEX</span>
-        </div>
-    </div>
-
-    <div class="page-loader__line">
-        <div class="page-loader__progress"></div>
-    </div>
-
-    <div class="page-loader__text">
+</div>
+</div>
+<div class="page-loader__line">
+<div class="page-loader__progress"></div>
+</div>
+<div class="page-loader__text">
         DIGITAL AUTOMATION LAB
     </div>
 </div>
-
 <div class="page-shell">
-
-    <!-- =========================================================
+<!-- =========================================================
          HEADER
     ========================================================== -->
-
-    <header class="header" id="header">
-        <div class="container header__container">
-
-            <a href="#home" class="logo" aria-label="MAD_ALEX">
-                <img
-                        class="logo__mark"
-                        src="{{ url_for('static', filename='images/mad-alex-mark.svg', v='20260722-5') }}"
-                        alt=""
-                >
-
-                <span class="logo__copy">
-                    <span class="logo__main">
+<header class="header" id="header">
+<div class="container header__container">
+<a aria-label="MAD_ALEX" class="logo" href="#home">
+<img alt="" class="logo__mark" src="{{ url_for('static', filename='images/mad-alex-mark.svg', v='20260722-5') }}"/>
+<span class="logo__copy">
+<span class="logo__main">
                         MAD<span class="logo__accent">_ALEX</span>
-                    </span>
-
-                    <span class="logo__sub">
+</span>
+<span class="logo__sub">
                         DIGITAL AUTOMATION LAB
                     </span>
-                </span>
-            </a>
-
-            <nav class="nav" id="desktopNav">
-                <a href="#services" class="nav__link">
-                    Услуги
+</span>
+</a>
+<nav class="nav" id="desktopNav">
+<a class="nav__link" data-i18n="t1" href="#services">
+                    Services
                 </a>
-
-                <a href="#portfolio" class="nav__link">
-                    Проекты
+<a class="nav__link" data-i18n="t2" href="#portfolio">
+                    Projects
                 </a>
-
-                <a href="#process" class="nav__link">
-                    Процесс
+<a class="nav__link" data-i18n="t3" href="#process">
+                    Process
                 </a>
-
-                <a href="#about" class="nav__link">
-                    Обо мне
+<a class="nav__link" data-i18n="t4" href="#about">
+                    About
                 </a>
-
-                <a href="#contacts" class="nav__link">
-                    Контакты
+<a class="nav__link" data-i18n="t5" href="#contacts">
+                    Contacts
                 </a>
-            </nav>
-
-            <div class="header__actions">
-                <a href="#contacts" class="button button--small button--outline">
-                    <span>Рассказать идею</span>
-                    <span class="button__arrow" aria-hidden="true">↗</span>
+</nav>
+<div class="header__actions"><div aria-label="Language switcher" class="language-switch"><button aria-pressed="true" class="language-switch__button is-active" data-language="en" type="button">EN</button><span>/</span><button aria-pressed="false" class="language-switch__button" data-language="ru" type="button">RU</button></div>
+<a class="button button--small button--outline" href="#contacts">
+<span data-i18n="t6">Share your idea</span>
+<span aria-hidden="true" class="button__arrow">↗</span>
+</a>
+<button aria-label="Open menu" class="menu-button" data-i18n-attr="aria-label:a156" id="menuButton" type="button">
+<span></span>
+<span></span>
+<span></span>
+</button>
+</div>
+</div>
+<div class="mobile-menu" id="mobileMenu">
+<div class="mobile-menu__inner"><div aria-label="Language switcher" class="language-switch language-switch--mobile"><button aria-pressed="true" class="language-switch__button is-active" data-language="en" type="button">EN</button><span>/</span><button aria-pressed="false" class="language-switch__button" data-language="ru" type="button">RU</button></div>
+<a class="mobile-menu__link" data-i18n="t7" href="#services">
+                    Services
                 </a>
-
-                <button
-                        class="menu-button"
-                        id="menuButton"
-                        type="button"
-                        aria-label="Открыть меню"
-                >
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                </button>
-            </div>
-
-        </div>
-
-        <div class="mobile-menu" id="mobileMenu">
-            <div class="mobile-menu__inner">
-                <a href="#services" class="mobile-menu__link">
-                    Услуги
+<a class="mobile-menu__link" data-i18n="t8" href="#portfolio">
+                    Projects
                 </a>
-
-                <a href="#portfolio" class="mobile-menu__link">
-                    Проекты
+<a class="mobile-menu__link" data-i18n="t9" href="#process">
+                    Process
                 </a>
-
-                <a href="#process" class="mobile-menu__link">
-                    Процесс
+<a class="mobile-menu__link" data-i18n="t10" href="#about">
+                    About
                 </a>
-
-                <a href="#about" class="mobile-menu__link">
-                    Обо мне
+<a class="mobile-menu__link" data-i18n="t11" href="#contacts">
+                    Contacts
                 </a>
-
-                <a href="#contacts" class="mobile-menu__link">
-                    Контакты
+<a class="button button--primary" data-i18n="t12" href="#contacts">
+                    Share your idea
                 </a>
-
-                <a href="#contacts" class="button button--primary">
-                    Рассказать идею
-                </a>
-            </div>
-        </div>
-    </header>
-
-
-    <main>
-
-        <!-- =====================================================
+</div>
+</div>
+</header>
+<main>
+<!-- =====================================================
              HERO
         ====================================================== -->
-
-        <section class="hero section" id="home">
-
-            <div class="hero__background">
-                <div class="hero__grid"></div>
-                <div class="hero__orb hero__orb--one"></div>
-                <div class="hero__orb hero__orb--two"></div>
-                <div class="hero__orb hero__orb--three"></div>
-                <canvas class="particles-canvas" id="particlesCanvas"></canvas>
-            </div>
-
-            <div class="container hero__container">
-
-                <div class="hero__content">
-
-                    <div class="eyebrow reveal">
-                        <span class="eyebrow__dot"></span>
-
-                        <span>
+<section class="hero section" id="home">
+<div class="hero__background">
+<div class="hero__grid"></div>
+<div class="hero__orb hero__orb--one"></div>
+<div class="hero__orb hero__orb--two"></div>
+<div class="hero__orb hero__orb--three"></div>
+<canvas class="particles-canvas" id="particlesCanvas"></canvas>
+</div>
+<div class="container hero__container">
+<div class="hero__content">
+<div class="eyebrow reveal">
+<span class="eyebrow__dot"></span>
+<span>
                             DIGITAL AUTOMATION LAB
                         </span>
-                    </div>
-
-                    <h1 class="hero__title">
-                        <span class="hero__title-line reveal">
-                            СТРОЮ
+</div>
+<h1 class="hero__title">
+<span class="hero__title-line reveal" data-i18n="t13">
+                            I BUILD
                         </span>
-
-                        <span class="hero__title-line hero__title-line--accent reveal">
-                            ЦИФРОВЫЕ
+<span class="hero__title-line hero__title-line--accent reveal" data-i18n="t14">
+                            DIGITAL
                         </span>
-
-                        <span class="hero__title-line reveal">
-                            СИСТЕМЫ
+<span class="hero__title-line reveal" data-i18n="t15">
+                            SYSTEMS
                         </span>
-                    </h1>
-
-                    <p class="hero__description reveal">
-                        Есть идея, неудобный процесс или задача,
-                        которая постоянно отнимает время? Создам под неё
-                        бота, сайт или автоматизацию без лишней сложности.
+</h1>
+<p class="hero__description reveal" data-i18n="t16">
+                        Have an idea, an inefficient process, or a task that keeps taking up your time? I will build a bot, website, or automation solution around it without unnecessary complexity.
                     </p>
-
-                    <div class="hero__buttons reveal">
-                        <a href="#contacts" class="button button--primary">
-                            <span>
-                                Рассказать идею
+<div class="hero__buttons reveal">
+<a class="button button--primary" href="#contacts">
+<span data-i18n="t17">
+                                Share your idea
                             </span>
-
-                            <span class="button__arrow">
+<span class="button__arrow">
                                 ↗
                             </span>
-                        </a>
-
-                        <a href="#portfolio" class="button button--ghost">
-                            <span>
-                                Посмотреть работы
+</a>
+<a class="button button--ghost" href="#portfolio">
+<span data-i18n="t18">
+                                View projects
                             </span>
-                        </a>
-                    </div>
-
-                    <div class="hero__metrics reveal" aria-label="Основные направления">
-
-                        <div class="hero-metric">
-                            <span class="hero-metric__icon" aria-hidden="true">BOT</span>
-                            <div>
-                                <strong>3</strong>
-                                <span>платформы для ботов</span>
-                            </div>
-                        </div>
-
-                        <div class="hero-metric">
-                            <span class="hero-metric__icon" aria-hidden="true">WEB</span>
-                            <div>
-                                <strong>SITE</strong>
-                                <span>сайты и веб-сервисы</span>
-                            </div>
-                        </div>
-
-                        <div class="hero-metric">
-                            <span class="hero-metric__icon hero-metric__icon--support" aria-hidden="true">PY</span>
-                            <div>
-                                <strong>AUTO</strong>
-                                <span>автоматизация процессов</span>
-                            </div>
-                        </div>
-
-                    </div>
-
-                </div>
-
-
-                <div class="hero__visual reveal">
-                    <div class="hero-robot">
-                        <img
-                                src="{{ url_for('static', filename='images/robot.png') }}"
-                                alt="Футуристичный робот MAD_ALEX"
-                                draggable="false"
-                        >
-
-                        <span class="hero-energy-sparks" aria-hidden="true">
-                            <i></i><i></i><i></i><i></i>
-                            <i></i><i></i><i></i><i></i>
-                        </span>
-                    </div>
-
-                    <div class="hero-battle-hud" aria-label="Robot system telemetry">
-                        <section class="hero-hud-node hero-hud-node--vision">
-                            <header>
-                                <span class="hero-hud-dot"></span>
-                                <b>VISION MATRIX</b>
-                                <em>01</em>
-                            </header>
-                            <div class="hero-hud-readout">
-                                <strong>
-                                    <span class="hud-safe">TARGET LOCKED</span>
-                                    <span class="hud-alert">THREAT FOUND</span>
-                                </strong>
-                                <small>X 42.7 / Y 18.4</small>
-                            </div>
-                            <span class="hero-hud-crosshair" aria-hidden="true"></span>
-                        </section>
-
-                        <section class="hero-hud-node hero-hud-node--core">
-                            <header>
-                                <span class="hero-hud-dot"></span>
-                                <b>ARC REACTOR</b>
-                                <em>02</em>
-                            </header>
-                            <div class="hero-hud-wave" aria-hidden="true">
-                                <i></i><i></i><i></i><i></i>
-                                <i></i><i></i><i></i><i></i>
-                                <i></i><i></i><i></i><i></i>
-                                <i></i><i></i><i></i><i></i>
-                            </div>
-                            <div class="hero-hud-values">
-                                <span>OUTPUT <b>98%</b></span>
-                                <span>
-                                    <b class="hud-safe">STABLE</b>
-                                    <b class="hud-alert">OVERDRIVE</b>
-                                </span>
-                            </div>
-                        </section>
-
-                        <section class="hero-hud-node hero-hud-node--link">
-                            <header>
-                                <span class="hero-hud-dot"></span>
-                                <b>NEURAL UPLINK</b>
-                                <em>03</em>
-                            </header>
-                            <div class="hero-hud-link">
-                                <span class="hero-hud-bars" aria-hidden="true">
-                                    <i></i><i></i><i></i><i></i><i></i>
-                                </span>
-                                <strong>
-                                    <span class="hud-safe">SYSTEM ONLINE</span>
-                                    <span class="hud-alert">RED CHANNEL</span>
-                                </strong>
-                            </div>
-                        </section>
-                    </div>
-
-                </div>
-
-            </div>
-
-            <div class="hero__scroll">
-                <span>
+</a>
+</div>
+<div aria-label="Main services" class="hero__metrics reveal" data-i18n-attr="aria-label:a157">
+<div class="hero-metric">
+<span aria-hidden="true" class="hero-metric__icon">BOT</span>
+<div>
+<strong>3</strong>
+<span data-i18n="t19">bot platforms</span>
+</div>
+</div>
+<div class="hero-metric">
+<span aria-hidden="true" class="hero-metric__icon">WEB</span>
+<div>
+<strong>SITE</strong>
+<span data-i18n="t20">websites and web services</span>
+</div>
+</div>
+<div class="hero-metric">
+<span aria-hidden="true" class="hero-metric__icon hero-metric__icon--support">PY</span>
+<div>
+<strong>AUTO</strong>
+<span data-i18n="t21">process automation</span>
+</div>
+</div>
+</div>
+</div>
+<div class="hero__visual reveal">
+<div class="hero-robot">
+<img alt="MAD_ALEX futuristic robot" data-i18n-attr="alt:a158" draggable="false" src="{{ url_for('static', filename='images/robot.png') }}"/>
+<span aria-hidden="true" class="hero-energy-sparks">
+<i></i><i></i><i></i><i></i>
+<i></i><i></i><i></i><i></i>
+</span>
+</div>
+<div aria-label="Robot system telemetry" class="hero-battle-hud">
+<section class="hero-hud-node hero-hud-node--vision">
+<header>
+<span class="hero-hud-dot"></span>
+<b>VISION MATRIX</b>
+<em>01</em>
+</header>
+<div class="hero-hud-readout">
+<strong>
+<span class="hud-safe">TARGET LOCKED</span>
+<span class="hud-alert">THREAT FOUND</span>
+</strong>
+<small>X 42.7 / Y 18.4</small>
+</div>
+<span aria-hidden="true" class="hero-hud-crosshair"></span>
+</section>
+<section class="hero-hud-node hero-hud-node--core">
+<header>
+<span class="hero-hud-dot"></span>
+<b>ARC REACTOR</b>
+<em>02</em>
+</header>
+<div aria-hidden="true" class="hero-hud-wave">
+<i></i><i></i><i></i><i></i>
+<i></i><i></i><i></i><i></i>
+<i></i><i></i><i></i><i></i>
+<i></i><i></i><i></i><i></i>
+</div>
+<div class="hero-hud-values">
+<span>OUTPUT <b>98%</b></span>
+<span>
+<b class="hud-safe">STABLE</b>
+<b class="hud-alert">OVERDRIVE</b>
+</span>
+</div>
+</section>
+<section class="hero-hud-node hero-hud-node--link">
+<header>
+<span class="hero-hud-dot"></span>
+<b>NEURAL UPLINK</b>
+<em>03</em>
+</header>
+<div class="hero-hud-link">
+<span aria-hidden="true" class="hero-hud-bars">
+<i></i><i></i><i></i><i></i><i></i>
+</span>
+<strong>
+<span class="hud-safe">SYSTEM ONLINE</span>
+<span class="hud-alert">RED CHANNEL</span>
+</strong>
+</div>
+</section>
+</div>
+</div>
+</div>
+<div class="hero__scroll">
+<span>
                     SCROLL TO EXPLORE
                 </span>
-
-                <span class="hero__scroll-line"></span>
-            </div>
-
-        </section>
-
-
-        <!-- =====================================================
+<span class="hero__scroll-line"></span>
+</div>
+</section>
+<!-- =====================================================
              PLATFORMS
         ====================================================== -->
-
-        <section class="platforms" id="services">
-
-            <div class="container">
-
-                <div class="platforms__header reveal">
-                    <div>
-                        <span class="section-label">
-                            01 / УСЛУГИ
-                        </span>
-
-                        <h2>С КАКОЙ ЗАДАЧЕЙ МОЖНО ПРИЙТИ</h2>
-                    </div>
-
-                    <p>
-                        Не нужно заранее выбирать технологию.
-                        Достаточно понимать, что хочется запустить или улучшить.
-                    </p>
-                </div>
-
-                <div class="platforms__grid">
-
-                    <article class="platform-card tilt-card reveal">
-
-                        <div class="platform-card__top">
-
-                            <div class="platform-card__icon">
-                                <svg viewBox="0 0 24 24" aria-hidden="true">
-                                    <path
-                                            d="M21.8 3.2 18.6 19c-.2 1.1-.9 1.4-1.8.9l-4.9-3.6-2.4 2.3c-.3.3-.5.5-1 .5l.4-5 9-8.1c.4-.4-.1-.6-.6-.2L6.2 12.8 1.4 11.3c-1-.3-1-1 .2-1.5L20.3 2.6c.9-.3 1.7.2 1.5.6Z"
-                                    ></path>
-                                </svg>
-                            </div>
-
-                        </div>
-
-                        <h3>
-                            Хочу быстрее отвечать и принимать заявки
-                        </h3>
-
-                        <p>
-                            Бот возьмёт на себя повторяющиеся действия:
-                            соберёт данные, ответит на частые вопросы,
-                            отправит уведомление или выполнит команду.
-                        </p>
-
-                        <div class="platform-card__tags">
-                            <span>
-                                Telegram
-                            </span>
-
-                            <span>
-                                Discord
-                            </span>
-
-                            <span>
-                                WhatsApp
-                            </span>
-                        </div>
-
-                    </article>
-
-
-                    <article class="platform-card tilt-card reveal">
-
-                        <div class="platform-card__top">
-
-                            <div class="platform-card__icon">
-                                <span>
-                                    ◎
-                                </span>
-                            </div>
-
-                        </div>
-
-                        <h3>
-                            Нужно понятно показать продукт или услугу
-                        </h3>
-
-                        <p>
-                            Сайт соберёт всё важное в одном месте:
-                            расскажет о предложении, покажет примеры
-                            и даст посетителю простой способ связаться.
-                        </p>
-
-                        <div class="platform-card__tags">
-                            <span>
-                                HTML
-                            </span>
-
-                            <span>
-                                CSS
-                            </span>
-
-                            <span>
-                                Flask
-                            </span>
-                        </div>
-
-                    </article>
-
-
-                    <article class="platform-card tilt-card reveal">
-
-                        <div class="platform-card__top">
-
-                            <div class="platform-card__icon">
-                                <span>
-                                    &lt;/&gt;
-                                </span>
-                            </div>
-
-                        </div>
-
-                        <h3>
-                            Ручная работа отнимает слишком много времени
-                        </h3>
-
-                        <p>
-                            Если приходится постоянно копировать данные,
-                            проверять одно и то же или переносить информацию —
-                            часть процесса можно автоматизировать.
-                        </p>
-
-                        <div class="platform-card__tags">
-                            <span>
-                                Python
-                            </span>
-
-                            <span>
-                                Flask
-                            </span>
-
-                            <span>
-                                Automation
-                            </span>
-                        </div>
-
-                    </article>
-
-                </div>
-
-            </div>
-
-        </section>
-
-
-        <!-- =====================================================
-             STATS
-        ====================================================== -->
-
-        <section class="stats">
-
-            <div class="container stats__container">
-
-                <div class="stat-card reveal">
-                    <span class="stat-card__number">START</span>
-                    <span class="stat-card__label">можно начать с небольшой рабочей версии</span>
-                </div>
-
-                <div class="stat-card reveal">
-                    <span class="stat-card__number">CLEAR</span>
-                    <span class="stat-card__label">обсуждение понятным языком без сложного ТЗ</span>
-                </div>
-
-                <div class="stat-card reveal">
-                    <span class="stat-card__number">FLEX</span>
-                    <span class="stat-card__label">решение под задачу, а не под готовый шаблон</span>
-                </div>
-
-                <div class="stat-card reveal">
-                    <span class="stat-card__number">GROW</span>
-                    <span class="stat-card__label">проект можно улучшать и дополнять дальше</span>
-                </div>
-
-            </div>
-
-        </section>
-
-
-        <!-- =====================================================
-             SERVICES
-        ====================================================== -->
-
-        <section class="services section" id="services-details">
-
-            <div class="container">
-
-                <div class="section-heading">
-
-                    <div class="section-heading__left reveal">
-                        <span class="section-index">
+<section class="platforms" id="services">
+<div class="container">
+<div class="platforms__header reveal">
+<div>
+<span class="section-label" data-i18n="t22">
                             01 / SERVICES
                         </span>
-
-                        <h2>
-                            РЕШЕНИЕ ПОД
-                            <span>
-                                КОНКРЕТНУЮ ЦЕЛЬ
-                            </span>
-                        </h2>
-                    </div>
-
-                    <p class="section-heading__description reveal">
-                        Начнём с самого полезного сценария, соберём
-                        первую рабочую версию и оставим возможность
-                        развивать её по мере появления новых задач.
+<h2 data-i18n="t23">WHAT I CAN HELP YOU BUILD</h2>
+</div>
+<p data-i18n="t24">
+                        You do not need to choose the technology in advance. It is enough to know what you want to launch or improve.
                     </p>
-
-                </div>
-
-
-                <div class="services__list">
-
-                    <article class="service-card reveal">
-
-                        <div class="service-card__number">
+</div>
+<div class="platforms__grid">
+<article class="platform-card tilt-card reveal">
+<div class="platform-card__top">
+<div class="platform-card__icon">
+<svg aria-hidden="true" viewbox="0 0 24 24">
+<path d="M21.8 3.2 18.6 19c-.2 1.1-.9 1.4-1.8.9l-4.9-3.6-2.4 2.3c-.3.3-.5.5-1 .5l.4-5 9-8.1c.4-.4-.1-.6-.6-.2L6.2 12.8 1.4 11.3c-1-.3-1-1 .2-1.5L20.3 2.6c.9-.3 1.7.2 1.5.6Z"></path>
+</svg>
+</div>
+</div>
+<h3 data-i18n="t25">
+                            Respond faster and collect requests
+                        </h3>
+<p data-i18n="t26">
+                            A bot can handle repetitive actions: collect data, answer common questions, send notifications, or execute commands.
+                        </p>
+<div class="platform-card__tags">
+<span>
+                                Telegram
+                            </span>
+<span>
+                                Discord
+                            </span>
+<span>
+                                WhatsApp
+                            </span>
+</div>
+</article>
+<article class="platform-card tilt-card reveal">
+<div class="platform-card__top">
+<div class="platform-card__icon">
+<span>
+                                    ◎
+                                </span>
+</div>
+</div>
+<h3 data-i18n="t27">
+                            Present a product or service clearly
+                        </h3>
+<p data-i18n="t28">
+                            A website brings everything important together: explains your offer, shows examples, and gives visitors an easy way to contact you.
+                        </p>
+<div class="platform-card__tags">
+<span>
+                                HTML
+                            </span>
+<span>
+                                CSS
+                            </span>
+<span>
+                                Flask
+                            </span>
+</div>
+</article>
+<article class="platform-card tilt-card reveal">
+<div class="platform-card__top">
+<div class="platform-card__icon">
+<span>
+                                    &lt;/&gt;
+                                </span>
+</div>
+</div>
+<h3 data-i18n="t29">
+                            Manual work takes too much time
+                        </h3>
+<p data-i18n="t30">
+                            If you constantly copy data, repeat the same checks, or move information between services, part of the process can be automated.
+                        </p>
+<div class="platform-card__tags">
+<span>
+                                Python
+                            </span>
+<span>
+                                Flask
+                            </span>
+<span>
+                                Automation
+                            </span>
+</div>
+</article>
+</div>
+</div>
+</section>
+<!-- =====================================================
+             STATS
+        ====================================================== -->
+<section class="stats">
+<div class="container stats__container">
+<div class="stat-card reveal">
+<span class="stat-card__number">START</span>
+<span class="stat-card__label" data-i18n="t31">start with a small working version</span>
+</div>
+<div class="stat-card reveal">
+<span class="stat-card__number">CLEAR</span>
+<span class="stat-card__label" data-i18n="t32">clear discussion without a complex specification</span>
+</div>
+<div class="stat-card reveal">
+<span class="stat-card__number">FLEX</span>
+<span class="stat-card__label" data-i18n="t33">a solution built for the task, not a template</span>
+</div>
+<div class="stat-card reveal">
+<span class="stat-card__number">GROW</span>
+<span class="stat-card__label" data-i18n="t34">the project can grow and improve over time</span>
+</div>
+</div>
+</section>
+<!-- =====================================================
+             SERVICES
+        ====================================================== -->
+<section class="services section" id="services-details">
+<div class="container">
+<div class="section-heading">
+<div class="section-heading__left reveal">
+<span class="section-index">
+                            01 / SERVICES
+                        </span>
+<h2 data-i18n="t35">
+                            A SOLUTION FOR A
+                            <span data-i18n="t36">
+                                SPECIFIC GOAL
+                            </span>
+</h2>
+</div>
+<p class="section-heading__description reveal" data-i18n="t37">
+                        We will start with the most useful scenario, build the first working version, and keep it ready for future improvements.
+                    </p>
+</div>
+<div class="services__list">
+<article class="service-card reveal">
+<div class="service-card__number">
                             01
                         </div>
-
-                        <div class="service-card__icon">
-                            <svg viewBox="0 0 24 24" aria-hidden="true">
-                                <path
-                                        d="M21.8 3.2 18.6 19c-.2 1.1-.9 1.4-1.8.9l-4.9-3.6-2.4 2.3c-.3.3-.5.5-1 .5l.4-5 9-8.1c.4-.4-.1-.6-.6-.2L6.2 12.8 1.4 11.3c-1-.3-1-1 .2-1.5L20.3 2.6c.9-.3 1.7.2 1.5.6Z"
-                                ></path>
-                            </svg>
-                        </div>
-
-                        <div class="service-card__content">
-                            <h3>
-                                Бот под ваш сценарий
+<div class="service-card__icon">
+<svg aria-hidden="true" viewbox="0 0 24 24">
+<path d="M21.8 3.2 18.6 19c-.2 1.1-.9 1.4-1.8.9l-4.9-3.6-2.4 2.3c-.3.3-.5.5-1 .5l.4-5 9-8.1c.4-.4-.1-.6-.6-.2L6.2 12.8 1.4 11.3c-1-.3-1-1 .2-1.5L20.3 2.6c.9-.3 1.7.2 1.5.6Z"></path>
+</svg>
+</div>
+<div class="service-card__content">
+<h3 data-i18n="t38">
+                                A bot built for your workflow
                             </h3>
-
-                            <p>
-                                Telegram, Discord или WhatsApp-бот, который
-                                выполняет конкретную работу и помогает людям
-                                быстрее получить нужное действие или ответ.
+<p data-i18n="t39">
+                                A Telegram, Discord, or WhatsApp bot that performs a specific job and helps people get the right action or answer faster.
                             </p>
-
-                            <ul>
-                                <li>
-                                    Заявки и анкеты
+<ul>
+<li data-i18n="t40">
+                                    Requests and forms
                                 </li>
-
-                                <li>
-                                    Ответы и уведомления
+<li data-i18n="t41">
+                                    Replies and notifications
                                 </li>
-
-                                <li>
-                                    Команды и модерация
+<li data-i18n="t42">
+                                    Commands and moderation
                                 </li>
-
-                                <li>
-                                    Связь с другими сервисами
+<li data-i18n="t43">
+                                    Integrations with other services
                                 </li>
-                            </ul>
-                        </div>
-
-                        <div class="service-card__meta">
-                            <span>
-                                Общение и заявки
+</ul>
+</div>
+<div class="service-card__meta">
+<span data-i18n="t44">
+                                Communication and requests
                             </span>
-
-                            <a href="#contacts">
-                                Рассказать идею
+<a data-i18n="t45" href="#contacts">
+                                Share your idea
                                 <span>
                                     ↗
                                 </span>
-                            </a>
-                        </div>
-
-                    </article>
-
-
-                    <article class="service-card reveal">
-
-                        <div class="service-card__number">
+</a>
+</div>
+</article>
+<article class="service-card reveal">
+<div class="service-card__number">
                             02
                         </div>
-
-                        <div class="service-card__icon">
-                            <span>
+<div class="service-card__icon">
+<span>
                                 &lt;/&gt;
                             </span>
-                        </div>
-
-                        <div class="service-card__content">
-                            <h3>
-                                Сайт, который ведёт к действию
+</div>
+<div class="service-card__content">
+<h3 data-i18n="t46">
+                                A website that drives action
                             </h3>
-
-                            <p>
-                                Понятная страница или веб-сервис, где посетитель
-                                быстро видит главное: кто вы, что предлагаете,
-                                почему это ему подходит и как с вами связаться.
+<p data-i18n="t47">
+                                A clear page or web service where visitors quickly understand who you are, what you offer, why it fits them, and how to contact you.
                             </p>
-
-                            <ul>
-                                <li>
-                                    Лендинги и визитки
+<ul>
+<li data-i18n="t48">
+                                    Landing pages and business sites
                                 </li>
-
-                                <li>
-                                    Портфолио и каталоги
+<li data-i18n="t49">
+                                    Portfolios and catalogs
                                 </li>
-
-                                <li>
-                                    Формы и заявки
+<li data-i18n="t50">
+                                    Forms and requests
                                 </li>
-
-                                <li>
-                                    Нужные функции под проект
+<li data-i18n="t51">
+                                    Custom project features
                                 </li>
-                            </ul>
-                        </div>
-
-                        <div class="service-card__meta">
-                            <span>
-                                Презентация и запуск
+</ul>
+</div>
+<div class="service-card__meta">
+<span data-i18n="t52">
+                                Presentation and launch
                             </span>
-
-                            <a href="#contacts">
-                                Рассказать идею
+<a data-i18n="t53" href="#contacts">
+                                Share your idea
                                 <span>
                                     ↗
                                 </span>
-                            </a>
-                        </div>
-
-                    </article>
-
-
-                    <article class="service-card reveal">
-
-                        <div class="service-card__number">
+</a>
+</div>
+</article>
+<article class="service-card reveal">
+<div class="service-card__number">
                             03
                         </div>
-
-                        <div class="service-card__icon">
-                            <span>
+<div class="service-card__icon">
+<span>
                                 PY
                             </span>
-                        </div>
-
-                        <div class="service-card__content">
-                            <h3>
-                                Автоматизация повторяющейся работы
+</div>
+<div class="service-card__content">
+<h3 data-i18n="t54">
+                                Automation of repetitive work
                             </h3>
-
-                            <p>
-                                Небольшой скрипт, интеграция или внутренняя
-                                система, которая связывает данные и сервисы,
-                                сокращая количество ручных действий.
+<p data-i18n="t55">
+                                A script, integration, or internal system that connects data and services and reduces manual work.
                             </p>
-
-                            <ul>
-                                <li>
-                                    Связка сервисов и API
+<ul>
+<li data-i18n="t56">
+                                    Service and API integration
                                 </li>
-
-                                <li>
-                                    Перенос и обработка данных
+<li data-i18n="t57">
+                                    Data transfer and processing
                                 </li>
-
-                                <li>
-                                    Отчёты и уведомления
+<li data-i18n="t58">
+                                    Reports and notifications
                                 </li>
-
-                                <li>
-                                    Внутренние инструменты
+<li data-i18n="t59">
+                                    Internal tools
                                 </li>
-                            </ul>
-                        </div>
-
-                        <div class="service-card__meta">
-                            <span>
-                                Меньше ручной работы
+</ul>
+</div>
+<div class="service-card__meta">
+<span data-i18n="t60">
+                                Less manual work
                             </span>
-
-                            <a href="#contacts">
-                                Рассказать идею
+<a data-i18n="t61" href="#contacts">
+                                Share your idea
                                 <span>
                                     ↗
                                 </span>
-                            </a>
-                        </div>
-
-                    </article>
-
-                </div>
-
-            </div>
-
-        </section>
-
-
-        <!-- =====================================================
+</a>
+</div>
+</article>
+</div>
+</div>
+</section>
+<!-- =====================================================
              PORTFOLIO
         ====================================================== -->
-
-        <section class="portfolio section" id="portfolio">
-
-            <div class="portfolio__glow"></div>
-
-            <div class="container">
-
-                <div class="section-heading">
-
-                    <div class="section-heading__left reveal">
-                        <span class="section-index">
+<section class="portfolio section" id="portfolio">
+<div class="portfolio__glow"></div>
+<div class="container">
+<div class="section-heading">
+<div class="section-heading__left reveal">
+<span class="section-index">
                             02 / PROJECTS
                         </span>
-
-                        <h2>
-                            ИЗБРАННЫЕ
-                            <span>
-                                ПРОЕКТЫ
+<h2 data-i18n="t62">
+                            FEATURED
+                            <span data-i18n="t63">
+                                PROJECTS
                             </span>
-                        </h2>
-                    </div>
-
-                    <p class="section-heading__description reveal">
-                        Реальные и демонстрационные проекты,
-                        на которых можно оценить интерфейс,
-                        логику и подход к разработке.
+</h2>
+</div>
+<p class="section-heading__description reveal" data-i18n="t64">
+                        Real and demonstration projects that show the interface, logic, and development approach.
                     </p>
-
-                </div>
-
-
-                <div class="portfolio__slider">
-
-                    <div class="portfolio__track" id="portfolioTrack">
-
-                        <article class="project-card">
-
-                            <div class="project-card__visual project-card__visual--booking project-card__visual--showcase">
-
-                                <img
-                                        class="game-bot-showcase__image"
-                                        src="{{ url_for('static', filename='images/game-club-bot-showcase.png', v='20260722-3') }}"
-                                        alt="Презентация Telegram-бота Game Club с интерфейсом бронирования и роботом"
-                                        loading="lazy"
-                                >
-
-                                <div class="game-bot-showcase__overlay" aria-hidden="true"></div>
-
-                                <div class="game-bot-showcase__badge">
-                                    <span class="status-dot"></span>
+</div>
+<div class="portfolio__slider">
+<div class="portfolio__track" id="portfolioTrack">
+<article class="project-card">
+<div class="project-card__visual project-card__visual--booking project-card__visual--showcase">
+<img alt="Game Club Telegram bot showcase with booking interface and robot" class="game-bot-showcase__image" data-i18n-attr="alt:a159" loading="lazy" src="{{ url_for('static', filename='images/game-club-bot-showcase.png', v='20260722-3') }}"/>
+<div aria-hidden="true" class="game-bot-showcase__overlay"></div>
+<div class="game-bot-showcase__badge">
+<span class="status-dot"></span>
                                     Telegram Bot · Online
                                 </div>
-
-                            </div>
-
-                            <div class="project-card__content">
-
-                                <div class="project-card__header">
-                                    <span>
+</div>
+<div class="project-card__content">
+<div class="project-card__header">
+<span>
                                         TELEGRAM BOT / 2026
                                     </span>
-
-                                    <span>
+<span>
                                         01
                                     </span>
-                                </div>
-
-                                <h3>
+</div>
+<h3>
                                     Game Club Booking Bot
                                 </h3>
-
-                                <p>
-                                    Рабочий Telegram-бот для игрового клуба:
-                                    регистрация клиента, выбор обычного или VIP-зала,
-                                    конкретного ПК, даты и времени, проверка занятости
-                                    и автоматическое уведомление администратора.
+<p data-i18n="t65">
+                                    A working Telegram bot for a gaming club: user registration, standard or VIP room selection, PC, date and time booking, availability checks, and automatic admin notifications.
                                 </p>
-
-                                <div class="project-card__tags">
-                                    <span>Python</span>
-                                    <span>Aiogram 3</span>
-                                    <span>Webhook</span>
-                                    <span>Neon PostgreSQL</span>
-                                    <span>Render</span>
-                                </div>
-
-                                <div class="project-card__actions">
-                                    <button
-                                            class="project-card__button project-card__button--video open-project-modal"
-                                            type="button"
-                                            data-project="booking"
-                                    >
-                                        <span class="project-card__button-icon">▶</span>
-                                        Смотреть демо
+<div class="project-card__tags">
+<span>Python</span>
+<span>Aiogram 3</span>
+<span>Webhook</span>
+<span>Neon PostgreSQL</span>
+<span>Render</span>
+</div>
+<div class="project-card__actions">
+<button class="project-card__button project-card__button--video open-project-modal" data-i18n="t66" data-project="booking" type="button">
+<span class="project-card__button-icon">▶</span>
+                                        View demo
                                         <span>↗</span>
-                                    </button>
-
-                                    <a
-                                            class="project-card__button project-card__button--telegram"
-                                            href="https://t.me/MadSanya_bot"
-                                            target="_blank"
-                                            rel="noopener noreferrer"
-                                            data-telegram-bot-link
-                                            title="Открыть @MadSanya_bot в Telegram"
-                                    >
-                                        Открыть Telegram
+</button>
+<a class="project-card__button project-card__button--telegram" data-i18n="t67" data-i18n-attr="title:a160" data-telegram-bot-link="" href="https://t.me/MadSanya_bot" rel="noopener noreferrer" target="_blank" title="Open @MadSanya_bot in Telegram">
+                                        Open Telegram
                                         <span>↗</span>
-                                    </a>
-                                </div>
-
-                                <p class="project-card__telegram-note">
-                                    <span class="status-dot"></span>
-                                    Бот доступен для живого тестирования
+</a>
+</div>
+<p class="project-card__telegram-note" data-i18n="t68">
+<span class="status-dot"></span>
+                                    The bot is available for live testing
                                 </p>
-
-                            </div>
-
-                        </article>
-
-
-                        <article class="project-card">
-
-                            <div class="project-card__visual project-card__visual--website">
-
-                                <div class="website-preview">
-
-                                    <div class="website-preview__header">
-                                        <span>
+</div>
+</article>
+<article class="project-card">
+<div class="project-card__visual project-card__visual--website">
+<div class="website-preview">
+<div class="website-preview__header">
+<span>
                                             MAD_ALEX
                                         </span>
-
-                                        <div>
-                                            <i></i>
-                                            <i></i>
-                                            <i></i>
-                                        </div>
-                                    </div>
-
-                                    <div class="website-preview__hero">
-                                        <span></span>
-                                        <strong></strong>
-                                        <strong></strong>
-                                        <p></p>
-
-                                        <div>
-                                            <i></i>
-                                            <i></i>
-                                        </div>
-                                    </div>
-
-                                    <div class="website-preview__cards">
-                                        <span></span>
-                                        <span></span>
-                                        <span></span>
-                                    </div>
-
-                                </div>
-
-                            </div>
-
-                            <div class="project-card__content">
-
-                                <div class="project-card__header">
-                                    <span>
+<div>
+<i></i>
+<i></i>
+<i></i>
+</div>
+</div>
+<div class="website-preview__hero">
+<span></span>
+<strong></strong>
+<strong></strong>
+<p></p>
+<div>
+<i></i>
+<i></i>
+</div>
+</div>
+<div class="website-preview__cards">
+<span></span>
+<span></span>
+<span></span>
+</div>
+</div>
+</div>
+<div class="project-card__content">
+<div class="project-card__header">
+<span>
                                         LIVE WEBSITE / 2026
                                     </span>
-
-                                    <span>
+<span>
                                         02
                                     </span>
-                                </div>
-
-                                <h3>
-                                    Сайт-портфолио MAD_ALEX
+</div>
+<h3 data-i18n="t69">
+                                    MAD_ALEX Portfolio Website
                                 </h3>
-
-                                <p>
-                                    Этот рабочий сайт: адаптивная вёрстка,
-                                    анимации, форма заявки, серверная часть
-                                    на Flask и размещение на Render.
+<p data-i18n="t70">
+                                    This live website includes responsive layout, animations, a contact form, a Flask backend, and deployment on Render.
                                 </p>
-
-                                <div class="project-card__tags">
-                                    <span>
+<div class="project-card__tags">
+<span>
                                         Flask
                                     </span>
-
-                                    <span>
+<span>
                                         HTML
                                     </span>
-
-                                    <span>
+<span>
                                         CSS
                                     </span>
-
-                                    <span>
+<span>
                                         JavaScript
                                     </span>
-                                </div>
-
-                                <button
-                                        class="project-card__button open-project-modal"
-                                        type="button"
-                                        data-project="website"
-                                >
-                                    Открыть описание
+</div>
+<button class="project-card__button open-project-modal" data-i18n="t71" data-project="website" type="button">
+                                    View details
                                     <span>
                                         ↗
                                     </span>
-                                </button>
-
-                            </div>
-
-                        </article>
-
-
-                        <article class="project-card">
-
-                            <div class="project-card__visual project-card__visual--automation">
-
-                                <div class="automation-preview">
-
-                                    <div class="automation-preview__center">
-                                        <span>
+</button>
+</div>
+</article>
+<article class="project-card">
+<div class="project-card__visual project-card__visual--automation">
+<div class="automation-preview">
+<div class="automation-preview__center">
+<span>
                                             PY
                                         </span>
-                                    </div>
-
-                                    <div class="automation-preview__node automation-preview__node--one">
+</div>
+<div class="automation-preview__node automation-preview__node--one">
                                         API
                                     </div>
-
-                                    <div class="automation-preview__node automation-preview__node--two">
+<div class="automation-preview__node automation-preview__node--two">
                                         DB
                                     </div>
-
-                                    <div class="automation-preview__node automation-preview__node--three">
+<div class="automation-preview__node automation-preview__node--three">
                                         WEB
                                     </div>
-
-                                    <div class="automation-preview__node automation-preview__node--four">
+<div class="automation-preview__node automation-preview__node--four">
                                         TG
                                     </div>
-
-                                    <i class="automation-preview__line automation-preview__line--one"></i>
-                                    <i class="automation-preview__line automation-preview__line--two"></i>
-                                    <i class="automation-preview__line automation-preview__line--three"></i>
-                                    <i class="automation-preview__line automation-preview__line--four"></i>
-
-                                </div>
-
-                            </div>
-
-                            <div class="project-card__content">
-
-                                <div class="project-card__header">
-                                    <span>
+<i class="automation-preview__line automation-preview__line--one"></i>
+<i class="automation-preview__line automation-preview__line--two"></i>
+<i class="automation-preview__line automation-preview__line--three"></i>
+<i class="automation-preview__line automation-preview__line--four"></i>
+</div>
+</div>
+<div class="project-card__content">
+<div class="project-card__header">
+<span>
                                         DEMO AUTOMATION / 2026
                                     </span>
-
-                                    <span>
+<span>
                                         03
                                     </span>
-                                </div>
-
-                                <h3>
-                                    Система автоматизации процессов
+</div>
+<h3 data-i18n="t72">
+                                    Process Automation System
                                 </h3>
-
-                                <p>
-                                    Демонстрационная схема, связывающая API,
-                                    базу данных, бота и веб-интерфейс
-                                    в один рабочий процесс.
+<p data-i18n="t73">
+                                    A demonstration system connecting an API, database, bot, and web interface into one workflow.
                                 </p>
-
-                                <div class="project-card__tags">
-                                    <span>
+<div class="project-card__tags">
+<span>
                                         Python
                                     </span>
-
-                                    <span>
+<span>
                                         REST API
                                     </span>
-
-                                    <span>
+<span>
                                         SQLite
                                     </span>
-
-                                    <span>
+<span>
                                         Automation
                                     </span>
-                                </div>
-
-                                <button
-                                        class="project-card__button open-project-modal"
-                                        type="button"
-                                        data-project="automation"
-                                >
-                                    Открыть описание
+</div>
+<button class="project-card__button open-project-modal" data-i18n="t74" data-project="automation" type="button">
+                                    View details
                                     <span>
                                         ↗
                                     </span>
-                                </button>
-
-                            </div>
-
-                        </article>
-
-                    </div>
-
-
-                    <div class="portfolio__controls">
-
-                        <button
-                                class="slider-button"
-                                id="portfolioPrev"
-                                type="button"
-                                aria-label="Предыдущий проект"
-                        >
+</button>
+</div>
+</article>
+</div>
+<div class="portfolio__controls">
+<button aria-label="Previous project" class="slider-button" data-i18n-attr="aria-label:a161" id="portfolioPrev" type="button">
                             ←
                         </button>
-
-                        <div class="portfolio__progress">
-                            <span id="portfolioCurrent">
+<div class="portfolio__progress">
+<span id="portfolioCurrent">
                                 01
                             </span>
-
-                            <div class="portfolio__progress-line">
-                                <span id="portfolioProgress"></span>
-                            </div>
-
-                            <span>
+<div class="portfolio__progress-line">
+<span id="portfolioProgress"></span>
+</div>
+<span>
                                 03
                             </span>
-                        </div>
-
-                        <button
-                                class="slider-button"
-                                id="portfolioNext"
-                                type="button"
-                                aria-label="Следующий проект"
-                        >
+</div>
+<button aria-label="Next project" class="slider-button" data-i18n-attr="aria-label:a162" id="portfolioNext" type="button">
                             →
                         </button>
-
-                    </div>
-
-                </div>
-
-            </div>
-
-        </section>
-
-
-        <!-- =====================================================
+</div>
+</div>
+</div>
+</section>
+<!-- =====================================================
              PROCESS
         ====================================================== -->
-
-        <section class="process section" id="process">
-
-            <div class="container">
-
-                <div class="section-heading">
-
-                    <div class="section-heading__left reveal">
-                        <span class="section-index">
+<section class="process section" id="process">
+<div class="container">
+<div class="section-heading">
+<div class="section-heading__left reveal">
+<span class="section-index">
                             03 / PROCESS
                         </span>
-
-                        <h2>
-                            КАК ПРОХОДИТ
-                            <span>
-                                РАЗРАБОТКА
+<h2 data-i18n="t75">
+                            HOW THE
+                            <span data-i18n="t76">
+                                PROCESS WORKS
                             </span>
-                        </h2>
-                    </div>
-
-                    <p class="section-heading__description reveal">
-                        Не нужно приходить с готовой схемой.
-                        Вместе пройдём путь от мысли «хочу вот так»
-                        до понятной рабочей версии.
+</h2>
+</div>
+<p class="section-heading__description reveal" data-i18n="t77">
+                        You do not need a finished technical plan. We will turn your idea into a clear working version together.
                     </p>
-
-                </div>
-
-
-                <div class="process__timeline">
-
-                    <article class="process-step reveal">
-
-                        <div class="process-step__marker">
-                            <span>
+</div>
+<div class="process__timeline">
+<article class="process-step reveal">
+<div class="process-step__marker">
+<span>
                                 01
                             </span>
-                        </div>
-
-                        <div class="process-step__content">
-                            <span class="process-step__subtitle">
-                                ЗНАКОМСТВО
+</div>
+<div class="process-step__content">
+<span class="process-step__subtitle" data-i18n="t78">
+                                DISCOVERY
                             </span>
-
-                            <h3>
-                                Вы рассказываете всё как есть
+<h3 data-i18n="t79">
+                                You explain the task in your own words
                             </h3>
-
-                            <p>
-                                Что хотите получить, что сейчас неудобно
-                                и какой результат будет для вас полезным.
+<p data-i18n="t80">
+                                What you want to achieve, what is inconvenient now, and what result would be useful.
                             </p>
+</div>
+<div class="process-step__time" data-i18n="t81">
+                            Discussion
                         </div>
-
-                        <div class="process-step__time">
-                            Обсуждение
-                        </div>
-
-                    </article>
-
-
-                    <article class="process-step reveal">
-
-                        <div class="process-step__marker">
-                            <span>
+</article>
+<article class="process-step reveal">
+<div class="process-step__marker">
+<span>
                                 02
                             </span>
-                        </div>
-
-                        <div class="process-step__content">
-                            <span class="process-step__subtitle">
-                                ПЛАНИРОВАНИЕ
+</div>
+<div class="process-step__content">
+<span class="process-step__subtitle" data-i18n="t82">
+                                PLANNING
                             </span>
-
-                            <h3>
-                                Предлагаю первый вариант
+<h3 data-i18n="t83">
+                                I propose the first version
                             </h3>
-
-                            <p>
-                                Перевожу идею в понятный план: что войдёт
-                                в первую версию и как она будет работать.
+<p data-i18n="t84">
+                                I turn the idea into a clear plan: what goes into the first version and how it will work.
                             </p>
+</div>
+<div class="process-step__time" data-i18n="t85">
+                            Structure
                         </div>
-
-                        <div class="process-step__time">
-                            Структура
-                        </div>
-
-                    </article>
-
-
-                    <article class="process-step reveal">
-
-                        <div class="process-step__marker">
-                            <span>
+</article>
+<article class="process-step reveal">
+<div class="process-step__marker">
+<span>
                                 03
                             </span>
-                        </div>
-
-                        <div class="process-step__content">
-                            <span class="process-step__subtitle">
-                                РАЗРАБОТКА
+</div>
+<div class="process-step__content">
+<span class="process-step__subtitle" data-i18n="t86">
+                                PROCESS WORKS
                             </span>
-
-                            <h3>
-                                Собираю рабочую версию
+<h3 data-i18n="t87">
+                                I build the working version
                             </h3>
-
-                            <p>
-                                Создаю интерфейс и логику, подключаю данные,
-                                сервисы и всё необходимое для запуска.
+<p data-i18n="t88">
+                                I build the interface and logic, connect data and services, and prepare everything needed for launch.
                             </p>
+</div>
+<div class="process-step__time" data-i18n="t89">
+                            In progress
                         </div>
-
-                        <div class="process-step__time">
-                            В работе
-                        </div>
-
-                    </article>
-
-
-                    <article class="process-step reveal">
-
-                        <div class="process-step__marker">
-                            <span>
+</article>
+<article class="process-step reveal">
+<div class="process-step__marker">
+<span>
                                 04
                             </span>
-                        </div>
-
-                        <div class="process-step__content">
-                            <span class="process-step__subtitle">
-                                ТЕСТИРОВАНИЕ
+</div>
+<div class="process-step__content">
+<span class="process-step__subtitle" data-i18n="t90">
+                                TESTING
                             </span>
-
-                            <h3>
-                                Проверяем реальные сценарии
+<h3 data-i18n="t91">
+                                We test real scenarios
                             </h3>
-
-                            <p>
-                                Смотрим, удобно ли пользоваться решением,
-                                исправляем ошибки и уточняем детали.
+<p data-i18n="t92">
+                                We check usability, fix issues, and refine the details.
                             </p>
+</div>
+<div class="process-step__time" data-i18n="t93">
+                            Review
                         </div>
-
-                        <div class="process-step__time">
-                            Проверка
-                        </div>
-
-                    </article>
-
-
-                    <article class="process-step reveal">
-
-                        <div class="process-step__marker">
-                            <span>
+</article>
+<article class="process-step reveal">
+<div class="process-step__marker">
+<span>
                                 05
                             </span>
-                        </div>
-
-                        <div class="process-step__content">
-                            <span class="process-step__subtitle">
-                                ЗАПУСК
+</div>
+<div class="process-step__content">
+<span class="process-step__subtitle" data-i18n="t94">
+                                LAUNCH
                             </span>
-
-                            <h3>
-                                Запускаем и развиваем
+<h3 data-i18n="t95">
+                                We launch and improve
                             </h3>
-
-                            <p>
-                                Помогаю с размещением и объясняю управление.
-                                Новые функции можно добавлять постепенно.
+<p data-i18n="t96">
+                                I help with deployment and explain how to manage the project. New features can be added gradually.
                             </p>
+</div>
+<div class="process-step__time" data-i18n="t97">
+                            Ready
                         </div>
-
-                        <div class="process-step__time">
-                            Готово
-                        </div>
-
-                    </article>
-
-                </div>
-
-            </div>
-
-        </section>
-
-
-        <!-- =====================================================
+</article>
+</div>
+</div>
+</section>
+<!-- =====================================================
              ABOUT
         ====================================================== -->
-
-        <section class="about section" id="about">
-
-            <div class="about__grid-background"></div>
-
-            <div class="container about__container">
-
-                <div class="about__visual reveal">
-
-                    <div class="about-terminal">
-
-                        <div class="about-terminal__header">
-                            <div>
-                                <span></span>
-                                <span></span>
-                                <span></span>
-                            </div>
-
-                            <span>
+<section class="about section" id="about">
+<div class="about__grid-background"></div>
+<div class="container about__container">
+<div class="about__visual reveal">
+<div class="about-terminal">
+<div class="about-terminal__header">
+<div>
+<span></span>
+<span></span>
+<span></span>
+</div>
+<span>
                                 mad_alex.py
                             </span>
-                        </div>
-
-                        <div class="about-terminal__body">
-                            <p>
-                                <span class="terminal-purple">
+</div>
+<div class="about-terminal__body">
+<p>
+<span class="terminal-purple">
                                     class
                                 </span>
-
-                                <span class="terminal-blue">
+<span class="terminal-blue">
                                     Developer
                                 </span>:
                             </p>
-
-                            <p class="terminal-indent">
+<p class="terminal-indent">
                                 name =
                                 <span class="terminal-green">
                                     "MAD_ALEX"
                                 </span>
-                            </p>
-
-                            <p class="terminal-indent">
+</p>
+<p class="terminal-indent">
                                 stack = [
                                 <span class="terminal-green">
                                     "Python"
                                 </span>,
                             </p>
-
-                            <p class="terminal-indent terminal-indent--deep">
-                                <span class="terminal-green">
+<p class="terminal-indent terminal-indent--deep">
+<span class="terminal-green">
                                     "Bots / API"
                                 </span>,
                             </p>
-
-                            <p class="terminal-indent terminal-indent--deep">
-                                <span class="terminal-green">
+<p class="terminal-indent terminal-indent--deep">
+<span class="terminal-green">
                                     "Flask"
                                 </span>,
                             </p>
-
-                            <p class="terminal-indent terminal-indent--deep">
-                                <span class="terminal-green">
+<p class="terminal-indent terminal-indent--deep">
+<span class="terminal-green">
                                     "JavaScript"
                                 </span>
-                            </p>
-
-                            <p class="terminal-indent">
+</p>
+<p class="terminal-indent">
                                 ]
                             </p>
-
-                            <p class="terminal-indent">
+<p class="terminal-indent">
                                 status =
                                 <span class="terminal-green">
                                     "learning_and_building"
                                 </span>
-                            </p>
-
-                            <p class="terminal-indent">
+</p>
+<p class="terminal-indent">
                                 growth =
                                 <span class="terminal-orange">
                                     True
                                 </span>
-                            </p>
-
-                            <p>
-                                <span class="terminal-purple">
+</p>
+<p>
+<span class="terminal-purple">
                                     def
                                 </span>
-
-                                <span class="terminal-blue">
+<span class="terminal-blue">
                                     build_solution
                                 </span>
                                 (idea):
                             </p>
-
-                            <p class="terminal-indent">
-                                <span class="terminal-purple">
+<p class="terminal-indent">
+<span class="terminal-purple">
                                     return
                                 </span>
 
@@ -1411,785 +960,508 @@
                                 <span class="terminal-green">
                                     " working prototype"
                                 </span>
-                            </p>
-
-                            <p class="terminal-cursor">
-                                <span>
+</p>
+<p class="terminal-cursor">
+<span>
                                     &gt;
                                 </span>
-
-                                <i></i>
-                            </p>
-                        </div>
-
-                    </div>
-
-                </div>
-
-
-                <div class="about__content">
-
-                    <span class="section-index reveal">
+<i></i>
+</p>
+</div>
+</div>
+</div>
+<div class="about__content">
+<span class="section-index reveal">
                         04 / ABOUT
                     </span>
-
-                    <h2 class="reveal">
-                        РАЗБИРАЮСЬ В ЗАДАЧЕ,
-                        <span>
-                            А НЕ ТОЛЬКО В КОДЕ
+<h2 class="reveal" data-i18n="t98">
+                        I FOCUS ON THE TASK,
+                        <span data-i18n="t99">
+                            NOT ONLY THE CODE
                         </span>
-                    </h2>
-
-                    <p class="about__lead reveal">
-                        Развиваюсь в веб-разработке, ботах и автоматизации
-                        и собираю проекты, где технология решает
-                        понятную практическую задачу.
+</h2>
+<p class="about__lead reveal" data-i18n="t100">
+                        I develop web applications, bots, and automation solutions where technology solves a clear practical problem.
                     </p>
-
-                    <p class="reveal">
-                        Если задача выходит за рамки готового шаблона,
-                        изучаю нужные инструменты и ищу практичный путь.
-                        Начать можно с главной функции, без перегруженной системы.
+<p class="reveal" data-i18n="t101">
+                        When a task goes beyond a ready-made template, I research the required tools and find a practical solution. We can start with the core feature instead of an overloaded system.
                     </p>
-
-                    <div class="about__features">
-
-                        <div class="about-feature reveal">
-                            <span>
+<div class="about__features">
+<div class="about-feature reveal">
+<span>
                                 01
                             </span>
-
-                            <div>
-                                <strong>
-                                    Понятно без готового ТЗ
+<div>
+<strong data-i18n="t102">
+                                    Clear without a finished specification
                                 </strong>
-
-                                <p>
-                                    Достаточно своими словами
-                                    объяснить, что хочется получить.
+<p data-i18n="t103">
+                                    Explain in your own words what you want to achieve.
                                 </p>
-                            </div>
-                        </div>
-
-                        <div class="about-feature reveal">
-                            <span>
+</div>
+</div>
+<div class="about-feature reveal">
+<span>
                                 02
                             </span>
-
-                            <div>
-                                <strong>
-                                    Сначала самое важное
+<div>
+<strong data-i18n="t104">
+                                    Core value first
                                 </strong>
-
-                                <p>
-                                    Первая версия решает главную задачу
-                                    и не перегружена лишними функциями.
+<p data-i18n="t105">
+                                    The first version solves the main task without unnecessary features.
                                 </p>
-                            </div>
-                        </div>
-
-                        <div class="about-feature reveal">
-                            <span>
+</div>
+</div>
+<div class="about-feature reveal">
+<span>
                                 03
                             </span>
-
-                            <div>
-                                <strong>
-                                    Связь напрямую
+<div>
+<strong data-i18n="t106">
+                                    Direct communication
                                 </strong>
-
-                                <p>
-                                    Все вопросы и решения обсуждаются
-                                    напрямую с разработчиком.
+<p data-i18n="t107">
+                                    All questions and decisions are discussed directly with the developer.
                                 </p>
-                            </div>
-                        </div>
-
-                    </div>
-
-                </div>
-
-            </div>
-
-        </section>
-
-
-        <!-- =====================================================
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- =====================================================
              TECHNOLOGIES
         ====================================================== -->
-
-        <section class="technologies section">
-
-            <div class="container">
-
-                <div class="technologies__heading reveal">
-                    <span class="section-label">
-                        ТЕХНОЛОГИИ
+<section class="technologies section">
+<div class="container">
+<div class="technologies__heading reveal">
+<span class="section-label" data-i18n="t108">
+                        TECHNOLOGIES
                     </span>
-
-                    <h2>
-                        ИНСТРУМЕНТЫ,
-                        КОТОРЫЕ ПОМОГАЮТ СОЗДАВАТЬ
+<h2 data-i18n="t109">
+                        TOOLS I USE TO BUILD
                     </h2>
-                </div>
-
-                <div class="technologies__marquee">
-
-                    <div class="technologies__track">
-
-                        <div class="technology-item">
-                            <span>
+</div>
+<div class="technologies__marquee">
+<div class="technologies__track">
+<div class="technology-item">
+<span>
                                 PY
                             </span>
-
-                            <strong>
+<strong>
                                 Python
                             </strong>
-                        </div>
-
-                        <div class="technology-item">
-                            <span>
+</div>
+<div class="technology-item">
+<span>
                                 TG
                             </span>
-
-                            <strong>
+<strong>
                                 Bot APIs
                             </strong>
-                        </div>
-
-                        <div class="technology-item">
-                            <span>
+</div>
+<div class="technology-item">
+<span>
                                 FL
                             </span>
-
-                            <strong>
+<strong>
                                 Flask
                             </strong>
-                        </div>
-
-                        <div class="technology-item">
-                            <span>
+</div>
+<div class="technology-item">
+<span>
                                 DB
                             </span>
-
-                            <strong>
+<strong>
                                 SQLite
                             </strong>
-                        </div>
-
-                        <div class="technology-item">
-                            <span>
+</div>
+<div class="technology-item">
+<span>
                                 JS
                             </span>
-
-                            <strong>
+<strong>
                                 JavaScript
                             </strong>
-                        </div>
-
-                        <div class="technology-item">
-                            <span>
+</div>
+<div class="technology-item">
+<span>
                                 API
                             </span>
-
-                            <strong>
+<strong>
                                 REST API
                             </strong>
-                        </div>
-
-                        <div class="technology-item">
-                            <span>
+</div>
+<div class="technology-item">
+<span>
                                 GH
                             </span>
-
-                            <strong>
+<strong>
                                 GitHub
                             </strong>
-                        </div>
-
-                        <div class="technology-item">
-                            <span>
+</div>
+<div class="technology-item">
+<span>
                                 RD
                             </span>
-
-                            <strong>
+<strong>
                                 Render
                             </strong>
-                        </div>
-
-
-                        <div class="technology-item">
-                            <span>
+</div>
+<div class="technology-item">
+<span>
                                 PY
                             </span>
-
-                            <strong>
+<strong>
                                 Python
                             </strong>
-                        </div>
-
-                        <div class="technology-item">
-                            <span>
+</div>
+<div class="technology-item">
+<span>
                                 TG
                             </span>
-
-                            <strong>
+<strong>
                                 Bot APIs
                             </strong>
-                        </div>
-
-                        <div class="technology-item">
-                            <span>
+</div>
+<div class="technology-item">
+<span>
                                 FL
                             </span>
-
-                            <strong>
+<strong>
                                 Flask
                             </strong>
-                        </div>
-
-                        <div class="technology-item">
-                            <span>
+</div>
+<div class="technology-item">
+<span>
                                 DB
                             </span>
-
-                            <strong>
+<strong>
                                 SQLite
                             </strong>
-                        </div>
-
-                        <div class="technology-item">
-                            <span>
+</div>
+<div class="technology-item">
+<span>
                                 JS
                             </span>
-
-                            <strong>
+<strong>
                                 JavaScript
                             </strong>
-                        </div>
-
-                        <div class="technology-item">
-                            <span>
+</div>
+<div class="technology-item">
+<span>
                                 API
                             </span>
-
-                            <strong>
+<strong>
                                 REST API
                             </strong>
-                        </div>
-
-                    </div>
-
-                </div>
-
-            </div>
-
-        </section>
-
-
-        <!-- =====================================================
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- =====================================================
              CONTACTS
         ====================================================== -->
-
-        <section class="contacts section" id="contacts">
-
-            <div class="contacts__background">
-                <div class="contacts__orb"></div>
-                <div class="contacts__grid"></div>
-            </div>
-
-            <div class="container contacts__container">
-
-                <div class="contacts__content">
-
-                    <span class="section-index reveal">
+<section class="contacts section" id="contacts">
+<div class="contacts__background">
+<div class="contacts__orb"></div>
+<div class="contacts__grid"></div>
+</div>
+<div class="container contacts__container">
+<div class="contacts__content">
+<span class="section-index reveal">
                         05 / CONTACT
                     </span>
-
-                    <h2 class="reveal">
-                        РАССКАЖИТЕ, ЧТО
-                        <span>
-                            ХОТИТЕ ИЗМЕНИТЬ
+<h2 class="reveal" data-i18n="t110">
+                        TELL ME WHAT YOU
+                        <span data-i18n="t111">
+                            WANT TO IMPROVE
                         </span>
-                    </h2>
-
-                    <p class="reveal">
-                        Можно одной фразой: «нужен бот», «хочу сайт»
-                        или «надо убрать ручную работу». Разберусь в задаче
-                        и предложу, с какой версии лучше начать.
+</h2>
+<p class="reveal" data-i18n="t112">
+                        A single sentence is enough: “I need a bot,” “I want a website,” or “I need to reduce manual work.” I will review the task and suggest the best first version.
                     </p>
-
-                    <div class="contacts__methods">
-
-                        <a
-                                href="#contactForm"
-                                class="contact-method reveal"
-                        >
-                            <span class="contact-method__icon">
+<div class="contacts__methods">
+<a class="contact-method reveal" href="#contactForm">
+<span class="contact-method__icon">
                                 TXT
                             </span>
-
-                            <div>
-                                <strong>
-                                    Можно без технического задания
+<div>
+<strong data-i18n="t113">
+                                    No technical specification required
                                 </strong>
-
-                                <span>
-                                    Опишите задачу обычными словами
+<span data-i18n="t114">
+                                    Describe the task in plain language
                                 </span>
-                            </div>
-
-                            <span class="contact-method__arrow">
+</div>
+<span class="contact-method__arrow">
                                 ↗
                             </span>
-                        </a>
-
-                        <a
-                                href="#contactForm"
-                                class="contact-method reveal"
-                        >
-                            <span class="contact-method__icon">
+</a>
+<a class="contact-method reveal" href="#contactForm">
+<span class="contact-method__icon">
                                 IDEA
                             </span>
-
-                            <div>
-                                <strong>
-                                    Можно начать только с идеи
+<div>
+<strong data-i18n="t115">
+                                    You can start with just an idea
                                 </strong>
-
-                                <span>
-                                    Помогу определить первый полезный шаг
+<span data-i18n="t116">
+                                    I will help define the first useful step
                                 </span>
-                            </div>
-
-                            <span class="contact-method__arrow">
+</div>
+<span class="contact-method__arrow">
                                 ↗
                             </span>
-                        </a>
-
-                    </div>
-
-                </div>
-
-
-                <div class="contact-form-wrapper reveal">
-
-                    <div class="contact-form-wrapper__top">
-                        <span>
+</a>
+</div>
+</div>
+<div class="contact-form-wrapper reveal">
+<div class="contact-form-wrapper__top">
+<span>
                             PROJECT REQUEST
                         </span>
-
-                        <span class="status-dot"></span>
-                    </div>
-
-                    <form
-                            class="contact-form"
-                            id="contactForm"
-                            novalidate
-                    >
-
-                        <div class="form-row">
-
-                            <label class="form-field">
-                                <span>
-                                    Ваше имя
+<span class="status-dot"></span>
+</div>
+<form class="contact-form" id="contactForm" novalidate="">
+<div class="form-row">
+<label class="form-field">
+<span data-i18n="t117">
+                                    Your name
                                 </span>
-
-                                <input
-                                        type="text"
-                                        name="name"
-                                        id="name"
-                                        placeholder="Как к вам обращаться?"
-                                        autocomplete="name"
-                                        required
-                                >
-                            </label>
-
-                            <label class="form-field">
-                                <span>
-                                    Контакт
+<input autocomplete="name" data-i18n-attr="placeholder:a163" id="name" name="name" placeholder="How should I address you?" required="" type="text"/>
+</label>
+<label class="form-field">
+<span data-i18n="t118">
+                                    Contact
                                 </span>
-
-                                <input
-                                        type="text"
-                                        name="contact"
-                                        id="contact"
-                                        placeholder="Telegram, Discord, WhatsApp или email"
-                                        autocomplete="email"
-                                        required
-                                >
-                            </label>
-
-                        </div>
-
-
-                        <div class="form-row">
-
-                            <label class="form-field">
-                                <span>
-                                    Услуга
+<input autocomplete="email" data-i18n-attr="placeholder:a164" id="contact" name="contact" placeholder="Telegram, Discord, WhatsApp, or email" required="" type="text"/>
+</label>
+</div>
+<div class="form-row">
+<label class="form-field">
+<span data-i18n="t119">
+                                    Service
                                 </span>
-
-                                <select
-                                        name="service"
-                                        id="service"
-                                >
-                                    <option value="">
-                                        Выберите услугу
+<select id="service" name="service">
+<option data-i18n="t120" value="">
+                                        Choose a service
                                     </option>
-
-                                    <option value="Бот для мессенджера">
-                                        Бот для Telegram, Discord или WhatsApp
+<option data-i18n="t121" data-i18n-attr="value:a165" value="Messenger bot">
+                                        Telegram, Discord, or WhatsApp bot
                                     </option>
-
-                                    <option value="Сайт или веб-сервис">
-                                        Сайт или веб-сервис
+<option data-i18n="t122" data-i18n-attr="value:a166" value="Website or web service">
+                                        Website or web service
                                     </option>
-
-                                    <option value="Автоматизация или оптимизация">
-                                        Автоматизация или оптимизация
+<option data-i18n="t123" data-i18n-attr="value:a167" value="Automation or optimization">
+                                        Automation or optimization
                                     </option>
-
-                                    <option value="Нужно подобрать решение">
-                                        Нужно подобрать решение
+<option data-i18n="t124" data-i18n-attr="value:a168" value="Help me choose a solution">
+                                        Help me choose a solution
                                     </option>
-                                </select>
-                            </label>
-
-                            <label class="form-field">
-                                <span>
-                                    Сейчас у вас
+</select>
+</label>
+<label class="form-field">
+<span data-i18n="t125">
+                                    Current stage
                                 </span>
-
-                                <select
-                                        name="budget"
-                                        id="budget"
-                                >
-                                    <option value="">
-                                        Выберите вариант
+<select id="budget" name="budget">
+<option data-i18n="t126" value="">
+                                        Choose an option
                                     </option>
-
-                                    <option value="Только идея">
-                                        Только идея
+<option data-i18n="t127" data-i18n-attr="value:a169" value="Just an idea">
+                                        Just an idea
                                     </option>
-
-                                    <option value="Есть описание">
-                                        Есть описание задачи
+<option data-i18n="t128" data-i18n-attr="value:a170" value="I have a description">
+                                        I have a task description
                                     </option>
-
-                                    <option value="Есть готовый проект">
-                                        Есть проект для доработки
+<option data-i18n="t129" data-i18n-attr="value:a171" value="I have an existing project">
+                                        I have an existing project
                                     </option>
-
-                                    <option value="Нужна консультация">
-                                        Нужна помощь с выбором
+<option data-i18n="t130" data-i18n-attr="value:a172" value="I need a consultation">
+                                        I need help choosing
                                     </option>
-                                </select>
-                            </label>
-
-                        </div>
-
-
-                        <label class="form-field">
-                            <span>
-                                Расскажите о проекте
+</select>
+</label>
+</div>
+<label class="form-field">
+<span data-i18n="t131">
+                                Tell me about your project
                             </span>
-
-                            <textarea
-                                    name="message"
-                                    id="message"
-                                    rows="6"
-                                    placeholder="Опишите идею, задачу или то, что хотите улучшить..."
-                                    required
-                            ></textarea>
-                        </label>
-
-
-                        <div class="contact-form__bottom">
-
-                            <p>
-                                Нажимая кнопку, вы соглашаетесь
-                                на обработку данных.
+<textarea data-i18n-attr="placeholder:a173" id="message" name="message" placeholder="Describe your idea, task, or what you want to improve..." required="" rows="6"></textarea>
+</label>
+<div class="contact-form__bottom">
+<p data-i18n="t132">
+                                By clicking the button, you agree to the processing of your data.
                             </p>
-
-                            <button
-                                    class="button button--primary"
-                                    id="submitButton"
-                                    type="submit"
-                            >
-                                <span class="submit-button__text">
-                                    Отправить идею
+<button class="button button--primary" id="submitButton" type="submit">
+<span class="submit-button__text" data-i18n="t133">
+                                    Send request
                                 </span>
-
-                                <span class="button__arrow">
+<span class="button__arrow">
                                     ↗
                                 </span>
-                            </button>
-
-                        </div>
-
-                        <div
-                                class="form-message"
-                                id="formMessage"
-                                role="alert"
-                        ></div>
-
-                    </form>
-
-                </div>
-
-            </div>
-
-        </section>
-
-    </main>
-
-
-    <!-- =========================================================
+</button>
+</div>
+<div class="form-message" id="formMessage" role="alert"></div>
+</form>
+</div>
+</div>
+</section>
+</main>
+<!-- =========================================================
          FOOTER
     ========================================================== -->
-
-    <footer class="footer">
-
-        <div class="container">
-
-            <div class="footer__top">
-
-                <a href="#home" class="logo">
-                    <img
-                            class="logo__mark"
-                            src="{{ url_for('static', filename='images/mad-alex-mark.svg', v='20260722-5') }}"
-                            alt=""
-                    >
-
-                    <span class="logo__copy">
-                        <span class="logo__main">
+<footer class="footer">
+<div class="container">
+<div class="footer__top">
+<a class="logo" href="#home">
+<img alt="" class="logo__mark" src="{{ url_for('static', filename='images/mad-alex-mark.svg', v='20260722-5') }}"/>
+<span class="logo__copy">
+<span class="logo__main">
                             MAD<span class="logo__accent">_ALEX</span>
-                        </span>
-
-                        <span class="logo__sub">
+</span>
+<span class="logo__sub">
                             DIGITAL AUTOMATION LAB
                         </span>
-                    </span>
-                </a>
-
-                <p>
-                    Боты для мессенджеров, сайты,
-                    автоматизация и оптимизация процессов.
+</span>
+</a>
+<p data-i18n="t134">
+                    Messenger bots, websites, automation, and process optimization.
                 </p>
-
-                <a href="#home" class="footer__up">
-                    Наверх
+<a class="footer__up" data-i18n="t135" href="#home">
+                    Back to top
                     <span>
                         ↑
                     </span>
-                </a>
-
-            </div>
-
-            <div class="footer__line"></div>
-
-            <div class="footer__bottom">
-
-                <span>
-                    © 2026 MAD_ALEX. Все права защищены.
+</a>
+</div>
+<div class="footer__line"></div>
+<div class="footer__bottom">
+<span data-i18n="t136">
+                    © 2026 MAD_ALEX. All rights reserved.
                 </span>
-
-                <div>
-                    <a href="#services">
-                        Услуги
+<div>
+<a data-i18n="t137" href="#services">
+                        Services
                     </a>
-
-                    <a href="#portfolio">
-                        Проекты
+<a data-i18n="t138" href="#portfolio">
+                        Projects
                     </a>
-
-                    <a href="#contacts">
-                        Контакты
+<a data-i18n="t139" href="#contacts">
+                        Contacts
                     </a>
-                </div>
-
-                <span>
+</div>
+<span>
                     MADE WITH PYTHON
                 </span>
-
-            </div>
-
-        </div>
-
-    </footer>
-
 </div>
-
-
+</div>
+</footer>
+</div>
 <!-- =============================================================
      PROJECT MODAL
 ============================================================== -->
-
 <div class="modal" id="projectModal">
-
-    <div class="modal__overlay" data-close-modal></div>
-
-    <div class="modal__window">
-
-        <button
-                class="modal__close"
-                type="button"
-                data-close-modal
-                aria-label="Закрыть окно"
-        >
+<div class="modal__overlay" data-close-modal=""></div>
+<div class="modal__window">
+<button aria-label="Close window" class="modal__close" data-close-modal="" data-i18n-attr="aria-label:a174" type="button">
             ×
         </button>
-
-        <span class="modal__index" id="modalIndex">
+<span class="modal__index" id="modalIndex">
             PROJECT / 01
         </span>
-
-        <h2 id="modalTitle">
-            Название проекта
+<h2 data-i18n="t140" id="modalTitle">
+            Project title
         </h2>
-
-        <p id="modalDescription">
-            Описание проекта.
+<p data-i18n="t141" id="modalDescription">
+            Project description.
         </p>
-
-        <div class="modal-video" id="modalVideoBlock" hidden>
-            <div class="modal-video__topline">
-                <span><i></i> VIDEO DEMO</span>
-                <span>00:42</span>
-            </div>
-
-            <div class="modal-video__frame">
-                <video
-                        id="modalProjectVideo"
-                        preload="metadata"
-                        playsinline
-                        controls
-                        poster="{{ url_for('static', filename='images/game-club-video-poster.jpg', v='20260722-1') }}"
-                >
-                    <source
-                            src="{{ url_for('static', filename='videos/game-club-booking-demo.mp4', v='20260722-1') }}"
-                            type="video/mp4"
-                    >
-                    Ваш браузер не поддерживает воспроизведение видео.
+<div class="modal-video" hidden="" id="modalVideoBlock">
+<div class="modal-video__topline">
+<span><i></i> VIDEO DEMO</span>
+<span>00:42</span>
+</div>
+<div class="modal-video__frame">
+<video controls="" data-i18n="t142" id="modalProjectVideo" playsinline="" poster="{{ url_for('static', filename='images/game-club-video-poster.jpg', v='20260722-1') }}" preload="metadata">
+<source src="{{ url_for('static', filename='videos/game-club-booking-demo.mp4', v='20260722-1') }}" type="video/mp4"/>
+                    Your browser does not support video playback.
                 </video>
-
-                <button class="modal-video__play" id="modalVideoPlay" type="button" aria-label="Воспроизвести демонстрацию">
-                    <span>▶</span>
-                    <strong>Смотреть демо</strong>
-                    <small>Работа бота от регистрации до бронирования</small>
-                </button>
-            </div>
-        </div>
-
-        <div class="modal__columns">
-
-            <div>
-                <span class="modal__label">
-                    Возможности
+<button aria-label="Play demo" class="modal-video__play" data-i18n-attr="aria-label:a175" id="modalVideoPlay" type="button">
+<span>▶</span>
+<strong data-i18n="t143">View demo</strong>
+<small data-i18n="t144">Bot workflow from registration to booking</small>
+</button>
+</div>
+</div>
+<div class="modal__columns">
+<div>
+<span class="modal__label" data-i18n="t145">
+                    Features
                 </span>
-
-                <ul id="modalFeatures"></ul>
-            </div>
-
-            <div>
-                <span class="modal__label">
-                    Технологии
+<ul id="modalFeatures"></ul>
+</div>
+<div>
+<span class="modal__label" data-i18n="t146">
+                    Technologies
                 </span>
-
-                <div
-                        class="modal__tags"
-                        id="modalTags"
-                ></div>
-            </div>
-
-        </div>
-
-        <div class="modal-live-bot" id="modalLiveBot">
-            <div class="modal-live-bot__status">
-                <span class="status-dot"></span>
+<div class="modal__tags" id="modalTags"></div>
+</div>
+</div>
+<div class="modal-live-bot" id="modalLiveBot">
+<div class="modal-live-bot__status">
+<span class="status-dot"></span>
                 LIVE BOT
             </div>
-            <div class="modal-live-bot__content">
-                <div>
-                    <strong>Попробуйте бота прямо сейчас</strong>
-                    <p>Откройте рабочую версию проекта в Telegram и пройдите путь бронирования самостоятельно.</p>
-                </div>
-                <a
-                        href="https://t.me/MadSanya_bot"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        class="button button--telegram"
-                >
-                    Открыть @MadSanya_bot
+<div class="modal-live-bot__content">
+<div>
+<strong data-i18n="t147">Try the bot right now</strong>
+<p data-i18n="t148">Open the live project in Telegram and test the booking flow yourself.</p>
+</div>
+<a class="button button--telegram" data-i18n="t149" href="https://t.me/MadSanya_bot" rel="noopener noreferrer" target="_blank">
+                    Open @MadSanya_bot
                     <span class="button__arrow">↗</span>
-                </a>
-            </div>
-        </div>
-
-        <a href="#contacts" class="button button--primary" data-close-modal>
-            Заказать похожий проект
+</a>
+</div>
+</div>
+<a class="button button--primary" data-close-modal="" data-i18n="t150" href="#contacts">
+            Request a similar project
             <span class="button__arrow">
                 ↗
             </span>
-        </a>
-
-    </div>
-
+</a>
 </div>
-
-
+</div>
 <!-- =============================================================
      SUCCESS MODAL
 ============================================================== -->
-
 <div class="success-modal" id="successModal">
-
-    <div class="success-modal__overlay"></div>
-
-    <div class="success-modal__window">
-
-        <button
-                class="success-modal__close"
-                id="successModalClose"
-                type="button"
-                aria-label="Закрыть"
-        >
+<div class="success-modal__overlay"></div>
+<div class="success-modal__window">
+<button aria-label="Close" class="success-modal__close" data-i18n-attr="aria-label:a176" id="successModalClose" type="button">
             ×
         </button>
-
-        <div class="success-modal__icon">
-            <span>
+<div class="success-modal__icon">
+<span>
                 ✓
             </span>
-        </div>
-
-        <span class="success-modal__small">
+</div>
+<span class="success-modal__small">
             REQUEST SENT
         </span>
-
-        <h2>
-            Заявка отправлена
+<h2 data-i18n="t151">
+            Request sent
         </h2>
-
-        <p id="successModalText">
-            Спасибо! Я свяжусь с вами в ближайшее время.
+<p data-i18n="t152" id="successModalText">
+            Thank you! I will contact you shortly.
         </p>
-
-        <button
-                class="button button--primary"
-                id="successModalButton"
-                type="button"
-        >
-            Хорошо
+<button class="button button--primary" data-i18n="t153" id="successModalButton" type="button">
+            Got it
         </button>
-
-    </div>
-
 </div>
-
-
-<script src="{{ url_for('static', filename='js/script.js', v='20260722-8') }}"></script>
-
+</div>
+<script>window.MAD_ALEX_I18N = {"en": {"t1": "Services", "t2": "Projects", "t3": "Process", "t4": "About", "t5": "Contacts", "t6": "Share your idea", "t7": "Services", "t8": "Projects", "t9": "Process", "t10": "About", "t11": "Contacts", "t12": "Share your idea", "t13": "I BUILD", "t14": "DIGITAL", "t15": "SYSTEMS", "t16": "Have an idea, an inefficient process, or a task that keeps taking up your time? I will build a bot, website, or automation solution around it without unnecessary complexity.", "t17": "Share your idea", "t18": "View projects", "t19": "bot platforms", "t20": "websites and web services", "t21": "process automation", "t22": "01 / SERVICES", "t23": "WHAT I CAN HELP YOU BUILD", "t24": "You do not need to choose the technology in advance. It is enough to know what you want to launch or improve.", "t25": "Respond faster and collect requests", "t26": "A bot can handle repetitive actions: collect data, answer common questions, send notifications, or execute commands.", "t27": "Present a product or service clearly", "t28": "A website brings everything important together: explains your offer, shows examples, and gives visitors an easy way to contact you.", "t29": "Manual work takes too much time", "t30": "If you constantly copy data, repeat the same checks, or move information between services, part of the process can be automated.", "t31": "start with a small working version", "t32": "clear discussion without a complex specification", "t33": "a solution built for the task, not a template", "t34": "the project can grow and improve over time", "t35": "A SOLUTION FOR A", "t36": "SPECIFIC GOAL", "t37": "We will start with the most useful scenario, build the first working version, and keep it ready for future improvements.", "t38": "A bot built for your workflow", "t39": "A Telegram, Discord, or WhatsApp bot that performs a specific job and helps people get the right action or answer faster.", "t40": "Requests and forms", "t41": "Replies and notifications", "t42": "Commands and moderation", "t43": "Integrations with other services", "t44": "Communication and requests", "t45": "Share your idea", "t46": "A website that drives action", "t47": "A clear page or web service where visitors quickly understand who you are, what you offer, why it fits them, and how to contact you.", "t48": "Landing pages and business sites", "t49": "Portfolios and catalogs", "t50": "Forms and requests", "t51": "Custom project features", "t52": "Presentation and launch", "t53": "Share your idea", "t54": "Automation of repetitive work", "t55": "A script, integration, or internal system that connects data and services and reduces manual work.", "t56": "Service and API integration", "t57": "Data transfer and processing", "t58": "Reports and notifications", "t59": "Internal tools", "t60": "Less manual work", "t61": "Share your idea", "t62": "FEATURED", "t63": "PROJECTS", "t64": "Real and demonstration projects that show the interface, logic, and development approach.", "t65": "A working Telegram bot for a gaming club: user registration, standard or VIP room selection, PC, date and time booking, availability checks, and automatic admin notifications.", "t66": "View demo", "t67": "Open Telegram", "t68": "The bot is available for live testing", "t69": "MAD_ALEX Portfolio Website", "t70": "This live website includes responsive layout, animations, a contact form, a Flask backend, and deployment on Render.", "t71": "View details", "t72": "Process Automation System", "t73": "A demonstration system connecting an API, database, bot, and web interface into one workflow.", "t74": "View details", "t75": "HOW THE", "t76": "PROCESS WORKS", "t77": "You do not need a finished technical plan. We will turn your idea into a clear working version together.", "t78": "DISCOVERY", "t79": "You explain the task in your own words", "t80": "What you want to achieve, what is inconvenient now, and what result would be useful.", "t81": "Discussion", "t82": "PLANNING", "t83": "I propose the first version", "t84": "I turn the idea into a clear plan: what goes into the first version and how it will work.", "t85": "Structure", "t86": "PROCESS WORKS", "t87": "I build the working version", "t88": "I build the interface and logic, connect data and services, and prepare everything needed for launch.", "t89": "In progress", "t90": "TESTING", "t91": "We test real scenarios", "t92": "We check usability, fix issues, and refine the details.", "t93": "Review", "t94": "LAUNCH", "t95": "We launch and improve", "t96": "I help with deployment and explain how to manage the project. New features can be added gradually.", "t97": "Ready", "t98": "I FOCUS ON THE TASK,", "t99": "NOT ONLY THE CODE", "t100": "I develop web applications, bots, and automation solutions where technology solves a clear practical problem.", "t101": "When a task goes beyond a ready-made template, I research the required tools and find a practical solution. We can start with the core feature instead of an overloaded system.", "t102": "Clear without a finished specification", "t103": "Explain in your own words what you want to achieve.", "t104": "Core value first", "t105": "The first version solves the main task without unnecessary features.", "t106": "Direct communication", "t107": "All questions and decisions are discussed directly with the developer.", "t108": "TECHNOLOGIES", "t109": "TOOLS I USE TO BUILD", "t110": "TELL ME WHAT YOU", "t111": "WANT TO IMPROVE", "t112": "A single sentence is enough: “I need a bot,” “I want a website,” or “I need to reduce manual work.” I will review the task and suggest the best first version.", "t113": "No technical specification required", "t114": "Describe the task in plain language", "t115": "You can start with just an idea", "t116": "I will help define the first useful step", "t117": "Your name", "t118": "Contact", "t119": "Service", "t120": "Choose a service", "t121": "Telegram, Discord, or WhatsApp bot", "t122": "Website or web service", "t123": "Automation or optimization", "t124": "Help me choose a solution", "t125": "Current stage", "t126": "Choose an option", "t127": "Just an idea", "t128": "I have a task description", "t129": "I have an existing project", "t130": "I need help choosing", "t131": "Tell me about your project", "t132": "By clicking the button, you agree to the processing of your data.", "t133": "Send request", "t134": "Messenger bots, websites, automation, and process optimization.", "t135": "Back to top", "t136": "© 2026 MAD_ALEX. All rights reserved.", "t137": "Services", "t138": "Projects", "t139": "Contacts", "t140": "Project title", "t141": "Project description.", "t142": "Your browser does not support video playback.", "t143": "View demo", "t144": "Bot workflow from registration to booking", "t145": "Features", "t146": "Technologies", "t147": "Try the bot right now", "t148": "Open the live project in Telegram and test the booking flow yourself.", "t149": "Open @MadSanya_bot", "t150": "Request a similar project", "t151": "Request sent", "t152": "Thank you! I will contact you shortly.", "t153": "Got it", "a154": "MAD_ALEX — custom bots, websites, and automation solutions. From idea to the first working version without unnecessary complexity.", "a155": "Telegram bot, Discord bot, WhatsApp bot, web development, automation, optimization, MAD_ALEX", "a156": "Open menu", "a157": "Main services", "a158": "MAD_ALEX futuristic robot", "a159": "Game Club Telegram bot showcase with booking interface and robot", "a160": "Open @MadSanya_bot in Telegram", "a161": "Previous project", "a162": "Next project", "a163": "How should I address you?", "a164": "Telegram, Discord, WhatsApp, or email", "a165": "Messenger bot", "a166": "Website or web service", "a167": "Automation or optimization", "a168": "Help me choose a solution", "a169": "Just an idea", "a170": "I have a description", "a171": "I have an existing project", "a172": "I need a consultation", "a173": "Describe your idea, task, or what you want to improve...", "a174": "Close window", "a175": "Play demo", "a176": "Close"}, "ru": {"t1": "Услуги", "t2": "Проекты", "t3": "Процесс", "t4": "Обо мне", "t5": "Контакты", "t6": "Рассказать идею", "t7": "Услуги", "t8": "Проекты", "t9": "Процесс", "t10": "Обо мне", "t11": "Контакты", "t12": "Рассказать идею", "t13": "СТРОЮ", "t14": "ЦИФРОВЫЕ", "t15": "СИСТЕМЫ", "t16": "Есть идея, неудобный процесс или задача, которая постоянно отнимает время? Создам под неё бота, сайт или автоматизацию без лишней сложности.", "t17": "Рассказать идею", "t18": "Посмотреть работы", "t19": "платформы для ботов", "t20": "сайты и веб-сервисы", "t21": "автоматизация процессов", "t22": "01 / УСЛУГИ", "t23": "С КАКОЙ ЗАДАЧЕЙ МОЖНО ПРИЙТИ", "t24": "Не нужно заранее выбирать технологию. Достаточно понимать, что хочется запустить или улучшить.", "t25": "Хочу быстрее отвечать и принимать заявки", "t26": "Бот возьмёт на себя повторяющиеся действия: соберёт данные, ответит на частые вопросы, отправит уведомление или выполнит команду.", "t27": "Нужно понятно показать продукт или услугу", "t28": "Сайт соберёт всё важное в одном месте: расскажет о предложении, покажет примеры и даст посетителю простой способ связаться.", "t29": "Ручная работа отнимает слишком много времени", "t30": "Если приходится постоянно копировать данные, проверять одно и то же или переносить информацию — часть процесса можно автоматизировать.", "t31": "можно начать с небольшой рабочей версии", "t32": "обсуждение понятным языком без сложного ТЗ", "t33": "решение под задачу, а не под готовый шаблон", "t34": "проект можно улучшать и дополнять дальше", "t35": "РЕШЕНИЕ ПОД", "t36": "КОНКРЕТНУЮ ЦЕЛЬ", "t37": "Начнём с самого полезного сценария, соберём первую рабочую версию и оставим возможность развивать её по мере появления новых задач.", "t38": "Бот под ваш сценарий", "t39": "Telegram, Discord или WhatsApp-бот, который выполняет конкретную работу и помогает людям быстрее получить нужное действие или ответ.", "t40": "Заявки и анкеты", "t41": "Ответы и уведомления", "t42": "Команды и модерация", "t43": "Связь с другими сервисами", "t44": "Общение и заявки", "t45": "Рассказать идею", "t46": "Сайт, который ведёт к действию", "t47": "Понятная страница или веб-сервис, где посетитель быстро видит главное: кто вы, что предлагаете, почему это ему подходит и как с вами связаться.", "t48": "Лендинги и визитки", "t49": "Портфолио и каталоги", "t50": "Формы и заявки", "t51": "Нужные функции под проект", "t52": "Презентация и запуск", "t53": "Рассказать идею", "t54": "Автоматизация повторяющейся работы", "t55": "Небольшой скрипт, интеграция или внутренняя система, которая связывает данные и сервисы, сокращая количество ручных действий.", "t56": "Связка сервисов и API", "t57": "Перенос и обработка данных", "t58": "Отчёты и уведомления", "t59": "Внутренние инструменты", "t60": "Меньше ручной работы", "t61": "Рассказать идею", "t62": "ИЗБРАННЫЕ", "t63": "ПРОЕКТЫ", "t64": "Реальные и демонстрационные проекты, на которых можно оценить интерфейс, логику и подход к разработке.", "t65": "Рабочий Telegram-бот для игрового клуба: регистрация клиента, выбор обычного или VIP-зала, конкретного ПК, даты и времени, проверка занятости и автоматическое уведомление администратора.", "t66": "Смотреть демо", "t67": "Открыть Telegram", "t68": "Бот доступен для живого тестирования", "t69": "Сайт-портфолио MAD_ALEX", "t70": "Этот рабочий сайт: адаптивная вёрстка, анимации, форма заявки, серверная часть на Flask и размещение на Render.", "t71": "Открыть описание", "t72": "Система автоматизации процессов", "t73": "Демонстрационная схема, связывающая API, базу данных, бота и веб-интерфейс в один рабочий процесс.", "t74": "Открыть описание", "t75": "КАК ПРОХОДИТ", "t76": "РАЗРАБОТКА", "t77": "Не нужно приходить с готовой схемой. Вместе пройдём путь от мысли «хочу вот так» до понятной рабочей версии.", "t78": "ЗНАКОМСТВО", "t79": "Вы рассказываете всё как есть", "t80": "Что хотите получить, что сейчас неудобно и какой результат будет для вас полезным.", "t81": "Обсуждение", "t82": "ПЛАНИРОВАНИЕ", "t83": "Предлагаю первый вариант", "t84": "Перевожу идею в понятный план: что войдёт в первую версию и как она будет работать.", "t85": "Структура", "t86": "РАЗРАБОТКА", "t87": "Собираю рабочую версию", "t88": "Создаю интерфейс и логику, подключаю данные, сервисы и всё необходимое для запуска.", "t89": "В работе", "t90": "ТЕСТИРОВАНИЕ", "t91": "Проверяем реальные сценарии", "t92": "Смотрим, удобно ли пользоваться решением, исправляем ошибки и уточняем детали.", "t93": "Проверка", "t94": "ЗАПУСК", "t95": "Запускаем и развиваем", "t96": "Помогаю с размещением и объясняю управление. Новые функции можно добавлять постепенно.", "t97": "Готово", "t98": "РАЗБИРАЮСЬ В ЗАДАЧЕ,", "t99": "А НЕ ТОЛЬКО В КОДЕ", "t100": "Развиваюсь в веб-разработке, ботах и автоматизации и собираю проекты, где технология решает понятную практическую задачу.", "t101": "Если задача выходит за рамки готового шаблона, изучаю нужные инструменты и ищу практичный путь. Начать можно с главной функции, без перегруженной системы.", "t102": "Понятно без готового ТЗ", "t103": "Достаточно своими словами объяснить, что хочется получить.", "t104": "Сначала самое важное", "t105": "Первая версия решает главную задачу и не перегружена лишними функциями.", "t106": "Связь напрямую", "t107": "Все вопросы и решения обсуждаются напрямую с разработчиком.", "t108": "ТЕХНОЛОГИИ", "t109": "ИНСТРУМЕНТЫ, КОТОРЫЕ ПОМОГАЮТ СОЗДАВАТЬ", "t110": "РАССКАЖИТЕ, ЧТО", "t111": "ХОТИТЕ ИЗМЕНИТЬ", "t112": "Можно одной фразой: «нужен бот», «хочу сайт» или «надо убрать ручную работу». Разберусь в задаче и предложу, с какой версии лучше начать.", "t113": "Можно без технического задания", "t114": "Опишите задачу обычными словами", "t115": "Можно начать только с идеи", "t116": "Помогу определить первый полезный шаг", "t117": "Ваше имя", "t118": "Контакт", "t119": "Услуга", "t120": "Выберите услугу", "t121": "Бот для Telegram, Discord или WhatsApp", "t122": "Сайт или веб-сервис", "t123": "Автоматизация или оптимизация", "t124": "Нужно подобрать решение", "t125": "Сейчас у вас", "t126": "Выберите вариант", "t127": "Только идея", "t128": "Есть описание задачи", "t129": "Есть проект для доработки", "t130": "Нужна помощь с выбором", "t131": "Расскажите о проекте", "t132": "Нажимая кнопку, вы соглашаетесь на обработку данных.", "t133": "Отправить идею", "t134": "Боты для мессенджеров, сайты, автоматизация и оптимизация процессов.", "t135": "Наверх", "t136": "© 2026 MAD_ALEX. Все права защищены.", "t137": "Услуги", "t138": "Проекты", "t139": "Контакты", "t140": "Название проекта", "t141": "Описание проекта.", "t142": "Ваш браузер не поддерживает воспроизведение видео.", "t143": "Смотреть демо", "t144": "Работа бота от регистрации до бронирования", "t145": "Возможности", "t146": "Технологии", "t147": "Попробуйте бота прямо сейчас", "t148": "Откройте рабочую версию проекта в Telegram и пройдите путь бронирования самостоятельно.", "t149": "Открыть @MadSanya_bot", "t150": "Заказать похожий проект", "t151": "Заявка отправлена", "t152": "Спасибо! Я свяжусь с вами в ближайшее время.", "t153": "Хорошо", "a154": "MAD_ALEX — боты, сайты и автоматизация под конкретные задачи. От идеи до первой рабочей версии без лишней сложности.", "a155": "Telegram бот, Discord бот, WhatsApp бот, разработка сайтов, автоматизация, оптимизация, MAD_ALEX", "a156": "Открыть меню", "a157": "Основные направления", "a158": "Футуристичный робот MAD_ALEX", "a159": "Презентация Telegram-бота Game Club с интерфейсом бронирования и роботом", "a160": "Открыть @MadSanya_bot в Telegram", "a161": "Предыдущий проект", "a162": "Следующий проект", "a163": "Как к вам обращаться?", "a164": "Telegram, Discord, WhatsApp или email", "a165": "Бот для мессенджера", "a166": "Сайт или веб-сервис", "a167": "Автоматизация или оптимизация", "a168": "Нужно подобрать решение", "a169": "Только идея", "a170": "Есть описание", "a171": "Есть готовый проект", "a172": "Нужна консультация", "a173": "Опишите идею, задачу или то, что хотите улучшить...", "a174": "Закрыть окно", "a175": "Воспроизвести демонстрацию", "a176": "Закрыть"}};</script><script src="{{ url_for('static', filename='js/script.js', v='20260722-8') }}"></script>
 </body>
 </html>

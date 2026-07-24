@@ -54,19 +54,20 @@ def send_request():
         service = str(data.get("service", "")).strip()
         budget = str(data.get("budget", "")).strip()
         message = str(data.get("message", "")).strip()
+        lang = "ru" if str(data.get("lang", "en")).lower() == "ru" else "en"
 
         if len(name) < 2:
-            return error_response("Введите ваше имя.", 400)
+            return error_response("Введите ваше имя." if lang == "ru" else "Please enter your name.", 400)
 
         if len(contact) < 3:
             return error_response(
-                "Введите Telegram, телефон или электронную почту.",
+                "Введите Telegram, телефон или электронную почту." if lang == "ru" else "Enter your Telegram, phone number, or email.",
                 400,
             )
 
         if len(message) < 5:
             return error_response(
-                "Расскажите немного подробнее о вашем проекте.",
+                "Расскажите немного подробнее о вашем проекте." if lang == "ru" else "Please tell me a little more about your project.",
                 400,
             )
 
@@ -81,14 +82,14 @@ def send_request():
         return jsonify(
             {
                 "success": True,
-                "message": "Заявка успешно отправлена! Я свяжусь с вами в ближайшее время.",
+                "message": ("Заявка успешно отправлена! Я свяжусь с вами в ближайшее время." if lang == "ru" else "Your request has been sent successfully! I will contact you shortly."),
             }
         )
 
     except Exception:
         app.logger.exception("Не удалось сохранить заявку")
         return error_response(
-            "Произошла ошибка. Попробуйте отправить заявку ещё раз.",
+            "Произошла ошибка. Попробуйте отправить заявку ещё раз." if locals().get("lang") == "ru" else "An error occurred. Please try sending the request again.",
             500,
         )
 
