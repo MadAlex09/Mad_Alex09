@@ -35,12 +35,22 @@ def format_date(value: str) -> str:
 
 def lang(user_id: int) -> str: return get_user_language(user_id)
 
-async def show_home(message: Message, language: str) -> None:
-    user = get_user(message.from_user.id)
+async def show_home(message: Message, language: str, user_id: int | None = None) -> None:
+    # For regular messages message.from_user is the user.
+    # For callback.message it is the bot itself, so callback.from_user.id
+    # must be passed explicitly.
+    telegram_id = user_id if user_id is not None else message.from_user.id
+    user = get_user(telegram_id)
     if user:
-        await message.answer(t(language, "welcome_back", name=user["name"], club=CLUB_NAME), reply_markup=main_menu(language))
+        await message.answer(
+            t(language, "welcome_back", name=user["name"], club=CLUB_NAME),
+            reply_markup=main_menu(language),
+        )
     else:
-        await message.answer(t(language, "new_welcome", club=CLUB_NAME), reply_markup=register_keyboard(language))
+        await message.answer(
+            t(language, "new_welcome", club=CLUB_NAME),
+            reply_markup=register_keyboard(language),
+        )
 
 @router.message(CommandStart())
 async def start(message: Message, state: FSMContext):
@@ -59,7 +69,7 @@ async def choose_language(callback: CallbackQuery, state: FSMContext):
     set_user_language(callback.from_user.id, language)
     await state.clear()
     await callback.message.edit_text(t(language, "language_changed"))
-    await show_home(callback.message, language)
+    await show_home(callback.message, language, callback.from_user.id)
     await callback.answer()
 
 @router.callback_query(F.data == "show_language")
@@ -117,10 +127,14 @@ async def price_list(message: Message):
 
 @router.message(F.text.in_({"🛒 Shop", "🛒 Магазин"}))
 async def shop(message: Message):
-    language = lang(message.from_user.id); await message.answer(t(language, "shop_title") + "\n\n" + "\n".join(SHOP_ITEMS))
+    language = lang(message.from_user.id)
+    items = SHOP_ITEMS.get(language, SHOP_ITEMS["en"])
+    await message.answer(t(language, "shop_title") + "\n\n" + "\n".join(items))
 
 @router.message(F.text.in_({"📍 Address", "📍 Адрес"}))
-async def address(message: Message): await message.answer(f"📍 {CLUB_ADDRESS}")
+async def address(message: Message):
+    language = lang(message.from_user.id)
+    await message.answer(t(language, "address", address=CLUB_ADDRESS))
 
 @router.message(F.text.in_({"📞 Support", "📞 Поддержка"}))
 async def support(message: Message):
